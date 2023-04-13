@@ -16,49 +16,60 @@
         <Button
            Grid.Row="0"
             Text="Всі види математичних проблем"
+            x:Name="AllTypesOfMathProblemsPage"
+            Clicked="AllTypesOfMathProblemsPage_Clicked"
             FontFamily="MontserratLight"
             FontSize="20"
+            TextColor="Black"
+            BackgroundColor="#F2F2F2"
             LineBreakMode="CharacterWrap"
-            BackgroundColor="LightGrey"
             HeightRequest="70"
             WidthRequest="300">
         </Button>
         <Button
            Grid.Row="1"
             Text="Конкретний вид"
+            x:Name="DifferentTypesPage"
+            Clicked="DifferentTypesPage_Clicked"
+            TextColor="Black"
+            BackgroundColor="#F2F2F2"
             FontFamily="MontserratLight"
             FontSize="20"
-            LineBreakMode="CharacterWrap"
-            BackgroundColor="LightGrey"
             HeightRequest="70"
             WidthRequest="300">
         </Button>
         <Button
            Grid.Row="2"
             Text="Рівні"
+            x:Name="LevelsPage"
+            Clicked="LevelsPage_Clicked"
             FontFamily="MontserratLight"
             FontSize="20"
-            LineBreakMode="CharacterWrap"
-            BackgroundColor="LightGrey"
+            TextColor="Black"
+            BackgroundColor="#F2F2F2"
             HeightRequest="70"
             WidthRequest="300">
         </Button>
 
         <Label 
             Text="Підготовка до іспитів"
+            TextColor="Black"
+            FontSize="20"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Grid.Row="3"
             Margin=" 10"/>
-        <Border  Margin="10" Padding="5" Grid.Row="4" HeightRequest="200">
+        <Border  Margin="15" Padding="10" Grid.Row="4" HeightRequest="200" WidthRequest="343"  >
             <StackLayout>
                 <Button
                 
                 Text="Підготовка до сесії"
+                x:Name="PrepareForExamPage"
+                Clicked="PrepareForExamPage_Clicked"
                 FontFamily="MontserratLight"
                 FontSize="20"
-                LineBreakMode="CharacterWrap"
-                BackgroundColor="LightGrey"
+                TextColor="Black"
+                BackgroundColor="#F2F2F2"
                 HeightRequest="70"
                 WidthRequest="300"
                 Margin="10">
@@ -66,11 +77,13 @@
 
                 <Button
                 
-                Text="Підготовка до сесії"
+                Text="Підготовка до ЗНО/НМТ"
+                x:Name="PrepareForZNOPage"
+                Clicked="PrepareForZNOPage_Clicked"
                 FontFamily="MontserratLight"
                 FontSize="20"
-                LineBreakMode="CharacterWrap"
-                BackgroundColor="LightGrey"
+                TextColor="Black"
+                BackgroundColor="#F2F2F2"
                 HeightRequest="70"
                 WidthRequest="300">
                 </Button>

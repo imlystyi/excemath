@@ -4,23 +4,30 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:excemath"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    
+    >
+    
 
     <TabBar>
-        <ShellContent
-        Title="Режими "
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        <Tab Title="Режими">
+          <ShellContent
+          Title="Excemath"
+          ContentTemplate="{DataTemplate local:MainPage}"
+          Route="MainPage" />
+        </Tab>
 
-        <ShellContent
-        Title="Досягнення"
-        ContentTemplate="{DataTemplate local:AchievementPage}"
-        Route="NewPage" />
+        <Tab Title="Досягнення">
+          <ShellContent
+          ContentTemplate="{DataTemplate local:AchievementPage}"
+          Route="NewPage" />
+        </Tab>
 
-        <ShellContent
-        Title="Налаштування"
-        ContentTemplate="{DataTemplate local:SettingPage}"
-        Route="NewPage" />
+        <Tab Title="Налаштування">
+          <ShellContent
+           ContentTemplate="{DataTemplate local:SettingPage}"
+           Route="NewPage" />
+        </Tab>
     </TabBar>
 
 </Shell>
