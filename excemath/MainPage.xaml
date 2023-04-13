@@ -3,39 +3,82 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid RowSpacing="1" Margin="4" Padding="3">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+        <Button
+           Grid.Row="0"
+            Text="Всі види математичних проблем"
+            FontFamily="MontserratLight"
+            FontSize="20"
+            LineBreakMode="CharacterWrap"
+            BackgroundColor="LightGrey"
+            HeightRequest="70"
+            WidthRequest="300">
+        </Button>
+        <Button
+           Grid.Row="1"
+            Text="Конкретний вид"
+            FontFamily="MontserratLight"
+            FontSize="20"
+            LineBreakMode="CharacterWrap"
+            BackgroundColor="LightGrey"
+            HeightRequest="70"
+            WidthRequest="300">
+        </Button>
+        <Button
+           Grid.Row="2"
+            Text="Рівні"
+            FontFamily="MontserratLight"
+            FontSize="20"
+            LineBreakMode="CharacterWrap"
+            BackgroundColor="LightGrey"
+            HeightRequest="70"
+            WidthRequest="300">
+        </Button>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+        <Label 
+            Text="Підготовка до іспитів"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Grid.Row="3"
+            Margin=" 10"/>
+        <Border  Margin="10" Padding="5" Grid.Row="4" HeightRequest="200">
+            <StackLayout>
+                <Button
+                
+                Text="Підготовка до сесії"
+                FontFamily="MontserratLight"
+                FontSize="20"
+                LineBreakMode="CharacterWrap"
+                BackgroundColor="LightGrey"
+                HeightRequest="70"
+                WidthRequest="300"
+                Margin="10">
+                </Button>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                <Button
+                
+                Text="Підготовка до сесії"
+                FontFamily="MontserratLight"
+                FontSize="20"
+                LineBreakMode="CharacterWrap"
+                BackgroundColor="LightGrey"
+                HeightRequest="70"
+                WidthRequest="300">
+                </Button>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            </StackLayout>
 
-        </VerticalStackLayout>
-    </ScrollView>
+        </Border>
 
+
+    </Grid>
 </ContentPage>

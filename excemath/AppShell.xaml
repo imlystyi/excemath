@@ -6,9 +6,21 @@
     xmlns:local="clr-namespace:excemath"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
+    <TabBar>
+        <ShellContent
+        Title="Режими "
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+        <ShellContent
+        Title="Досягнення"
+        ContentTemplate="{DataTemplate local:AchievementPage}"
+        Route="NewPage" />
+
+        <ShellContent
+        Title="Налаштування"
+        ContentTemplate="{DataTemplate local:SettingPage}"
+        Route="NewPage" />
+    </TabBar>
 
 </Shell>
