@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="excemath.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:excemath"
-    Shell.FlyoutBehavior="Disabled"
+<Shell x:Class="excemath.AppShell"
+       x:DataType="ContentPage"
     
-    >
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+       xmlns:views="clr-namespace:excemath.Views"
     
+       FlyoutBehavior="Disabled"
+    
+       Shell.TabBarBackgroundColor="{StaticResource PageBackground}"
+       Shell.BackgroundColor="{StaticResource PageBackground}"
+       Shell.TitleColor="Black">
 
+    <Shell.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource PageBackground}" StatusBarStyle="DarkContent"/>
+    </Shell.Behaviors>
+    
     <TabBar>
-        <Tab Title="Режими">
-          <ShellContent
-          Title="Excemath"
-          ContentTemplate="{DataTemplate local:MainPage}"
-          Route="MainPage" />
-        </Tab>
+        <ShellContent Title="Головне меню"
+                      ContentTemplate="{DataTemplate views:MainMenuPage}"
+                      Route="MainMenuPage"/>
 
-        <Tab Title="Досягнення">
-          <ShellContent
-          ContentTemplate="{DataTemplate local:AchievementPage}"
-          Route="NewPage" />
-        </Tab>
+        <ShellContent Title="Досягнення"
+                      ContentTemplate="{DataTemplate views:AchievementsPage}"
+                      Route="AchievementsPage"/>
 
-        <Tab Title="Налаштування">
-          <ShellContent
-           ContentTemplate="{DataTemplate local:SettingPage}"
-           Route="NewPage" />
-        </Tab>
+        <ShellContent Title="Налаштування"
+                      ContentTemplate="{DataTemplate views:SettingsPage}"
+                      Route="SettingsPage"/>
     </TabBar>
-
 </Shell>

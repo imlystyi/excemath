@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="excemath.Views.MainMenuPage"
+             x:DataType="VerticalStackLayout"
+             
+             Title="Головне меню"             
+             BackgroundColor="{StaticResource PageBackground}">
+
+    <VerticalStackLayout Margin="3" Spacing="20">
+        <Button Style="{StaticResource MainMenuButton}"
+                Text="Суміш видів"
+                Grid.Column="0"
+                Clicked="MixedMpButton_Clicked"/>
+
+        <Button Style="{StaticResource MainMenuButton}"
+                Text="Один вид"
+                Grid.Column="0"
+                Clicked="SingleMpTypeButton_Clicked"/>
+
+        <Button Style="{StaticResource MainMenuButton}"
+                Text="Режим рівнів"
+                Grid.Column="0"
+                Clicked="LevelsButton_Clicked"/>
+
+        <Border Margin="20,50,20,0" StrokeShape="{RoundRectangle CornerRadius=20}">
+            <VerticalStackLayout Spacing="20">
+                <Button Style="{StaticResource MainMenuButton}"
+                        Text="Підготовка до сесії"
+                        Grid.Column="0"
+                        Margin="0,20,0,0"
+                        Clicked="StudentExamsPreparingButton_Clicked"/>
+
+                <Button Style="{StaticResource MainMenuButton}"
+                        Text="Підготовка до ЗНО"
+                        Grid.Column="0"
+                        Margin="0,0,0,20"
+                        Clicked="ZNOPreparingButton_Clicked"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

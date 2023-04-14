@@ -1,4 +1,4 @@
-namespace excemath;
+namespace excemath.Views;
 
 public partial class LevelsPage : ContentPage
 {
