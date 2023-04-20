@@ -47,7 +47,9 @@
     
     <!--#region Власні кольори -->
 
-    <Color x:Key="PageBackground">#F9F9F9</Color>
+    <Color x:Key="PageBackground">White</Color>
     
+
+
     <!--#endregion-->
 </ResourceDictionary>

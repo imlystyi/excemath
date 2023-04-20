@@ -8,7 +8,15 @@
              Title="Головне меню"             
              BackgroundColor="{StaticResource PageBackground}">
 
-    <VerticalStackLayout Margin="3" Spacing="20">
+    <VerticalStackLayout Margin="3" Spacing="50">
+        <Label Text="Excemath"
+               
+               TextColor="Black"
+               Grid.Column="0"
+               HorizontalOptions="Center"
+               FontSize="40"
+               FontAttributes="Bold"/>
+        
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Суміш видів"
                 Grid.Column="0"
@@ -24,18 +32,18 @@
                 Grid.Column="0"
                 Clicked="LevelsButton_Clicked"/>
 
-        <Border Margin="20,50,20,0" StrokeShape="{RoundRectangle CornerRadius=20}">
+        <Border Margin="10,0,10,0" StrokeShape="{RoundRectangle CornerRadius=20}">
             <VerticalStackLayout Spacing="20">
                 <Button Style="{StaticResource MainMenuButton}"
                         Text="Підготовка до сесії"
                         Grid.Column="0"
-                        Margin="0,20,0,0"
+                        Margin="0,30,0,0"
                         Clicked="StudentExamsPreparingButton_Clicked"/>
 
                 <Button Style="{StaticResource MainMenuButton}"
                         Text="Підготовка до ЗНО"
                         Grid.Column="0"
-                        Margin="0,0,0,20"
+                        Margin="0,0,0,30"
                         Clicked="ZNOPreparingButton_Clicked"/>
             </VerticalStackLayout>
         </Border>
