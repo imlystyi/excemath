@@ -16,7 +16,7 @@
        Shell.TabBarTitleColor="White">
 
     <Shell.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{StaticResource PageBackground}" StatusBarStyle="DarkContent"/>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource PageBackground}" StatusBarStyle="DarkContent" />
     </Shell.Behaviors>
     
     <TabBar>
