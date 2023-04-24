@@ -11,19 +11,26 @@
     <Grid Margin="3">
         <Grid.RowDefinitions >
             <RowDefinition Height="60" />
-            <RowDefinition Height="300" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="60" />
             <RowDefinition  />
         </Grid.RowDefinitions>
 
-        
-        <Label x:Name="ProblemTopic"
+        <ImageButton Source="back_button.svg"
+                     Grid.Row="0"
+                     HorizontalOptions="Start"/>
+        <Label x:Name="ProblemTopic" Margin="70,9,30,0"
                Grid.Row="0"
-               HorizontalOptions="Center"
                Text="Назва прикладу"
-               FontSize="25"
+               FontSize="27"
                FontAttributes="Bold"/>
+        <Image Source="example_of_mathproblem.png"
+               Grid.Row="1"/>
 
-        <Border Margin="-2,100,-2,-11" StrokeShape="{RoundRectangle CornerRadius=20}" Grid.Row="2" BackgroundColor="#F8F9FA" >
+        <Image Source="field_correctanswer.png"
+               Grid.Row="2"/>
+
+        <Border Margin="-2,100,-2,-11" StrokeShape="{RoundRectangle CornerRadius=20}" Grid.Row="3" BackgroundColor="#F8F9FA" >
             <Grid>
                 <Grid.RowDefinitions >
                     <RowDefinition  />
