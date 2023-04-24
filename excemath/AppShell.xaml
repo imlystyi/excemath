@@ -15,12 +15,12 @@
        Shell.NavBarIsVisible="False"
        Shell.TabBarTitleColor="White"/>
 
-<Shell.Behaviors>
-    <mct:StatusBarBehavior StatusBarColor="{StaticResource PageBackground}" StatusBarStyle="DarkContent"/>
-</Shell.Behaviors>
-
-<TabBar>
-    <ShellContent Icon="mainpage_icon.svg"
+    <Shell.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource PageBackground}" StatusBarStyle="DarkContent"/>
+    </Shell.Behaviors>
+    
+    <TabBar>
+        <ShellContent Icon="mainpage_icon.svg"
                       Title="Головне меню"
                       ContentTemplate="{DataTemplate views:MainMenuPage}"
                       Route="MainMenuPage"/>

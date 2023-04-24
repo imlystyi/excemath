@@ -4,4 +4,20 @@
              x:Class="excemath.Views.SettingsPage"
              Title="Налаштування">
 
+    <VerticalStackLayout Margin="3" Padding="20" Spacing="30" VerticalOptions="Start">
+        <Border Margin="-50,-10,-50,0" HorizontalOptions="Fill" BackgroundColor="#1C1C21">
+            <Label
+               TextColor="#EAECEE"
+               HorizontalOptions="Center"
+               Text="Налаштування"
+               FontSize="25"
+               FontAttributes="Bold"/>
+        </Border>
+
+        <Button Style="{StaticResource MainMenuButton}"
+                Text="Скинути досягнення"/>
+        <Button Style="{StaticResource MainMenuButton}"
+                Text="Про програму"/>
+    </VerticalStackLayout>
+
 </ContentPage>
