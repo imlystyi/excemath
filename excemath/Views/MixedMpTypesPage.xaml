@@ -21,7 +21,7 @@
             <Button Text="OK"
                         Clicked="OkButton_Clicked"
                         HorizontalOptions="FillAndExpand" />
-            <Button Text="Reset"
+            <Button Text="Скинути"
                         Clicked="ResetButton_Clicked"
                         HorizontalOptions="FillAndExpand" />
         </StackLayout>
