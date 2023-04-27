@@ -1,115 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
              
              x:Class="excemath.Views.MixedMpTypesPage"
              x:DataType="Grid"
              
              Title="Суміш видів"
              BackgroundColor="{StaticResource PageBackground}">
-
-    <Grid Margin="3">
-        <Grid.RowDefinitions >
-            <RowDefinition Height="60" />
-            <RowDefinition Height="300" />
-            <RowDefinition  />
-        </Grid.RowDefinitions>
-
-        
-        <Label x:Name="ProblemTopic"
-               Grid.Row="0"
-               HorizontalOptions="Center"
-               Text="Назва прикладу"
-               FontSize="25"
-               FontAttributes="Bold"/>
-
-        <Border Margin="-2,100,-2,-11" StrokeShape="{RoundRectangle CornerRadius=20}" Grid.Row="2" BackgroundColor="#F8F9FA" >
-            <Grid>
-                <Grid.RowDefinitions >
-                    <RowDefinition  />
-                    <RowDefinition  />
-                    <RowDefinition />
-                    <RowDefinition  />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Button BackgroundColor="#EAECEE"
-                        Text="ок" TextColor="Black"  FontSize="20" 
-                        Grid.Row="0"  Grid.Column="0"
-                        HeightRequest="70"
-                        WidthRequest="200"
-                        Grid.ColumnSpan="3"
-                        />
-                <Button BackgroundColor="#EAECEE"
-                        Text="скинути" TextColor="Black" FontSize="20"
-                        Grid.Row="0"  Grid.Column="3"
-                        HeightRequest="70"
-                        WidthRequest="200"
-                        Grid.ColumnSpan="3"
-                        />
-                <Button Style="{StaticResource KeyboardButton}" 
-                        Grid.Row="1" Grid.Column="0"
-                        Text="7" />
-            <Button Style="{StaticResource KeyboardButton}" 
-                    Grid.Row="1" Grid.Column="1"
-                    Text="8"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="1" Grid.Column="2"
-                Text="9"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="2" Grid.Column="0"
-                Text="4"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="2" Grid.Column="1"
-                Text="5"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="2" Grid.Column="2"
-                Text="6"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="3" Grid.Column="0"
-                Text="1"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="3" Grid.Column="1"
-                Text="2"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="3" Grid.Column="2"
-                Text="3"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="4" Grid.Column="0"
-                Text="0"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="1" Grid.Column="3"
-                Text="x"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="1" Grid.Column="4"
-                Text="y"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="1" Grid.Column="5"
-                Text="z"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="2" Grid.Column="3"
-                Text="+"/>
-                <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="2" Grid.Column="4"
-                Text="-"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="2" Grid.Column="5"
-                Text="*"/>
-            <Button Style="{StaticResource KeyboardButton}" 
-                Grid.Row="3" Grid.Column="3"
-                Text="/"/>
-
-            </Grid>
-        </Border>
-
-    </Grid>
+    <skia:SKCanvasView PaintSurface="OnPaintSurface" />
 
 </ContentPage>

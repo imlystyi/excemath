@@ -2,22 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.Views.SettingsPage"
+              x:DataType="VerticalStackLayout"
+     
              Title="Налаштування">
 
-    <VerticalStackLayout Margin="3" Padding="20" Spacing="30" VerticalOptions="Start">
-        <Border Margin="-50,-10,-50,0" HorizontalOptions="Fill" BackgroundColor="#1C1C21">
-            <Label
-               TextColor="#EAECEE"
-               HorizontalOptions="Center"
+    <VerticalStackLayout  Spacing="30" VerticalOptions="Start">
+        <Border Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="100" 
+                BackgroundColor="#F2F2F2" >
+
+            <Label Margin="40,0,0,0"
+               VerticalOptions="Center"
                Text="Налаштування"
-               FontSize="25"
+               TextColor="Black"
+               Grid.Column="0"
+               FontSize="30"
                FontAttributes="Bold"/>
+
         </Border>
 
-        <Button Style="{StaticResource MainMenuButton}"
-                Text="Скинути досягнення"/>
-        <Button Style="{StaticResource MainMenuButton}"
+        <HorizontalStackLayout>
+            <Image Source="reset_achievem_icon.svg" Margin="20"/>
+            <Button Style="{StaticResource SettingsButton}"
+                    Text="Скинути досягнення"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Image Source="about_program_icon.svg" Margin="20"/>
+            <Button Style="{StaticResource SettingsButton}"
                 Text="Про програму"/>
+        </HorizontalStackLayout>
+
     </VerticalStackLayout>
 
 </ContentPage>

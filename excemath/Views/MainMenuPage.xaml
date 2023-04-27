@@ -9,7 +9,7 @@
              BackgroundColor="{StaticResource PageBackground}">
 
     <VerticalStackLayout Margin="3" Spacing="50">
-        <Label Text="Excemath"
+        <Label Text="excemath"
                
                TextColor="Black"
                Grid.Column="0"
