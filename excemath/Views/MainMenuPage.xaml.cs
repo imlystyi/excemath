@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Views;
+
 namespace excemath.Views;
 
 public partial class MainMenuPage : ContentPage
@@ -35,5 +37,12 @@ public partial class MainMenuPage : ContentPage
         Navigation.PushAsync(new ZNOPreparingPage());
     }
 
+    private void HowToUseButton_Clicked(object sender, EventArgs e)
+    {
+        this.ShowPopup(new HowToUsePage());
+    }
+
     #endregion
+
+
 }

@@ -8,14 +8,26 @@
              Title="Головне меню"             
              BackgroundColor="{StaticResource PageBackground}">
 
-    <VerticalStackLayout Margin="3" Spacing="50">
-        <Label Text="Excemath"
-               
+    <VerticalStackLayout  Spacing="45">
+        <Border Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="100" 
+                BackgroundColor="#F2F2F2" >
+            <HorizontalStackLayout>
+           <Label Margin="50,0,0,0"
+               VerticalOptions="Center"
+               Text="excemath"
                TextColor="Black"
                Grid.Column="0"
-               HorizontalOptions="Center"
-               FontSize="40"
+               FontSize="50"
                FontAttributes="Bold"/>
+           <ImageButton Source="how_to_use_icon.svg"
+                         Margin="45,4,0,0"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        
+                        Clicked="HowToUseButton_Clicked"/>
+                
+            </HorizontalStackLayout>
+        </Border>
         
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Суміш видів"
@@ -32,7 +44,8 @@
                 Grid.Column="0"
                 Clicked="LevelsButton_Clicked"/>
 
-        <Border Margin="10,0,10,0" StrokeShape="{RoundRectangle CornerRadius=20}">
+        <Border  Margin="10,0,10,0" StrokeShape="{RoundRectangle CornerRadius=30}" StrokeThickness="2" Stroke="Black" >
+           
             <VerticalStackLayout Spacing="20">
                 <Button Style="{StaticResource MainMenuButton}"
                         Text="Підготовка до сесії"

@@ -411,9 +411,10 @@
         <Setter Property="HeightRequest" Value="80"/>
         <Setter Property="WidthRequest" Value="350"/>
         <Setter Property="BackgroundColor" Value="#F2F2F2"/>
-        <!--<Setter Property="BorderWidth" Value="0.3"/>
-        <Setter Property="BorderColor" Value="Black"/>-->
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="BorderWidth" Value="0"/>
+        <Setter Property="BorderColor" Value="Black"/>
+        <Setter Property="FontSize" Value="25"/>
         <Setter Property="TextColor" Value="Black"/>
     </Style>
 
@@ -426,6 +427,17 @@
         <!--<Setter Property="BorderColor" Value="Black"/>-->
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextColor" Value="Black"/>
+    </Style>
+    
+    <Style TargetType="Button" x:Key="SettingsButton">
+        <Setter Property="HeightRequest" Value="80"/>
+        <Setter Property="WidthRequest" Value="300"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="Black"/>
+        
+        
     </Style>
 
 

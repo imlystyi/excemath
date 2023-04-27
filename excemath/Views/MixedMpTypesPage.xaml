@@ -16,19 +16,24 @@
             <RowDefinition  />
         </Grid.RowDefinitions>
 
-        <ImageButton Source="back_button.svg"
-                     Grid.Row="0"
-                     HorizontalOptions="Start"/>
-        <Label x:Name="ProblemTopic" Margin="70,9,30,0"
-               Grid.Row="0"
-               Text="Назва прикладу"
-               FontSize="27"
-               FontAttributes="Bold"/>
-        <Image Source="example_of_mathproblem.png"
-               Grid.Row="1"/>
+        <Border Grid.Row="0" Grid.Column="0" Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="120" 
+                BackgroundColor="#F2F2F2" >
+            <HorizontalStackLayout Spacing="10">
+                <ImageButton Source="back_icon.svg"
+                               
+                               Margin="15,0,0,0" />
 
-        <Image Source="field_correctanswer.png"
-               Grid.Row="2"/>
+                <Label Text="Назва прикладу"
+                        VerticalOptions="Center"
+                        TextColor="Black"
+                        Grid.Column="0"
+                        FontSize="30"
+                        FontAttributes="Bold"/>
+
+            </HorizontalStackLayout>
+        </Border>
+       
+       
 
         <Border Margin="-2,100,-2,-11" StrokeShape="{RoundRectangle CornerRadius=20}" Grid.Row="3" BackgroundColor="#F8F9FA" >
             <Grid>
