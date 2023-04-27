@@ -54,7 +54,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
+		<PackageReference Include="CSharpMath" Version="0.5.1" />
+		<PackageReference Include="CSharpMath.Rendering" Version="0.5.1" />
+		<PackageReference Include="CSharpMath.SkiaSharp" Version="0.5.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="SkiaSharp" Version="2.88.3" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
 	</ItemGroup>
 
 	<ItemGroup>
