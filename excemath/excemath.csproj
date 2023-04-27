@@ -73,6 +73,9 @@
 	  <MauiXaml Update="PrepareForZNOPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AboutProgramPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AchievementsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
