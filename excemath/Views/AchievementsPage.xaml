@@ -4,4 +4,38 @@
              x:Class="excemath.Views.AchievementsPage"
              Title="Досягнення">
 
+    <VerticalStackLayout Spacing="30">
+           <Border Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="100" 
+                BackgroundColor="#F2F2F2" >
+                        
+                 <Label Margin="50,0,0,0"
+                        VerticalOptions="Center"
+                        Text="Досягнення"
+                        TextColor="Black"
+                        Grid.Column="0"
+                        FontSize="30"
+                        FontAttributes="Bold"/>
+                            
+           </Border>
+
+        <Border  StrokeShape="{RoundRectangle CornerRadius=20}" HeightRequest="80" WidthRequest="380"  StrokeThickness="1" Stroke="Black">
+            <Label Text="Користувач" VerticalOptions="Center" HorizontalOptions="Center"  TextColor="Black" FontSize="30" FontAttributes="Bold"/>
+            </Border>
+
+        <Border StrokeShape="{RoundRectangle CornerRadius=20}" HeightRequest="550" WidthRequest="380" StrokeThickness="1" Stroke="Black" Padding="15">
+                   <VerticalStackLayout Spacing="40">
+                <Label Text ="Таблиця лідерів" HorizontalOptions="Center" TextColor="Black" FontSize="30" FontAttributes="Bold" />
+                <Label Text ="1. Vladik                100%" VerticalOptions="Start" TextColor="Black" FontSize="30"/>
+                  <Label Text ="2. Dinasi4ka        98,5%" VerticalOptions="Start" TextColor="Black" FontSize="30"/>
+                  <Label Text ="3. Sanchous           90%" VerticalOptions="Start" TextColor="Black" FontSize="30"/>
+                  <Label Text ="4. Vovchuk          88,4%" VerticalOptions="Start" TextColor="Black" FontSize="30"/>
+                  <Label Text ="5. Viksi01                80%" VerticalOptions="Start" TextColor="Black" FontSize="30"/>
+
+
+            </VerticalStackLayout>
+        </Border>
+
+    </VerticalStackLayout>
+            
+
 </ContentPage>

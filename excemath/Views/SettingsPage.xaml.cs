@@ -6,4 +6,9 @@ public partial class SettingsPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void AboutProgramButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AboutProgramPage());
+    }
 }

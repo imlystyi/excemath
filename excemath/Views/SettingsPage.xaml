@@ -30,7 +30,8 @@
         <HorizontalStackLayout>
             <Image Source="about_program_icon.svg" Margin="20"/>
             <Button Style="{StaticResource SettingsButton}"
-                Text="Про програму"/>
+                Text="Про програму"
+                Clicked="AboutProgramButton_Clicked"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>
