@@ -57,17 +57,32 @@
 		<PackageReference Include="CSharpMath" Version="0.5.1" />
 		<PackageReference Include="CSharpMath.Rendering" Version="0.5.1" />
 		<PackageReference Include="CSharpMath.SkiaSharp" Version="0.5.1" />
+		<PackageReference Include="FluentValidation" Version="11.5.2" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="SkiaSharp" Version="2.88.3" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\MpLevelsPage.xaml.cs">
+	    <DependentUpon>MpLevelsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\MainMenuPage.xaml.cs">
 	    <DependentUpon>MainMenuPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\MixedMpTypesPage.xaml.cs">
-	    <DependentUpon>MixedMpTypesPage.xaml</DependentUpon>
+	  <Compile Update="Views\AnswerEnteringPage.xaml.cs">
+	    <DependentUpon>AnswerEnteringPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MpKindsPage.xaml.cs">
+	    <DependentUpon>MpKindsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MpStudentExamsPreparingPage.xaml.cs">
+	    <DependentUpon>MpStudentExamsPreparingPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MpZNOPreparingPage.xaml.cs">
+	    <DependentUpon>MpZNOPreparingPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -87,25 +102,25 @@
 	  <MauiXaml Update="Views\HowToUsePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\LevelsPage.xaml">
+	  <MauiXaml Update="Views\MpLevelsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainMenuPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\MixedMpTypesPage.xaml">
+	  <MauiXaml Update="Views\AnswerEnteringPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SingleMpTypePage.xaml">
+	  <MauiXaml Update="Views\MpKindsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\StudentExamsPreparingPage.xaml">
+	  <MauiXaml Update="Views\MpStudentExamsPreparingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ZNOPreparingPage.xaml">
+	  <MauiXaml Update="Views\MpZNOPreparingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

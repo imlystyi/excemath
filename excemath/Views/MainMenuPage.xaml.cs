@@ -4,7 +4,7 @@ namespace excemath.Views;
 
 public partial class MainMenuPage : ContentPage
 {
-    #region Конструктори сторінки
+    #region Конструктори
 
     public MainMenuPage() => InitializeComponent();
 
@@ -12,29 +12,29 @@ public partial class MainMenuPage : ContentPage
 
     #region Обробники подій
 
-    private void MixedMpButton_Clicked(object sender, EventArgs e)
+    private void MpMixedButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MixedMpTypesPage());
+        Shell.Current.GoToAsync($"{nameof(AnswerEnteringPage)}?{nameof(AnswerEnteringPage.ItemType)}=mixed");
     }
 
     private void SingleMpTypeButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new SingleMpTypePage());
+        Navigation.PushAsync(new MpKindsPage());
     }
 
     private void LevelsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new LevelsPage());
+        Navigation.PushAsync(new MpLevelsPage());
     }
 
     private void StudentExamsPreparingButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new StudentExamsPreparingPage());
+        Navigation.PushAsync(new MpStudentExamsPreparingPage());
     }
 
     private void ZNOPreparingButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new ZNOPreparingPage());
+        Navigation.PushAsync(new MpZNOPreparingPage());
     }
 
     private void HowToUseButton_Clicked(object sender, EventArgs e)

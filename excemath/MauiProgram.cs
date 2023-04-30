@@ -3,6 +3,7 @@
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 #endregion
 
@@ -10,7 +11,7 @@ namespace excemath;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+    public static MauiApp CreateMauiApp()
 	{
 		// Налаштування первинного конфігуратора.
 		var builder = MauiApp.CreateBuilder();
@@ -18,6 +19,7 @@ public static class MauiProgram
 			.UseMauiApp<App>()
             .UseSkiaSharp()
             .UseMauiCommunityToolkit()
+			//.ConfigureServices()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

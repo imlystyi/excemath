@@ -32,7 +32,7 @@
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Суміш видів"
                 Grid.Column="0"
-                Clicked="MixedMpButton_Clicked"/>
+                Clicked="MpMixedButton_Clicked"/>
 
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Один вид"
