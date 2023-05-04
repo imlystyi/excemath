@@ -6,12 +6,12 @@ using excemathApi.Models;
 namespace excemath.Models
 {
     /// <summary>
-    /// Представляє HTTP-клієнт для роботи з <i>excemath API</i>.
+    /// Представляє HTTP-клієнт для роботи з <i>excemath API</i>, який дозволяє отримувати відповіді.
     /// </summary>
     /// <remarks>
     /// Детальніше про <i>excemath API</i>: <see href="https://github.com/miu-miu-enjoyers/excemath-api"/>.
     /// </remarks>
-    public static class ExcemathApiHttpClient
+    public static class Client
     {
         #region Поля
 
@@ -28,47 +28,47 @@ namespace excemath.Models
 
         #region Методи для отримання математичних проблем
 
+        // TODO: видалити #1
+        ///// <summary>
+        ///// Повертає список математичних проблем за вказаним списком ідентифікаторів.
+        ///// </summary>
+        ///// <param name="ids">Список ідентифікаторів математичних проблем.</param>
+        ///// <returns>
+        ///// Якщо відповідь HTTP-сервера є успішною та за ідентифікатором знайдено принаймні одну математичну проблему, то список математичних проблем як <see cref="List{MathProblem}"/> з елементів <see cref="MathProblem"/>;<br>
+        ///// інакше, <see langword="null"/>.</br>
+        ///// </returns>
+        //public async static Task<List<MathProblem>?> GetMathProblemsList(List<int> ids)
+        //{
+        //    string query = ids.Select(i => $"ids={i}").Aggregate((j, k) => $"{j}&{k}");
+        //    string url = $"{urlBase}/MathProblemsGet/ids_list?{query}";
+
+        //    HttpResponseMessage response = await _client.GetAsync(url);
+
+        //    return response.IsSuccessStatusCode
+        //        ? JsonConvert.DeserializeObject<List<MathProblem>>(await response.Content.ReadAsStringAsync())
+        //        : null;
+        //}
+
         /// <summary>
-        /// Отримує список математичних проблем за вказаним списком ідентифікаторів.
-        /// </summary>
-        /// <param name="ids">Список ідентифікаторів математичних проблем.</param>
-        /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та за ідентифікатором знайдено принаймні одну математичну проблему, то список математичних проблем як <see cref="List{MathProblem}"/> з елементів <see cref="MathProblem"/>;<br>
-        /// інакше, <see langword="null"/>.</br>
-        /// </returns>
-        public async static Task<List<MathProblem>?> GetMathProblemsList(List<int> ids)
-        {
-            string query = ids.Select(i => $"ids={i}").Aggregate((j, k) => $"{j}&{k}");
-            string url = $"{urlBase}/MathProblemsGet/ids_list?{query}";
-
-            HttpResponseMessage response = await _client.GetAsync(url);
-
-            return response.IsSuccessStatusCode
-                ? JsonConvert.DeserializeObject<List<MathProblem>>(await response.Content.ReadAsStringAsync())
-                : null;
-        }
-
-        /// <summary>
-        /// Отримує список математичних проблем за вказаним видом.
+        /// Повертає список ідентифікаторів математичних проблем за вказаним видом.  
         /// </summary>
         /// <param name="kind">Вид математичної проблеми.</param>
         /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та за видом знайдено принаймні одну математичну проблему, то список математичних проблем як <see cref="List{MathProblem}"/> з елементів <see cref="MathProblem"/>;<br>
+        /// Якщо відповідь HTTP-сервера є успішною та за видом знайдено принаймні одну математичну проблему, то список знайдених ідентифікаторів математичних проблем як <see cref="List{T}"/> з <see cref="int"/>;<br>
         /// інакше, <see langword="null"/>.</br>
         /// </returns>
-        public async static Task<List<MathProblem>?> GetMathProblemsList(MathProblemKinds kind)
+        public async static Task<List<int>?> GetMathProblemsIdsList(MathProblemKinds kind)
         {
-            string url = $"{urlBase}/MathProblemsGet/kinds_list/{kind}";
-
+            string url = @$"{urlBase}/MathProblemsGet/kind_list/{kind}";
             HttpResponseMessage response = await _client.GetAsync(url);
 
             return response.IsSuccessStatusCode
-                ? JsonConvert.DeserializeObject<List<MathProblem>>(await response.Content.ReadAsStringAsync())
+                ? JsonConvert.DeserializeObject<List<int>>(await response.Content.ReadAsStringAsync())
                 : null;
         }
 
         /// <summary>
-        /// Отримує конкретну математичну проблему за вказаним ідентифікатором.
+        /// Повертає конкретну математичну проблему за вказаним ідентифікатором.
         /// </summary>
         /// <param name="id">Ідентифікатор математичної проблеми.</param>
         /// <returns>
@@ -76,8 +76,7 @@ namespace excemath.Models
         /// </returns>
         public async static Task<MathProblem?> GetMathProblem(int id)
         {
-            string url = $"{urlBase}/MathProblemsGet/id/{id}";
-
+            string url = @$"{urlBase}/MathProblemsGet/id/{id}";
             HttpResponseMessage response = await _client.GetAsync(url);
 
             return response.IsSuccessStatusCode
@@ -90,7 +89,7 @@ namespace excemath.Models
         #region Методи для отримання розв'язаних математичних проблем
 
         /// <summary>
-        /// Отримує список розв'язаних математичних проблем за вказаним списком ідентифікаторів.
+        /// Повертає список розв'язаних математичних проблем за вказаним списком ідентифікаторів.
         /// </summary>
         /// <param name="ids">Список ідентифікаторів розв'язаних математичних проблем.</param>
         /// <returns>
@@ -110,7 +109,7 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Отримує список розв'язаних математичних проблем за вказаним видом.
+        /// Повертає список розв'язаних математичних проблем за вказаним видом.
         /// </summary>
         /// <param name="kind">Вид розв'язаної математичної проблеми.</param>
         /// <returns>
@@ -129,7 +128,7 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Отримує конкретну розв'язану математичну проблему за вказаним ідентифікатором.
+        /// Повертає конкретну розв'язану математичну проблему за вказаним ідентифікатором.
         /// </summary>
         /// <param name="id">Ідентифікатор розв'язаної математичної проблеми.</param>
         /// <returns>
@@ -151,7 +150,7 @@ namespace excemath.Models
         #region Методи для отримання користувачів
 
         /// <summary>
-        /// Отримує рейтинговий список користувачів.
+        /// Повертає рейтинговий список користувачів.
         /// </summary>
         /// <returns>
         /// Список користувачів як <see cref="List{T}"/> з елементів <see cref="UserRating"/>.
@@ -166,7 +165,7 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Отримує конкретного користувача за вказаним псевдонімом.
+        /// Повертає конкретного користувача за вказаним псевдонімом.
         /// </summary>
         /// <param name="nickname">Псевдонім користувача.</param>
         /// <returns>
@@ -190,7 +189,7 @@ namespace excemath.Models
         #region Методи автентифікації
 
         /// <summary>
-        /// Отримує успішність авторизації користувача, визначивши її за вказаною моделлю ідентичності.
+        /// Повертає успішність авторизації користувача, визначивши її за вказаною моделлю ідентичності.
         /// </summary>
         /// <param name="userIdentity">Модель ідентичності користувача.</param>
         /// <returns>

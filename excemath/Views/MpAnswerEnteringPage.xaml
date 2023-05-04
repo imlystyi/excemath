@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"             
+             x:Class="excemath.Views.MpAnswerEnteringPage"
+             x:DataType="Grid"             
+             Title="Суміш видів"
+             BackgroundColor="{StaticResource PageBackground}">
+    
+    <StackLayout>
+        <Label x:Name ="MpTopic" 
+               Text="Інтеграл" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        
+        <skia:SKCanvasView x:Name="QuestionCanvas"
+                           PaintSurface="QuestionCanvas_PaintSurface"
+                           VerticalOptions="FillAndExpand"/>
+
+        <skia:SKCanvasView x:Name="answerCanvas"
+                           PaintSurface="AnswerCanvas_PaintSurface"
+                           VerticalOptions="FillAndExpand"/>
+
+        <VerticalStackLayout>
+            <RadioButton Content="1."
+                         CheckedChanged="Option1_CheckedChanged"/>
+            
+            <RadioButton Content="2."
+                         CheckedChanged="Option2_CheckedChanged"/>            
+            
+            <RadioButton Content="3."
+                         CheckedChanged="Option3_CheckedChanged"/>            
+            
+            <RadioButton Content="4."
+                         CheckedChanged="Option4_CheckedChanged"/>
+        </VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="OK"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OkButton_Clicked"/>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>

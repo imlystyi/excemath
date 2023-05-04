@@ -12,10 +12,7 @@ public partial class MainMenuPage : ContentPage
 
     #region Обробники подій
 
-    private void MpMixedButton_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync($"{nameof(AnswerEnteringPage)}?{nameof(AnswerEnteringPage.ItemType)}=mixed");
-    }
+    private void MpMixedButton_Clicked(object sender, EventArgs e) => Shell.Current.GoToAsync($"{nameof(MpAnswerEnteringPage)}?{nameof(MpAnswerEnteringPage.ItemValue)}=m");
 
     private void SingleMpTypeButton_Clicked(object sender, EventArgs e)
     {

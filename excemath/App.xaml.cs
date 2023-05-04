@@ -1,4 +1,6 @@
-﻿namespace excemath;
+﻿using excemathApi.Models;
+
+namespace excemath;
 
 public partial class App : Application
 {
@@ -7,5 +9,8 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
+
+		MathProblem.GenerateMixedKey();
+		MathProblem.GenerateByKindKey();
 	}
 }
