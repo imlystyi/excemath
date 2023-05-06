@@ -9,15 +9,15 @@
     
        FlyoutBehavior="Disabled"
     
-       Shell.TabBarBackgroundColor="#F2F2F2"
+       Shell.TabBarBackgroundColor="White"
        Shell.BackgroundColor="{StaticResource PageBackground}"
        Shell.TitleColor="Black"
        Shell.NavBarIsVisible="False"
-       Shell.TabBarTitleColor="Black"
+       Shell.TabBarTitleColor="#022C4E"
        Shell.TabBarUnselectedColor="Gray">
 
     <Shell.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="#F2F2F2" StatusBarStyle="DarkContent"/>
+        <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
     </Shell.Behaviors>
     
     <TabBar>

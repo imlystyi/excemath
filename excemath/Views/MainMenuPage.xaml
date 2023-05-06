@@ -8,57 +8,52 @@
              Title="Головне меню"             
              BackgroundColor="{StaticResource PageBackground}">
 
-    <VerticalStackLayout  Spacing="45">
-        <Border Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="100" 
-                BackgroundColor="#F2F2F2" >
+    <VerticalStackLayout  Spacing="10">
+        <Border Style="{StaticResource TitleBar}">
             <HorizontalStackLayout>
-           <Label Margin="50,0,0,0"
-               VerticalOptions="Center"
-               Text="excemath"
-               TextColor="Black"
-               Grid.Column="0"
-               FontSize="50"
-               FontAttributes="Bold"/>
-           <ImageButton Source="how_to_use_icon.svg"
-                         Margin="45,4,0,0"
-                        HeightRequest="40"
-                        WidthRequest="40"
-                        
+                <Label Style="{StaticResource TitleBarLabel}" 
+                  Text="excemath"
+                  Grid.Column="0"
+                  FontSize="60"/>
+                <ImageButton Style="{StaticResource Icon}" Source="howtouse_icon.svg"
+                         Margin="25,3,0,0"
                         Clicked="HowToUseButton_Clicked"/>
-                
             </HorizontalStackLayout>
         </Border>
-        
+
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Суміш видів"
                 Grid.Column="0"
                 Clicked="MpMixedButton_Clicked"/>
+        <Image Source="line_icon.svg"
+               WidthRequest="500"/>
 
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Один вид"
                 Grid.Column="0"
                 Clicked="SingleMpTypeButton_Clicked"/>
+        <Image Source="line_icon.svg"
+               WidthRequest="500"/>
 
         <Button Style="{StaticResource MainMenuButton}"
                 Text="Режим рівнів"
                 Grid.Column="0"
                 Clicked="LevelsButton_Clicked"/>
+        <Image Source="line_icon.svg"
+               WidthRequest="500"/>
 
-        <Border  Margin="10,0,10,0" StrokeShape="{RoundRectangle CornerRadius=30}" StrokeThickness="2" Stroke="Black" >
-           
-            <VerticalStackLayout Spacing="20">
-                <Button Style="{StaticResource MainMenuButton}"
-                        Text="Підготовка до сесії"
-                        Grid.Column="0"
-                        Margin="0,30,0,0"
-                        Clicked="StudentExamsPreparingButton_Clicked"/>
+        <Button Style="{StaticResource MainMenuButton}"
+                Text="Підготовка до сесії"
+                Grid.Column="0"
+                Clicked="StudentExamsPreparingButton_Clicked"/>
+        <Image Source="line_icon.svg"
+               WidthRequest="500"/>
 
-                <Button Style="{StaticResource MainMenuButton}"
-                        Text="Підготовка до ЗНО"
-                        Grid.Column="0"
-                        Margin="0,0,0,30"
-                        Clicked="ZNOPreparingButton_Clicked"/>
-            </VerticalStackLayout>
-        </Border>
+         <Button Style="{StaticResource MainMenuButton}"
+                 Text="Підготовка до ЗНО"
+                 Grid.Column="0"
+                 Clicked="ZNOPreparingButton_Clicked"/>
+            
+        
     </VerticalStackLayout>
 </ContentPage>
