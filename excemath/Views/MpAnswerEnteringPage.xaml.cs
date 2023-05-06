@@ -1,3 +1,5 @@
+#define DEMO_ANSWER
+
 using SkiaSharp;
 using SkiaSharp.Views.Maui;
 using CSharpMath.SkiaSharp;
@@ -106,10 +108,24 @@ public partial class MpAnswerEnteringPage : ContentPage
     {
         if (parameters == "m")
         {
+
+#if DEMO_ANSWER
+            MathProblem _NO_SSL_mathProblem_ = new()
+            {
+                Id = 1,
+                Question = "",
+                Answer = "",
+                Kind = MathProblemKinds.TableIntegral
+            };
+
+            _mathProblem = _NO_SSL_mathProblem_;
+        
+#else
             Task<MathProblem> task = Task.Run(MathProblem.GetMixed);
             task.Wait();
 
-            _mathProblem = task.Result;   
+            _mathProblem = task.Result;
+#endif
         }
     }
 
@@ -122,7 +138,7 @@ public partial class MpAnswerEnteringPage : ContentPage
         };
     }
 
-    #endregion
+#endregion
 
     #region Перезаписані обробники подій
 

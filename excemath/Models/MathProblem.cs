@@ -133,7 +133,7 @@ public class MathProblem
     public string GetAnswerOptions() => Answer.Split(new[] {@"/opt"}, StringSplitOptions.None).Last();
 
     /// <summary>
-    /// Повертає випадкову математичну проблему для режиму змішаних видів.
+    /// Повертає випадкову математичну проблему.
     /// </summary>
     /// <returns>
     /// Математичну проблему як <see cref="MathProblem"/> (результат виконання відповідного <see cref="Task{TResult}"/>).
@@ -160,6 +160,13 @@ public class MathProblem
         return mathProblem;
     }
 
+    /// <summary>
+    /// Повертає випадкову математичну проблему вказаного виду.
+    /// </summary>
+    /// <param name="kind">Вид математичної проблеми.</param>
+    /// <returns>
+    /// Математичну проблему як <see cref="MathProblem"/> (результат виконання відповідного <see cref="Task{TResult}"/>).
+    /// </returns>
     public static async Task<MathProblem> GetByKind(MathProblemKinds kind)
     {
         int byKindKey = GetByKindKey();
@@ -189,6 +196,10 @@ public class MathProblem
         return await Client.GetMathProblem(id);        
     }
 
+    /// <summary>
+    /// Генерує ключ <c>"mp_m"</c> та записує його у дані додатку, якщо його там не знайдено.
+    /// </summary>
+    /// <param name="forced">Визначає, чи треба записувати ключ у дані додатку примусово.</param>
     public static void GenerateMixedKey(bool forced = false)
     {
         if (!Preferences.ContainsKey(MIXED_KEY_PREFERENCES_KEY) || forced)
@@ -200,6 +211,10 @@ public class MathProblem
         }       
     }
 
+    /// <summary>
+    /// Генерує ключ <c>"mp_bk"</c> та записує його у дані додатку, якщо його там не знайдено.
+    /// </summary>
+    /// <param name="forced">Визначає, чи треба записувати ключ у дані додатку примусово.</param>
     public static void GenerateByKindKey(bool forced = false)
     {
         if (!Preferences.ContainsKey(BY_KIND_KEY_PREFERENCES_KEY) || forced)
@@ -217,7 +232,7 @@ public class MathProblem
 
     private static int GetLastMixedId() => Preferences.Get(MIXED_LAST_ID_PREFERENCES_KEY, 1);
 
-    private static int GetLastByKindIndex() => Preferences.Get(BY_KIND_LAST_INDEX_PREFERENCES_KEY, 1);
+    private static int GetLastByKindIndex() => Preferences.Get(BY_KIND_LAST_INDEX_PREFERENCES_KEY, 1);  
     
     private static void SetLastMixedId(int id) => Preferences.Set(MIXED_LAST_ID_PREFERENCES_KEY, id);
 
