@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace excemathApi.Models;
+namespace excemath.Models;
 
 /// <summary>
 /// Представляє модель розв'язаної математичної проблеми, яка має унікальний ідентифікатор, тип, умову, правильний розв'язок та покроковий розв'язок.

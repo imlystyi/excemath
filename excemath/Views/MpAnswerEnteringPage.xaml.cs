@@ -3,7 +3,7 @@
 using SkiaSharp;
 using SkiaSharp.Views.Maui;
 using CSharpMath.SkiaSharp;
-using excemathApi.Models;
+using excemath.Models;
 
 namespace excemath.Views;
 

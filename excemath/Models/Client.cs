@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using FluentValidation.Results;
-using excemathApi.Models;
 
 namespace excemath.Models
 {
@@ -28,27 +27,6 @@ namespace excemath.Models
 
         #region Методи для отримання математичних проблем
 
-        // TODO: видалити #1
-        ///// <summary>
-        ///// Повертає список математичних проблем за вказаним списком ідентифікаторів.
-        ///// </summary>
-        ///// <param name="ids">Список ідентифікаторів математичних проблем.</param>
-        ///// <returns>
-        ///// Якщо відповідь HTTP-сервера є успішною та за ідентифікатором знайдено принаймні одну математичну проблему, то список математичних проблем як <see cref="List{MathProblem}"/> з елементів <see cref="MathProblem"/>;<br>
-        ///// інакше, <see langword="null"/>.</br>
-        ///// </returns>
-        //public async static Task<List<MathProblem>?> GetMathProblemsList(List<int> ids)
-        //{
-        //    string query = ids.Select(i => $"ids={i}").Aggregate((j, k) => $"{j}&{k}");
-        //    string url = $"{urlBase}/MathProblemsGet/ids_list?{query}";
-
-        //    HttpResponseMessage response = await _client.GetAsync(url);
-
-        //    return response.IsSuccessStatusCode
-        //        ? JsonConvert.DeserializeObject<List<MathProblem>>(await response.Content.ReadAsStringAsync())
-        //        : null;
-        //}
-
         /// <summary>
         /// Повертає список ідентифікаторів математичних проблем за вказаним видом.  
         /// </summary>
@@ -59,7 +37,12 @@ namespace excemath.Models
         /// </returns>
         public async static Task<List<int>?> GetMathProblemsIdsList(MathProblemKinds kind)
         {
-            string url = @$"{urlBase}/MathProblemsGet/kind_list/{kind}";
+            Dictionary<string, string> parameters = new()
+            {
+                { nameof(MathProblem.Kind), ((int)kind).ToString() }
+            };
+
+            string url = QueryHelpers.AddQueryString(@$"{urlBase}/MathProblemsGet/kind_list", parameters);
             HttpResponseMessage response = await _client.GetAsync(url);
 
             return response.IsSuccessStatusCode
@@ -76,7 +59,12 @@ namespace excemath.Models
         /// </returns>
         public async static Task<MathProblem?> GetMathProblem(int id)
         {
-            string url = @$"{urlBase}/MathProblemsGet/id/{id}";
+            Dictionary<string, string> parameters = new()
+            {
+                { nameof(MathProblem.Id), id.ToString() }
+            };
+
+            string url = QueryHelpers.AddQueryString(@$"{urlBase}/MathProblemsGet/id", parameters);
             HttpResponseMessage response = await _client.GetAsync(url);
 
             return response.IsSuccessStatusCode
@@ -195,7 +183,7 @@ namespace excemath.Models
         /// <returns>
         /// Якщо авторизація пройшла успішно, <see langword="true"/>; інакше, <see langword="false"/>.
         /// </returns>
-        public static async Task<bool> TryAuthorize(UserIdentity userIdentity)
+        public static async Task<bool> TryAuthorizeUser(UserIdentity userIdentity)
         {
             Dictionary<string, string> parameters = new()
             {
@@ -203,7 +191,7 @@ namespace excemath.Models
                 { nameof(UserIdentity.Password), userIdentity.Password },
             };
 
-            string url = QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/authorize", parameters);
+            string url = QueryHelpers.AddQueryString(@$"{urlBase}/UsersAuthentication/authorize", parameters);
             HttpResponseMessage response = await _client.GetAsync(url);
 
             return response.IsSuccessStatusCode;
@@ -216,7 +204,7 @@ namespace excemath.Models
         /// <returns>
         /// Якщо реєстрація пройшла успішно, то <see cref="string.Empty"/>; інакше, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API.
         /// </returns>
-        public static async Task<string> TryRegister(UserIdentity userIdentity)
+        public static async Task<string> TryRegisterUser(UserIdentity userIdentity)
         {
             Dictionary<string, string> parameters = new()
             {
@@ -229,6 +217,40 @@ namespace excemath.Models
 
             if (response.IsSuccessStatusCode)
                 return string.Empty;
+
+            else
+            {
+                List<ValidationFailure> validationFailures = JsonConvert.DeserializeObject<List<ValidationFailure>>(await response.Content.ReadAsStringAsync());
+                return string.Join(Environment.NewLine, validationFailures.Select(vf => vf.ErrorMessage));
+            }
+        }
+
+        /// <summary>
+        /// Оновлює дані користувача за його псевдонімом та вказаною моделлю запиту оновлення.
+        /// </summary>
+        /// <param name="nickname">Псевдонім користувача.</param>
+        /// <param name="userUpdateRequest">Модель користувача запиту оновлення.</param>
+        /// <returns>Якщо оновлення пройшло успішно, то <see cref="string.Empty"/>; 
+        /// <br>інакше, якщо користувача з таким нікнеймом не знайдено, то <c>"404"</c>як <see cref="string"/>;</br>
+        /// <br>інакше, якщо користувача знайдено, але оновлення не пройшло успішно, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API</br></returns>
+        public static async Task<string> TryUpdateUser(string nickname, UserUpdateRequest userUpdateRequest)
+        {
+            Dictionary<string, string> parameters = new()
+            {
+                { nameof(nickname), nickname },
+                { nameof(UserUpdateRequest.Password), userUpdateRequest.Password },
+                { nameof(UserUpdateRequest.RightAnswers), userUpdateRequest.RightAnswers.ToString() },
+                { nameof(UserUpdateRequest.WrongAnswers), userUpdateRequest.WrongAnswers.ToString() }
+            };
+
+            string url = QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/update/{nickname}", parameters);
+            HttpResponseMessage response = await _client.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+                return string.Empty;
+
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return "404";
 
             else
             {
