@@ -410,17 +410,32 @@
     
 
     <Style TargetType="Button" x:Key="MainMenuButton">
-        <Setter Property="HeightRequest" Value="126"/>
-        <Setter Property="WidthRequest" Value="390"/>
-        <Setter Property="BackgroundColor" Value="#F0F6FF"/>
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="WidthRequest" Value="380"/>
+        <Setter Property="BackgroundColor" Value="#F2F2F2"/>
         <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="BorderWidth" Value="0"/>
         <Setter Property="FontSize" Value="27"/>
         <Setter Property="TextColor" Value="#022C4E"/>
         <Setter Property="FontFamily" Value="ComfortaLight"/>
-        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="Margin" Value="-50,0,0,0"/>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="MainMenuLabel">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="TextColor" Value="#022C4E"/>
+        <Setter Property="FontFamily" Value="MontserratRegular"/>
+        <Setter Property="Margin" Value="17,25,9,0"/>
+    </Style>
+
+    <Style TargetType="Image" x:Key="MainMenuImage">
+        <Setter Property="Margin" Value="-15,0,9,0"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="WidthRequest" Value="50"/>
 
     </Style>
+
 
     <Style TargetType="Button" x:Key="SettingsButton">
         <Setter Property="HeightRequest" Value="80"/>
@@ -429,8 +444,6 @@
         <Setter Property="CornerRadius" Value="15"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextColor" Value="Black"/>
-
-
     </Style>
 
     <Style TargetType="Border" x:Key="TitleBar">
@@ -438,22 +451,18 @@
         <Setter Property="HeightRequest" Value="100"/>
         <Setter Property="BackgroundColor" Value="white"/>
         <Setter Property="Stroke" Value="white"/>
-
     </Style>
 
     <Style TargetType="Label" x:Key="TitleBarLabel">
-        <Setter Property="Margin" Value="40,0,0,0"/>
         <Setter Property="TextColor" Value="#022C4E"/>
         <Setter Property="FontFamily" Value="JosefinSansMedium"/>
-
-
+        <Setter Property="LineBreakMode" Value="WordWrap"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 
     <Style TargetType="ImageButton" x:Key="Icon">
         <Setter Property="HeightRequest" Value="40"/>
         <Setter Property="WidthRequest" Value="40"/>
-
-
     </Style>
 
     <Style TargetType="Button" x:Key="LevelButtons">
@@ -464,7 +473,6 @@
         <Setter Property="BackgroundColor" Value="#6BA4DF"/>
         <Setter Property="TextColor" Value="Black"/>
         <Setter Property="FontSize" Value="30"/>
-
     </Style>
 
 

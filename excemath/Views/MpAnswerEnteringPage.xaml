@@ -5,15 +5,26 @@
              x:Class="excemath.Views.MpAnswerEnteringPage"
              x:DataType="Grid"             
              Title="Суміш видів"
-             BackgroundColor="{StaticResource PageBackground}">
+             BackgroundColor="White">
     
     <StackLayout>
-        <Label x:Name ="MpTopic" 
-               Text="Інтеграл" 
-               FontSize="24" 
-               FontAttributes="Bold" 
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+        <Border Style="{StaticResource TitleBar}">
+            <HorizontalStackLayout>
+                <ImageButton Style="{StaticResource Icon}" Source="back_icon.svg"
+                             Margin="15,0,0,0"
+                             Clicked="BackButton_Clicked"/>
+                <Label x:Name ="MpTopic"
+                       Style="{StaticResource TitleBarLabel}"
+                       FontSize="25"
+                       
+                       Margin="6,0,0,0"/>
+                <ImageButton Style="{StaticResource Icon}" Source="hint_icon.svg"
+                              Margin="10,0,0,0" 
+                             Clicked="HintButton_Clicked"/>
+
+            </HorizontalStackLayout>
+        </Border>
+       
         
         <skia:SKCanvasView x:Name="QuestionCanvas"
                            PaintSurface="QuestionCanvas_PaintSurface"

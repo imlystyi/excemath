@@ -4,6 +4,7 @@ using SkiaSharp;
 using SkiaSharp.Views.Maui;
 using CSharpMath.SkiaSharp;
 using excemathApi.Models;
+using CommunityToolkit.Maui.Views;
 
 namespace excemath.Views;
 
@@ -150,4 +151,14 @@ public partial class MpAnswerEnteringPage : ContentPage
     }
 
     #endregion
+
+    private void HintButton_Clicked(object sender, EventArgs e)
+    {
+        this.ShowPopup(new HintPage());
+    }
+
+    private void BackButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
 }
