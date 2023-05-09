@@ -250,7 +250,7 @@ namespace excemath.Models
                 return string.Empty;
 
             else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return "404";
+                return "Користувача з таким псевдонімом не знайдено.";
 
             else
             {

@@ -15,7 +15,8 @@ public class User
 
     private const string _SAVED_LOGIN_USERNAME_PREFERENCES_KEY = "u_nickname";
     private const string _SAVED_LOGIN_PASSWORD_PREFERENCES_KEY = "u_password";
-    private const string _IS_LOGINED
+    private const string _IS_LOGINED = "u_logined";
+
     #endregion
 
     #region Властивості 
@@ -100,6 +101,15 @@ public class User
         return errors;
     }
 
-    public static async Task<bool>
+    public static async Task<string> TryUpdate(string nickname,  UserUpdateRequest userUpdateRequest)
+    {
+        string errors = await Client.TryUpdateUser(nickname, userUpdateRequest);
+
+        if (string.IsNullOrEmpty(errors))
+            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userUpdateRequest.Password);        
+
+        return errors;
+    }
+
     #endregion
 }
