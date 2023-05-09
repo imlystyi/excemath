@@ -6,4 +6,8 @@ public partial class MpLevelsPage : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        
+    }
 }
