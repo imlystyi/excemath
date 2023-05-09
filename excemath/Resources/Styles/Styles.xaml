@@ -456,6 +456,16 @@
 
     </Style>
 
+    <Style TargetType="Button" x:Key="LevelButtons">
+        <Setter Property="WidthRequest" Value="85" />
+        <Setter Property="HeightRequest" Value="85" />
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="BackgroundColor" Value="#6BA4DF"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontSize" Value="30"/>
+
+    </Style>
 
 
     <!--#endregion-->
