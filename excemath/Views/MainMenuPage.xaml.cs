@@ -44,7 +44,10 @@ public partial class MainMenuPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+    }
 
-        if ()
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+
     }
 }

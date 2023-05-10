@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell x:Class="excemath.AppShell"
-       x:DataType="ContentPage"
-    
+       x:DataType="ContentPage"    
        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-       xmlns:views="clr-namespace:excemath.Views"
-    
-       FlyoutBehavior="Disabled"
-    
-       Shell.TabBarBackgroundColor="White"
+       xmlns:views="clr-namespace:excemath.Views"    
+       FlyoutBehavior="Disabled"  
        Shell.BackgroundColor="{StaticResource PageBackground}"
        Shell.TitleColor="Black"
        Shell.NavBarIsVisible="False"
-       Shell.TabBarTitleColor="#022C4E"
-       Shell.TabBarUnselectedColor="Gray">
+       Shell.TabBarIsVisible="False">
 
     <Shell.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
     </Shell.Behaviors>
-    
-    <TabBar>
-        <ShellContent Icon="mainpage_icon.svg"
-                      Title="Головне меню"
-                      ContentTemplate="{DataTemplate views:MainMenuPage}"
-                      Route="MainMenuPage"/>
 
-    <ShellContent Icon="achievements_icon.svg"
-                      Title="Досягнення"
-                      ContentTemplate="{DataTemplate views:AchievementsPage}"
-                      Route="AchievementsPage"/>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             x:DataType="VerticalStackLayout"             
+             Title="Головне меню"             
+             BackgroundColor="White">
 
-    <ShellContent Icon="settings_icon.svg"
-                      Title="Налаштування"
-                      ContentTemplate="{DataTemplate views:SettingsPage}"
-                      Route="SettingsPage"/>
-</TabBar>
-    
+        <VerticalStackLayout  Spacing="10">
+            <StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer/>
+                </StackLayout.GestureRecognizers>
+
+                <Label Text="Суміш видів" FontSize="30"/>
+                <Label Text="Розв'язуйте абсолютно випадково обрану проблему. Обережно: може бути складно!"/>
+            </StackLayout>
+
+
+        </VerticalStackLayout>
+    </ContentPage>
+
 </Shell>

@@ -1,7 +1,4 @@
-﻿using excemath.Models;
-using Java.Util;
-
-namespace excemath.Models;
+﻿namespace excemath.Models;
 
 /// <summary>
 /// Представляє звичайну модель користувача, яка має унікальний псевдонім, пароль, кількість правильних та неправильних відповідей.
