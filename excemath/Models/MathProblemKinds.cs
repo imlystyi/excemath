@@ -1,4 +1,4 @@
-﻿namespace excemathApi.Models;
+﻿namespace excemath.Models;
 
 /// <summary>
 /// Представляє перерахування можливих видів для моделі математичної проблеми <see cref="MathProblem"/> або <see cref="SolvedMathProblem"/> (<see cref="MathProblem.Kind"/> або <see cref="SolvedMathProblem.Kind"/>).

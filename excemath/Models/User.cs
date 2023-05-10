@@ -1,4 +1,7 @@
-﻿namespace excemathApi.Models;
+﻿using excemath.Models;
+using Java.Util;
+
+namespace excemath.Models;
 
 /// <summary>
 /// Представляє звичайну модель користувача, яка має унікальний псевдонім, пароль, кількість правильних та неправильних відповідей.
@@ -8,6 +11,14 @@
 /// </remarks>
 public class User
 {
+    #region Поля
+
+    private const string _SAVED_LOGIN_USERNAME_PREFERENCES_KEY = "u_nickname";
+    private const string _SAVED_LOGIN_PASSWORD_PREFERENCES_KEY = "u_password";
+    private const string _IS_LOGINED = "u_logined";
+
+    #endregion
+
     #region Властивості 
 
     /// <summary>
@@ -47,6 +58,58 @@ public class User
     /// Кількість неправильних відповідей користувача як <see cref="int"/>.
     /// </returns>
     public int WrongAnswers { get; set; } = 0;
+
+    #endregion
+
+    #region Методи
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userIdentity"></param>
+    /// <returns></returns>
+    public static async Task<bool> TryAuthorize(UserIdentity userIdentity)
+    {
+        bool success = await Client.TryAuthorizeUser(userIdentity);
+
+        if (success)
+        {
+            Preferences.Set(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, userIdentity.Nickname);
+            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userIdentity.Password);
+            Preferences.Set(_IS_LOGINED, true);
+        }
+
+        return success;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userIdentity"></param>
+    /// <returns></returns>
+    public static async Task<string> TryRegister(UserIdentity userIdentity)
+    {
+        string errors = await Client.TryRegisterUser(userIdentity);
+
+        if (!string.IsNullOrEmpty(errors))
+        {
+            Preferences.Set(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, userIdentity.Nickname);
+            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userIdentity.Nickname);
+            Preferences.Set(_IS_LOGINED, true);
+        }
+
+        return errors;
+    }
+
+    public static async Task<string> TryUpdate(string nickname,  UserUpdateRequest userUpdateRequest)
+    {
+        string errors = await Client.TryUpdateUser(nickname, userUpdateRequest);
+
+        if (string.IsNullOrEmpty(errors))
+            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userUpdateRequest.Password);        
+
+        return errors;
+    }
 
     #endregion
 }

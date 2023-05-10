@@ -41,5 +41,10 @@ public partial class MainMenuPage : ContentPage
 
     #endregion
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
 
+        if ()
+    }
 }

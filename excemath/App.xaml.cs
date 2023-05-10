@@ -1,4 +1,4 @@
-﻿using excemathApi.Models;
+﻿using excemath.Models;
 
 namespace excemath;
 

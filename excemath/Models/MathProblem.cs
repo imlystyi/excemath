@@ -1,34 +1,31 @@
 ﻿using excemath.Models;
 
-namespace excemathApi.Models;
+namespace excemath.Models;
 
 /// <summary>
-/// Представляє модель математичної проблеми, яка має унікальний ідентифікатор, тип, умову, правильний розв'язок та загальну підказку.
+/// Представляє модель математичної проблеми, яка має унікальний ідентифікатор, тип, умову, правильну відповідь та загальну підказку.
 /// </summary>
-/// <remarks>
-/// Має первинний ключ <see cref="Id"/>.
-/// </remarks>
 public class MathProblem
 {
     #region Поля
 
-    private const int ID_MIN = 1;
-    private const int MIXED_KEY_MIN = 1;
-    private const int MIXED_KEY_MAX = 5;
-    private const int BY_KIND_KEY_MIN = 1;
-    private const int BY_KIND_KEY_MAX = 3;
+    private const int _ID_MIN = 1;
+    private const int _MIXED_KEY_MIN = 1;
+    private const int _MIXED_KEY_MAX = 5;
+    private const int _BY_KIND_KEY_MIN = 1;
+    private const int _BY_KIND_KEY_MAX = 3;
 
-    private const string MIXED_KEY_PREFERENCES_KEY = "mp_m";
-    private const string MIXED_LAST_ID_PREFERENCES_KEY = "mp_m_lid";
-    private const string BY_KIND_KEY_PREFERENCES_KEY = "mp_bk";
-    private const string BY_KIND_LAST_INDEX_PREFERENCES_KEY = "mp_bk_lindex";
+    private const string _MIXED_KEY_PREFERENCES_KEY = "mp_m";
+    private const string _MIXED_LAST_ID_PREFERENCES_KEY = "mp_m_lid";
+    private const string _BY_KIND_KEY_PREFERENCES_KEY = "mp_bk";
+    private const string _BY_KIND_LAST_INDEX_PREFERENCES_KEY = "mp_bk_lindex";
 
     #endregion
 
     #region Властивості
 
     /// <summary>
-    /// Повертає унікальний ідентифікатор математичної проблеми.
+    /// Повертає або встановлює унікальний ідентифікатор математичної проблеми.
     /// </summary>
     /// <returns>
     /// Унікальний ідентифікатор математичної проблеми як <see cref="int"/>. Є первинним ключом.
@@ -36,7 +33,7 @@ public class MathProblem
     public int Id { get; set; }
 
     /// <summary>
-    /// Повертає вид математичної проблеми, представлений елементом перерахування <see cref="MathProblemKinds"/>.
+    /// Повертає або встановлює вид математичної проблеми, представлений елементом перерахування <see cref="MathProblemKinds"/>.
     /// </summary>
     /// <returns>
     /// Вид математичної проблеми як елемент перерахування <see cref="MathProblemKinds"/>.
@@ -44,7 +41,7 @@ public class MathProblem
     public MathProblemKinds Kind { get; set; }
 
     /// <summary>
-    /// Повертає питання математичної проблеми.
+    /// Повертає або встановлює питання математичної проблеми.
     /// </summary>
     /// <returns>
     /// Питання математичної проблеми як <see cref="string"/>.
@@ -52,10 +49,10 @@ public class MathProblem
     public string Question { get; set; }
 
     /// <summary>
-    /// Повертає правильний розв'язок математичної проблеми.
+    /// Повертає або встановлює правильну відповідь математичної проблеми.
     /// </summary>
     /// <returns>
-    /// Правильний розв'язок математичної проблеми як <see cref="string"/>.
+    /// Правильну відповідь математичної проблеми як <see cref="string"/>.
     /// </returns>
     public string Answer { get; set; }
 
@@ -151,7 +148,7 @@ public class MathProblem
             GenerateMixedKey(true);
             mixedKey = GetMixedKey();
 
-            id = mixedKey + ID_MIN;
+            id = mixedKey + _ID_MIN;
             SetLastMixedId(id);
 
             mathProblem = await Client.GetMathProblem(id);
@@ -187,7 +184,7 @@ public class MathProblem
             GenerateByKindKey(true);
             byKindKey = GetByKindKey();
 
-            index = byKindKey + ID_MIN;
+            index = byKindKey + _ID_MIN;
             id = ids[index];
 
             SetLastByKindIndex(index);
@@ -202,12 +199,12 @@ public class MathProblem
     /// <param name="forced">Визначає, чи треба записувати ключ у дані додатку примусово.</param>
     public static void GenerateMixedKey(bool forced = false)
     {
-        if (!Preferences.ContainsKey(MIXED_KEY_PREFERENCES_KEY) || forced)
+        if (!Preferences.ContainsKey(_MIXED_KEY_PREFERENCES_KEY) || forced)
         {
             Random random = new();
-            int mixedKey = random.Next(MIXED_KEY_MIN, MIXED_KEY_MAX);
+            int mixedKey = random.Next(_MIXED_KEY_MIN, _MIXED_KEY_MAX);
 
-            Preferences.Set(MIXED_KEY_PREFERENCES_KEY, mixedKey);
+            Preferences.Set(_MIXED_KEY_PREFERENCES_KEY, mixedKey);
         }       
     }
 
@@ -217,26 +214,26 @@ public class MathProblem
     /// <param name="forced">Визначає, чи треба записувати ключ у дані додатку примусово.</param>
     public static void GenerateByKindKey(bool forced = false)
     {
-        if (!Preferences.ContainsKey(BY_KIND_KEY_PREFERENCES_KEY) || forced)
+        if (!Preferences.ContainsKey(_BY_KIND_KEY_PREFERENCES_KEY) || forced)
         {
             Random random = new();
-            int byKindKey = random.Next(BY_KIND_KEY_MIN, BY_KIND_KEY_MAX);
+            int byKindKey = random.Next(_BY_KIND_KEY_MIN, _BY_KIND_KEY_MAX);
 
-            Preferences.Set(BY_KIND_KEY_PREFERENCES_KEY, byKindKey);
+            Preferences.Set(_BY_KIND_KEY_PREFERENCES_KEY, byKindKey);
         }
     }
 
-    private static int GetMixedKey() => Preferences.Get(MIXED_KEY_PREFERENCES_KEY, 1);
+    private static int GetMixedKey() => Preferences.Get(_MIXED_KEY_PREFERENCES_KEY, 1);
 
-    private static int GetByKindKey() => Preferences.Get(BY_KIND_KEY_PREFERENCES_KEY, 1);
+    private static int GetByKindKey() => Preferences.Get(_BY_KIND_KEY_PREFERENCES_KEY, 1);
 
-    private static int GetLastMixedId() => Preferences.Get(MIXED_LAST_ID_PREFERENCES_KEY, 1);
+    private static int GetLastMixedId() => Preferences.Get(_MIXED_LAST_ID_PREFERENCES_KEY, 1);
 
-    private static int GetLastByKindIndex() => Preferences.Get(BY_KIND_LAST_INDEX_PREFERENCES_KEY, 1);  
+    private static int GetLastByKindIndex() => Preferences.Get(_BY_KIND_LAST_INDEX_PREFERENCES_KEY, 1);  
     
-    private static void SetLastMixedId(int id) => Preferences.Set(MIXED_LAST_ID_PREFERENCES_KEY, id);
+    private static void SetLastMixedId(int id) => Preferences.Set(_MIXED_LAST_ID_PREFERENCES_KEY, id);
 
-    private static void SetLastByKindIndex(int index) => Preferences.Set(BY_KIND_LAST_INDEX_PREFERENCES_KEY, index);
+    private static void SetLastByKindIndex(int index) => Preferences.Set(_BY_KIND_LAST_INDEX_PREFERENCES_KEY, index);
 
     #endregion
 }

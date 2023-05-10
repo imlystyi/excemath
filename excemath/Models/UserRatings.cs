@@ -1,4 +1,4 @@
-﻿namespace excemathApi.Models
+﻿namespace excemath.Models
 {
     /// <summary>
     /// Представляє модель рейтингу користувача (відповідну до моделі <see cref="User"/>), яка має унікальний псевдонім і рейтинг.
