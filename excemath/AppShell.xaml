@@ -98,6 +98,10 @@
                             <GradientStop Color="#EAF0FF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MixedKindsButton_Clicked"/>
+                    </Frame.GestureRecognizers>
                     <VerticalStackLayout>
                         <Label Style="{StaticResource SummaryLabel}" Text="Суміш видів" FontSize="20" Padding="0,-5,0,0"/>
                         <Label Style="{StaticResource DetailsLabel}" Text="Розв'язуй абсолютно випадково проблему. Обережно: може бути складно!"/>
