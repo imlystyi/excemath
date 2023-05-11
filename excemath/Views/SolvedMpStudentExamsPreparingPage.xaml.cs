@@ -1,8 +1,8 @@
 namespace excemath.Views;
 
-public partial class MpStudentExamsPreparingPage : ContentPage
+public partial class SolvedMpStudentExamsPreparingPage : ContentPage
 {
-	public MpStudentExamsPreparingPage()
+	public SolvedMpStudentExamsPreparingPage()
 	{
 		InitializeComponent();
 	}

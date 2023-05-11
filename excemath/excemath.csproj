@@ -71,9 +71,6 @@
 	  <Compile Update="Views\MpLevelsPage.xaml.cs">
 	    <DependentUpon>MpLevelsPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\MainMenuPage.xaml.cs">
-	    <DependentUpon>MainMenuPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\MpAnswerEnteringPage.xaml.cs">
 	    <DependentUpon>MpAnswerEnteringPage.xaml</DependentUpon>
 	  </Compile>
@@ -105,9 +102,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MpLevelsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\MainMenuPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MpAnswerEnteringPage.xaml">

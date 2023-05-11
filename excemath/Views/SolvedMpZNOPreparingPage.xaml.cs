@@ -1,8 +1,8 @@
 namespace excemath.Views;
 
-public partial class MpZNOPreparingPage : ContentPage
+public partial class SolvedMpZNOPreparingPage : ContentPage
 {
-	public MpZNOPreparingPage()
+	public SolvedMpZNOPreparingPage()
 	{
 		InitializeComponent();
 	}
