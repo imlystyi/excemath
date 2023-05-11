@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\fi-rr-arrow-small-left.png" />
+	  <None Remove="Resources\Images\help_icon.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

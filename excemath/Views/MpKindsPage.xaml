@@ -1,7 +1,272 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="excemath.Views.MpKindsPage"
-             Title="Один вид">
+             x:Class="excemath.Views.MpKindsPage">
 
+    <ScrollView>
+        <VerticalStackLayout Spacing="5">
+            <Label Style="{StaticResource TitleLabel}" Text="Вибір виду"/>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Табличні інтеграли"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Кратні інтеграли"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Криволінійні інтеграли"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Матриці"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Границі"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Лінійні рівняння"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Квадратні рівняння"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Ірраціональні рівняння"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Показникові рівняння"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Логарифмічні рівняння"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Тригонометричні рівняння"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Лінійні нерівності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Квадратичні нерівності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Ірраціональні нерівності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Показникові нерівності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Логарифмічні нерівності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Тригонометричні нерівності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Числові послідовності"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Функції"/>
+            </Frame>
+
+            <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20"
+                       Margin="20,0,20,5">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <Label Style="{StaticResource SummaryLabel}" Text="Комбінаторика"/>
+            </Frame>
+            
+        </VerticalStackLayout>        
+    </ScrollView>
 </ContentPage>

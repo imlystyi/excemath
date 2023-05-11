@@ -1,4 +1,6 @@
-﻿namespace excemath;
+﻿using excemath.Views;
+
+namespace excemath;
 
 public partial class AppShell : Shell
 {
@@ -8,4 +10,8 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(Views.MpAnswerEnteringPage), typeof(Views.MpAnswerEnteringPage));
     }
+
+    private void MpMixedButton_Clicked(object sender, EventArgs args) => Current.GoToAsync($"{nameof(MpAnswerEnteringPage)}?{nameof(MpAnswerEnteringPage.ItemValue)}=m");
+
+    private void ChooseKindButton_Clicked(object sender, TappedEventArgs args) => Navigation.PushAsync(new MpKindsPage());
 }
