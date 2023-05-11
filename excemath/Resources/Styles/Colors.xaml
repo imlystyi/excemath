@@ -48,7 +48,7 @@
     <!--#region Власні кольори -->
 
     <Color x:Key="PageBackground">#F0F6FF</Color>
-    
+    <Color x:Key="DarkTextColor">#01003D</Color>
     
 
 

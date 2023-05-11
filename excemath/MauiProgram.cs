@@ -19,6 +19,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("Comfortaa-Light.ttf", "ComfortaLight");
                 fonts.AddFont("JosefinSans-Medium.ttf", "JosefinSansMedium");
+				fonts.AddFont("Montserrat-Regular.ttf", "Regular");
+                fonts.AddFont("Montserrat-ExtraLight.ttf", "ExtraLight");
+                fonts.AddFont("Montserrat-Light.ttf", "Light");
+				fonts.AddFont("Montserrat-Bold.ttf", "Bold");
             });
 
 #if DEBUG

@@ -405,9 +405,7 @@
     
     <!--#endregion-->
     
-    <!--#region Власні стилі-->
-
-    
+    <!--#region Власні стилі-->    
 
     <Style TargetType="Button" x:Key="MainMenuButton">
         <Setter Property="HeightRequest" Value="126"/>
@@ -419,7 +417,6 @@
         <Setter Property="TextColor" Value="#022C4E"/>
         <Setter Property="FontFamily" Value="ComfortaLight"/>
         <Setter Property="VerticalOptions" Value="Center"/>
-
     </Style>
 
     <Style TargetType="Button" x:Key="SettingsButton">
@@ -429,8 +426,6 @@
         <Setter Property="CornerRadius" Value="15"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextColor" Value="Black"/>
-
-
     </Style>
 
     <Style TargetType="Border" x:Key="TitleBar">
@@ -438,22 +433,17 @@
         <Setter Property="HeightRequest" Value="100"/>
         <Setter Property="BackgroundColor" Value="white"/>
         <Setter Property="Stroke" Value="white"/>
-
     </Style>
 
     <Style TargetType="Label" x:Key="TitleBarLabel">
         <Setter Property="Margin" Value="40,0,0,0"/>
         <Setter Property="TextColor" Value="#022C4E"/>
         <Setter Property="FontFamily" Value="JosefinSansMedium"/>
-
-
     </Style>
 
     <Style TargetType="ImageButton" x:Key="Icon">
         <Setter Property="HeightRequest" Value="40"/>
         <Setter Property="WidthRequest" Value="40"/>
-
-
     </Style>
 
     <Style TargetType="Button" x:Key="LevelButtons">
@@ -464,9 +454,38 @@
         <Setter Property="BackgroundColor" Value="#6BA4DF"/>
         <Setter Property="TextColor" Value="Black"/>
         <Setter Property="FontSize" Value="30"/>
-
     </Style>
 
+    <Style TargetType="Label" x:Key="TitleLabel">
+        <Setter Property="FontFamily" Value="Bold"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+        <Setter Property="Margin" Value="25,20,5,20"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SummaryLabel">
+        <Setter Property="FontFamily" Value="Light"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="DetailsLabelLight">
+        <Setter Property="FontFamily" Value="ExtraLight"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+    </Style>    
+    
+    <Style TargetType="Label" x:Key="DetailsLabel">
+        <Setter Property="FontFamily" Value="Light"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="CategoriesLabel">
+        <Setter Property="FontFamily" Value="Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+    </Style>
 
     <!--#endregion-->
 </ResourceDictionary>
