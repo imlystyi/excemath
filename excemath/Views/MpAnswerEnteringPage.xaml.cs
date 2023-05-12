@@ -113,8 +113,8 @@ public partial class MpAnswerEnteringPage : ContentPage
             MathProblem _NO_SSL_mathProblem_ = new()
             {
                 Id = 1,
-                Question = "",
-                Answer = "",
+                Question = @"Розв'яжіть інтеграл /expr \int_{0}^{1} x^2 dx",
+                Answer = @"2 /opt \\\frac{1}{6}\\\frac{1}{3}\\\frac{1}{9}\\\frac{1}{27}",
                 Kind = MathProblemKinds.TableIntegral
             };
 
