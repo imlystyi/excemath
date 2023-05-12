@@ -7,33 +7,30 @@
              
              Title="Налаштування">
 
-    <VerticalStackLayout  Spacing="30" VerticalOptions="Start">
-        <Border Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="100" 
-                BackgroundColor="#F2F2F2" >
-
-            <Label Margin="40,0,0,0"
-               VerticalOptions="Center"
-               Text="Налаштування"
-               TextColor="Black"
-               Grid.Column="0"
-               FontSize="30"
-               FontAttributes="Bold"/>
-
-        </Border>
-        
-        <HorizontalStackLayout>
-            <Image Source="reset_achievem_icon.svg" Margin="20"/>
-            <Button Style="{StaticResource SettingsButton}"
-                    Text="Скинути досягнення"/>
-        </HorizontalStackLayout>
-        
-        <HorizontalStackLayout>
-            <Image Source="about_program_icon.svg" Margin="20"/>
-            <Button Style="{StaticResource SettingsButton}"
-                Text="Про програму"
-                Clicked="AboutProgramButton_Clicked"/>
+    <VerticalStackLayout  Spacing="50" VerticalOptions="Start">
+        <HorizontalStackLayout Spacing="20">
+            <ImageButton Source="back_icon.svg" HeightRequest="40" WidthRequest="40" />
+            <Label Style="{StaticResource TitleLabel}"
+               Text="Налаштування" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+           
         </HorizontalStackLayout>
 
+        <Frame BorderColor="{StaticResource DarkTextColor}"  HeightRequest="100" WidthRequest="360">
+         
+            <HorizontalStackLayout>
+                <Label Style="{StaticResource SummaryLabel}" FontSize="23" Text="Скинути досягнення" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Image Source="reset_achievem_icon.svg"  HorizontalOptions="End"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{StaticResource DarkTextColor}" HeightRequest="100" WidthRequest="360">
+            <HorizontalStackLayout>
+                <Label Style="{StaticResource SummaryLabel}" FontSize="26" Text="Змінити пароль" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Image Source="change_password_icon.svg" HorizontalOptions="End" />
+            </HorizontalStackLayout>
+        </Frame>
     </VerticalStackLayout>
 
 </ContentPage>
