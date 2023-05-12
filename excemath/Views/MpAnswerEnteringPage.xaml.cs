@@ -43,6 +43,7 @@ public partial class MpAnswerEnteringPage : ContentPage
 
     #region Обробники подій    
 
+    //private void HintButton_Clicked(object sender, EventArgs e) => Navigation.PushAsync(new HintPage());
     private void QuestionCanvas_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
     {
         SKSurface surface = args.Surface;
@@ -149,5 +150,10 @@ public partial class MpAnswerEnteringPage : ContentPage
         MpTopic.Text = ConvertKindToTopic(_mathProblem.Kind);
     }
 
+
+
     #endregion
+
+    
+    
 }
