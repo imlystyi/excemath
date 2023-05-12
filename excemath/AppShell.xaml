@@ -22,7 +22,7 @@
         <VerticalStackLayout>
             <HorizontalStackLayout Spacing="5">
                 <Label Style="{StaticResource TitleLabel}" Text="Головне меню" Padding="0,0,50,0"/>
-                <ImageButton Source="settings_icon.svg" HeightRequest="40" WidthRequest="40"/>
+                <ImageButton Source="settings_icon.svg" HeightRequest="40" WidthRequest="40" Clicked="SettingsButton_Clicked"/>
                 <ImageButton Source="help_icon.svg" HeightRequest="40" WidthRequest="40" Clicked="HowToUseButton_Clicked"/>
             </HorizontalStackLayout>
 
@@ -35,6 +35,11 @@
                                 <GradientStop Color="#8BACFF" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
+                        
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ProfileButton_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        
                         <VerticalStackLayout WidthRequest="160">
                             <Label Style="{StaticResource SummaryLabel}" Text="Твій профіль" Margin ="10,-5,0,0"/>                            
                             <Label Style ="{StaticResource DetailsLabelLight}" Text="Подивись власні досягнення" Margin="10,0,0,0"/>
@@ -48,6 +53,11 @@
                                 <GradientStop Color="#8BACFF" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
+                        
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AchievementsButton_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        
                         <VerticalStackLayout WidthRequest="160">
                             <Label Style="{StaticResource SummaryLabel}" Text="Таблиця лідерів" Margin ="10,-5,0,0"/>
                             <Label Style ="{StaticResource DetailsLabelLight}" Text="Подивись досягнення інших" Margin="10,0,0,0"/>

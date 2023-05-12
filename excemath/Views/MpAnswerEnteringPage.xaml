@@ -5,41 +5,59 @@
              x:Class="excemath.Views.MpAnswerEnteringPage"
              x:DataType="Grid"             
              Title="Суміш видів"
-             BackgroundColor="{StaticResource PageBackground}">
+             BackgroundColor="White">
     
-    <StackLayout>
+    <StackLayout Spacing="20">
+        
+        <HorizontalStackLayout Spacing="15">
+        <ImageButton Source="back_icon.svg" HeightRequest="40" WidthRequest="40" />
         <Label x:Name ="MpTopic" 
                Text="Інтеграл" 
+               TextColor="{StaticResource DarkTextColor}"
                FontSize="24" 
                FontAttributes="Bold" 
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
+        <ImageButton Source="hint_icon.svg" HeightRequest="40" WidthRequest="40" />
+        </HorizontalStackLayout>
         
+        <Frame WidthRequest="380" HeightRequest="370" BackgroundColor="#F1F6FA" BorderColor="#F1F6FA">
         <skia:SKCanvasView x:Name="QuestionCanvas"
                            PaintSurface="QuestionCanvas_PaintSurface"
-                           VerticalOptions="FillAndExpand"/>
+                           VerticalOptions="CenterAndExpand" HeightRequest="200" BackgroundColor="#F1F6FA" />
+        </Frame>
 
-        <skia:SKCanvasView x:Name="answerCanvas"
-                           PaintSurface="AnswerCanvas_PaintSurface"
-                           VerticalOptions="FillAndExpand"/>
-
-        <VerticalStackLayout>
-            <RadioButton Content="1."
+        
+        <HorizontalStackLayout Margin ="20,0,0,30"  VerticalOptions="CenterAndExpand">
+            <VerticalStackLayout  VerticalOptions="Center" Spacing="5" BackgroundColor="White">
+                <RadioButton Content="1."
                          CheckedChanged="Option1_CheckedChanged"/>
-            
-            <RadioButton Content="2."
-                         CheckedChanged="Option2_CheckedChanged"/>            
-            
-            <RadioButton Content="3."
-                         CheckedChanged="Option3_CheckedChanged"/>            
-            
-            <RadioButton Content="4."
+
+                <RadioButton Content="2."
+                         CheckedChanged="Option2_CheckedChanged"/>
+
+                <RadioButton Content="3."
+                         CheckedChanged="Option3_CheckedChanged"/>
+
+                <RadioButton Content="4."
                          CheckedChanged="Option4_CheckedChanged"/>
-        </VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="OK"
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="OkButton_Clicked"/>
+            </VerticalStackLayout>
+            
+            <skia:SKCanvasView x:Name="answerCanvas"
+                           PaintSurface="AnswerCanvas_PaintSurface"
+                           VerticalOptions="CenterAndExpand"  WidthRequest="100"  BackgroundColor="White"/>
+
+       
         </HorizontalStackLayout>
+
+        
+            <Button Text="OK"
+                    TextColor="{StaticResource DarkTextColor}"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    BorderWidth="2" BorderColor="#F1F6FA"  BackgroundColor="White"
+                    HeightRequest="90" WidthRequest="250"
+                    Clicked="OkButton_Clicked"/>
+        
     </StackLayout>
 </ContentPage>
