@@ -1,11 +1,22 @@
-﻿using SkiaSharp.Views.Maui.Controls.Hosting;
+﻿using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
 
 namespace excemath;
 
+/// <summary>
+/// Представляє можливості для ініціалізації додатку.
+/// </summary>
 public static class MauiProgram
 {
+    #region Методи
+
+	/// <summary>
+	/// Ініціалізує додаток, використовуючи заданий в коді <see cref="MauiAppBuilder"/>.
+	/// </summary>
+	/// <returns>
+	/// Додаток як <see cref="MauiApp"/>.
+	/// </returns>
     public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
@@ -31,4 +42,6 @@ public static class MauiProgram
 
 		return builder.Build();
 	}
+
+    #endregion
 }

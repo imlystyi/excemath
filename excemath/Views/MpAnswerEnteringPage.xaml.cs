@@ -93,13 +93,20 @@ public partial class MpAnswerEnteringPage : ContentPage
         }
     }
 
-    private void Option1_CheckedChanged(object sender, CheckedChangedEventArgs e) => _answer = 1;
+    private void Option1_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 1;
 
-    private void Option2_CheckedChanged(object sender, CheckedChangedEventArgs e) => _answer = 2;
+    private void Option2_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 2;
 
-    private void Option3_CheckedChanged(object sender, CheckedChangedEventArgs e) => _answer = 3;
+    private void Option3_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 3;
 
-    private void Option4_CheckedChanged(object sender, CheckedChangedEventArgs e) => _answer = 4;
+    private void Option4_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 4;
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        MpTopic.Text = ConvertKindToTopic(_mathProblem.Kind);
+    }
 
     #endregion
 
@@ -115,7 +122,7 @@ public partial class MpAnswerEnteringPage : ContentPage
             {
                 Id = 1,
                 Question = @"Розв'яжіть інтеграл /expr \int_{0}^{1} x^2 dx",
-                Answer = @"2 /opt \\\frac{1}{6}\\\frac{1}{3}\\\frac{1}{9}\\\frac{1}{27}",
+                Answer = @"2 /opt \frac{1}{6}\\\\\frac{1}{3}\\\\\frac{1}{9}\\\\\frac{1}{27}",
                 Kind = MathProblemKinds.TableIntegral
             };
 
@@ -139,21 +146,5 @@ public partial class MpAnswerEnteringPage : ContentPage
         };
     }
 
-#endregion
-
-    #region Перезаписані обробники подій
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-
-        MpTopic.Text = ConvertKindToTopic(_mathProblem.Kind);
-    }
-
-
-
     #endregion
-
-    
-    
 }

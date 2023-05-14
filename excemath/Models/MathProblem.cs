@@ -3,7 +3,7 @@
 namespace excemath.Models;
 
 /// <summary>
-/// Представляє модель математичної проблеми, яка має унікальний ідентифікатор, тип, умову, правильну відповідь та загальну підказку.
+/// Представляє математичну задачу, яка має унікальний ідентифікатор, вид, питання та правильну відповідь.
 /// </summary>
 public class MathProblem
 {
@@ -25,43 +25,31 @@ public class MathProblem
     #region Властивості
 
     /// <summary>
-    /// Повертає або встановлює унікальний ідентифікатор математичної проблеми.
+    /// Повертає або встановлює унікальний ідентифікатор поточної задачі.
     /// </summary>
-    /// <returns>
-    /// Унікальний ідентифікатор математичної проблеми як <see cref="int"/>. Є первинним ключом.
-    /// </returns>
+    /// <remarks>
+    /// Є первинним ключом.
+    /// </remarks>
     public int Id { get; set; }
 
     /// <summary>
-    /// Повертає або встановлює вид математичної проблеми, представлений елементом перерахування <see cref="MathProblemKinds"/>.
+    /// Повертає або встановлює вид поточної задачі, який представлений елементом перерахування <see cref="MathProblemKinds"/>.
     /// </summary>
-    /// <returns>
-    /// Вид математичної проблеми як елемент перерахування <see cref="MathProblemKinds"/>.
-    /// </returns>
     public MathProblemKinds Kind { get; set; }
 
     /// <summary>
-    /// Повертає або встановлює питання математичної проблеми.
+    /// Повертає або встановлює питання поточної задачі.
     /// </summary>
-    /// <returns>
-    /// Питання математичної проблеми як <see cref="string"/>.
-    /// </returns>
     public string Question { get; set; }
 
     /// <summary>
-    /// Повертає або встановлює правильну відповідь математичної проблеми.
+    /// Повертає або встановлює правильну відповідь поточної задачі.
     /// </summary>
-    /// <returns>
-    /// Правильну відповідь математичної проблеми як <see cref="string"/>.
-    /// </returns>
     public string Answer { get; set; }
 
     /// <summary>
-    /// Повертає загальну підказку математичної проблеми.
+    /// Повертає загальну підказку до математичної задачі.
     /// </summary>
-    /// <returns>
-    /// Загальну підказку математичної проблеми як <see cref="string"/>.
-    /// </returns>
     public string Tip =>
             // TODO: розписати підказки (використовуючи LaTeX).
             Kind switch
@@ -98,50 +86,35 @@ public class MathProblem
     #region Методи
 
     /// <summary>
-    /// Повертає текстову частину запитання математичної проблеми.
+    /// Повертає текстову частину питання математичної задачі як <see cref="string"/>.
     /// </summary>
-    /// <returns>
-    /// Текстову частину запитання математичної проблеми як <see cref="string"/>.
-    /// </returns>
     public string GetQuestionText() => Question.Split(new[] { @"/expr" }, StringSplitOptions.None).First();
 
     /// <summary>
-    /// Повертає LaTeX-частину запитання математичної проблеми.
+    /// Повертає LaTeX-частину запитання математичної задачі як <see cref="string"/>.
     /// </summary>
-    /// <returns>
-    /// LaTeX-частину запитання математичної проблеми як <see cref="string"/>.
-    /// </returns>
     public string GetQuestionLatex() => Question.Split(new[] { @"/expr" }, StringSplitOptions.None).Last();
 
     /// <summary>
-    /// Повертає номер правильної відповіді серед варіантів відповідей.
+    /// Повертає номер правильної відповіді математичної задачі серед варіантів відповідей як <see cref="int"/>.
     /// </summary>
-    /// <returns>
-    /// Номер правильної відповіді.
-    /// </returns>
     public int GetAnswer() => int.Parse(Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).First());
 
     /// <summary>
-    /// Повертає варіанти відповіді у форматі LaTeX.
+    /// Повертає варіанти відповіді у форматі LaTeX як <see cref="string"/>.
     /// </summary>
-    /// <returns>
-    /// Варіанти відповіді у форматі LaTeX як <see cref="string"/>.
-    /// </returns>
     public string GetAnswerOptions() => Answer.Split(new[] {@"/opt"}, StringSplitOptions.None).Last();
 
     /// <summary>
-    /// Повертає випадкову математичну проблему.
+    /// Повертає випадкову математичну задачу як <see cref="MathProblem"/>.
     /// </summary>
-    /// <returns>
-    /// Математичну проблему як <see cref="MathProblem"/> (результат виконання відповідного <see cref="Task{TResult}"/>).
-    /// </returns>
     public static async Task<MathProblem> GetMixed()
     {
         int mixedKey = GetMixedKey();
         int lastMathProblemId = GetLastMixedId();        
         int id = mixedKey + lastMathProblemId;
 
-        MathProblem mathProblem = await Client.GetMathProblem(id);
+        MathProblem mathProblem = await ApiClient.GetMathProblem(id);
 
         while (mathProblem == null)
         {
@@ -151,26 +124,23 @@ public class MathProblem
             id = mixedKey + _ID_MIN;
             SetLastMixedId(id);
 
-            mathProblem = await Client.GetMathProblem(id);
+            mathProblem = await ApiClient.GetMathProblem(id);
         }
 
         return mathProblem;
     }
 
     /// <summary>
-    /// Повертає випадкову математичну проблему вказаного виду.
+    /// Повертає випадкову математичну проблему вказаного виду як <see cref="MathProblem"/>.
     /// </summary>
     /// <param name="kind">Вид математичної проблеми.</param>
-    /// <returns>
-    /// Математичну проблему як <see cref="MathProblem"/> (результат виконання відповідного <see cref="Task{TResult}"/>).
-    /// </returns>
     public static async Task<MathProblem> GetByKind(MathProblemKinds kind)
     {
         int byKindKey = GetByKindKey();
         int lastMathProblemIndex = GetLastByKindIndex();
         int index = byKindKey + lastMathProblemIndex;
 
-        List<int> ids = await Client.GetMathProblemsIdsList(kind);
+        List<int> ids = await ApiClient.GetMathProblemsIdsList(kind);
 
         int id;
 
@@ -190,7 +160,7 @@ public class MathProblem
             SetLastByKindIndex(index);
         }
         
-        return await Client.GetMathProblem(id);        
+        return await ApiClient.GetMathProblem(id);        
     }
 
     /// <summary>

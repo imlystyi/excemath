@@ -3,61 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"             
              x:Class="excemath.Views.MpAnswerEnteringPage"
-             x:DataType="Grid"             
-             Title="Суміш видів"
+             x:DataType="Grid"
              BackgroundColor="White">
     
     <StackLayout Spacing="20">
-        
         <HorizontalStackLayout Spacing="15">
-        <ImageButton Source="back_icon.svg" HeightRequest="40" WidthRequest="40" />
-        <Label x:Name ="MpTopic" 
-               Text="Інтеграл" 
-               TextColor="{StaticResource DarkTextColor}"
-               FontSize="24" 
-               FontAttributes="Bold" 
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <ImageButton Source="hint_icon.svg" HeightRequest="40" WidthRequest="40" />
+            <Label x:Name ="MpTopic" Style="{StaticResource TitleLabel}" Text="Інтеграл" HorizontalOptions="Start"/>
+            <ImageButton Source="hint_icon.svg" HeightRequest="40" WidthRequest="40" HorizontalOptions="End"/>
         </HorizontalStackLayout>
-        
-        <Frame WidthRequest="380" HeightRequest="370" BackgroundColor="#F1F6FA" BorderColor="#F1F6FA">
-        <skia:SKCanvasView x:Name="QuestionCanvas"
-                           PaintSurface="QuestionCanvas_PaintSurface"
-                           VerticalOptions="CenterAndExpand" HeightRequest="200" BackgroundColor="#F1F6FA" />
+
+        <Label x:Name="MpQuestionText" Style="{StaticResource SummaryLabel}" Text="Обчисліть подвійний інтеграл і що треба " Margin="25,0,0,0"/>
+
+        <Frame WidthRequest="360" HeightRequest="200" BackgroundColor="#F7F7F7" CornerRadius="25">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <skia:SKCanvasView x:Name="QuestionCanvas"
+                               PaintSurface="QuestionCanvas_PaintSurface"
+                               VerticalOptions="CenterAndExpand" 
+                               HeightRequest="200" 
+                               BackgroundColor="#F7F7F7">
+                <skia:SKCanvasView.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </skia:SKCanvasView.Background>
+            </skia:SKCanvasView>
+        </Frame>        
+
+        <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer/>
+            </Frame.GestureRecognizers>
+            
+            <Label Style="{StaticResource SummaryLabel}" Text="Надіслати відповідь" FontSize="20" HorizontalOptions="Center"/>
         </Frame>
 
-        
-        <HorizontalStackLayout Margin ="20,0,0,30"  VerticalOptions="CenterAndExpand">
-            <VerticalStackLayout  VerticalOptions="Center" Spacing="5" BackgroundColor="White">
-                <RadioButton Content="1."
-                         CheckedChanged="Option1_CheckedChanged"/>
-
-                <RadioButton Content="2."
-                         CheckedChanged="Option2_CheckedChanged"/>
-
-                <RadioButton Content="3."
-                         CheckedChanged="Option3_CheckedChanged"/>
-
-                <RadioButton Content="4."
-                         CheckedChanged="Option4_CheckedChanged"/>
+        <HorizontalStackLayout Margin ="20,0,0,60"  VerticalOptions="CenterAndExpand">
+            <VerticalStackLayout  VerticalOptions="Center" Spacing="7" BackgroundColor="White">
+                <RadioButton CheckedChanged="Option1_CheckedChanged"/>
+                <RadioButton CheckedChanged="Option2_CheckedChanged"/>
+                <RadioButton CheckedChanged="Option3_CheckedChanged"/>
+                <RadioButton CheckedChanged="Option4_CheckedChanged"/>
             </VerticalStackLayout>
-            
+
             <skia:SKCanvasView x:Name="answerCanvas"
                            PaintSurface="AnswerCanvas_PaintSurface"
                            VerticalOptions="CenterAndExpand"  WidthRequest="100"  BackgroundColor="White"/>
-
-       
         </HorizontalStackLayout>
-
-        
-            <Button Text="OK"
-                    TextColor="{StaticResource DarkTextColor}"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    BorderWidth="2" BorderColor="#F1F6FA"  BackgroundColor="White"
-                    HeightRequest="90" WidthRequest="250"
-                    Clicked="OkButton_Clicked"/>
-        
     </StackLayout>
 </ContentPage>
