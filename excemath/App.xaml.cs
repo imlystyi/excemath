@@ -1,11 +1,18 @@
 ﻿using excemath.Models;
-using excemath.Views;
 
 namespace excemath;
 
+/// <summary>
+/// Представляє ядро додатку.
+/// </summary>
 public partial class App : Application
 {
-	public App()
+    #region Конструктори
+
+    /// <summary>
+    /// Створює екземпляр класу <see cref="App"/>.
+    /// </summary>
+    public App()
 	{
 		InitializeComponent();
 
@@ -14,4 +21,6 @@ public partial class App : Application
 		MathProblem.GenerateMixedKey();
 		MathProblem.GenerateByKindKey();
 	}
+
+    #endregion
 }

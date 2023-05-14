@@ -5,12 +5,12 @@ using FluentValidation.Results;
 namespace excemath.Models
 {
     /// <summary>
-    /// Представляє HTTP-клієнт для роботи з <i>excemath API</i>, який дозволяє отримувати відповіді.
+    /// Представляє HTTP-клієнт для роботи з <i>excemath API</i>.
     /// </summary>
     /// <remarks>
     /// Детальніше про <i>excemath API</i>: <see href="https://github.com/miu-miu-enjoyers/excemath-api"/>.
     /// </remarks>
-    public static class Client
+    public static class ApiClient
     {
         #region Поля
 
@@ -25,15 +25,14 @@ namespace excemath.Models
 
 #nullable enable
 
-        #region Методи для отримання математичних проблем
+        #region Методи для отримання математичних задач
 
         /// <summary>
-        /// Повертає список ідентифікаторів математичних проблем за вказаним видом.  
+        /// Повертає список ідентифікаторів об'єктів класу <see cref="MathProblem"/> за вказаним видом.
         /// </summary>
-        /// <param name="kind">Вид математичної проблеми.</param>
+        /// <param name="kind">Вид математичної задачі.</param>
         /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та за видом знайдено принаймні одну математичну проблему, то список знайдених ідентифікаторів математичних проблем як <see cref="List{T}"/> з <see cref="int"/>;<br>
-        /// інакше, <see langword="null"/>.</br>
+        /// Якщо сервер повернув принаймні один ідентифікатор, то список знайдених ідентифікаторів як <see cref="List{T}"/> з <see cref="int"/>; інакше, <see langword="null"/>.
         /// </returns>
         public async static Task<List<int>?> GetMathProblemsIdsList(MathProblemKinds kind)
         {
@@ -51,11 +50,11 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Повертає конкретну математичну проблему за вказаним ідентифікатором.
+        /// Повертає конкретний об'єкт класу <see cref="MathProblem"/> за вказаним ідентифікатором.
         /// </summary>
-        /// <param name="id">Ідентифікатор математичної проблеми.</param>
+        /// <param name="id">Ідентифікатор математичної задачі.</param>
         /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та математичну проблему знайдено, то математичну проблему як <see cref="MathProblem"/>; інакше, <see langword="null"/>.
+        /// Якщо сервер повернув об'єкт, його як <see cref="MathProblem"/>; інакше, <see langword="null"/>.
         /// </returns>
         public async static Task<MathProblem?> GetMathProblem(int id)
         {
@@ -74,35 +73,14 @@ namespace excemath.Models
 
         #endregion
 
-        #region Методи для отримання розв'язаних математичних проблем
+        #region Методи для отримання розв'язаних математичних задач
 
         /// <summary>
-        /// Повертає список розв'язаних математичних проблем за вказаним списком ідентифікаторів.
+        /// Повертає список ідентифікаторів об'єктів класу <see cref="SolvedMathProblem"/> за вказаним видом.
         /// </summary>
-        /// <param name="ids">Список ідентифікаторів розв'язаних математичних проблем.</param>
+        /// <param name="kind">Вид розв'язаної математичної задачі.</param>
         /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та за ідентифікатором знайдено принаймні одну розв'язану математичну проблему, то список розв'язаних математичних проблем як <see cref="List{SolvedMathProblem}"/> з елементів <see cref="SolvedMathProblem"/>;<br>
-        /// інакше, <see langword="null"/>.</br>
-        /// </returns>
-        public async static Task<List<SolvedMathProblem>?> GetSolvedMathProblemsList(List<int> ids)
-        {
-            string query = ids.Select(i => $"ids={i}").Aggregate((j, k) => $"{j}&{k}");
-            string url = $"{urlBase}/SolvedMathProblemsGet/ids_list?{query}";
-
-            HttpResponseMessage response = await _client.GetAsync(url);
-
-            return response.IsSuccessStatusCode
-                ? JsonConvert.DeserializeObject<List<SolvedMathProblem>>(await response.Content.ReadAsStringAsync())
-                : null;
-        }
-
-        /// <summary>
-        /// Повертає список розв'язаних математичних проблем за вказаним видом.
-        /// </summary>
-        /// <param name="kind">Вид розв'язаної математичної проблеми.</param>
-        /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та за видом знайдено принаймні одну розв'язану математичну проблему, то список розв'язаних математичних проблем як <see cref="List{SolvedMathProblem}"/> з елементів <see cref="SolvedMathProblem"/>;<br>
-        /// інакше, <see langword="null"/>.</br>
+        /// Якщо сервер повернув принаймні один ідентифікатор, то список знайдених ідентифікаторів як <see cref="List{T}"/> з <see cref="int"/>; інакше, <see langword="null"/>.
         /// </returns>
         public async static Task<List<SolvedMathProblem>?> GetSolvedMathProblemsList(MathProblemKinds kind)
         {
@@ -116,11 +94,11 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Повертає конкретну розв'язану математичну проблему за вказаним ідентифікатором.
+        /// Повертає конкретний об'єкт класу <see cref="SolvedMathProblem"/> за вказаним ідентифікатором.
         /// </summary>
-        /// <param name="id">Ідентифікатор розв'язаної математичної проблеми.</param>
+        /// <param name="id">Ідентифікатор розв'язаної математичної задачі.</param>
         /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та розв'язану проблему знайдено, то розв'язану математичну проблему як <see cref="MathProblem"/>; інакше, <see langword="null"/>.
+        /// Якщо сервер повернув об'єкт, його як <see cref="SolvedMathProblem"/>; інакше, <see langword="null"/>.
         /// </returns>
         public async static Task<SolvedMathProblem?> GetSolvedMathProblem(int id)
         {
@@ -141,7 +119,7 @@ namespace excemath.Models
         /// Повертає рейтинговий список користувачів.
         /// </summary>
         /// <returns>
-        /// Список користувачів як <see cref="List{T}"/> з елементів <see cref="UserRating"/>.
+        /// Рейтинговий список користувачів як <see cref="List{T}"/> з <see cref="UserRating"/>.
         /// </returns>
         public async static Task<List<UserRating>> GetRatingList()
         {
@@ -153,11 +131,11 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Повертає конкретного користувача за вказаним псевдонімом.
+        /// Повертає конкретний об'єкт класу <see cref="UserGetRequest"/> за вказаним псевдонімом.
         /// </summary>
         /// <param name="nickname">Псевдонім користувача.</param>
         /// <returns>
-        /// Якщо відповідь HTTP-сервера є успішною та користувача знайдено, то користувача як <see cref="UserGetRequest"/>; інакше, <see langword="null"/>.
+        /// Якщо сервер повернув об'єкт, його як <see cref="UserGetRequest"/>; інакше, <see langword="null"/>.
         /// </returns>
         public async static Task<UserGetRequest?> GetUser(string nickname)
         {
@@ -177,9 +155,9 @@ namespace excemath.Models
         #region Методи автентифікації
 
         /// <summary>
-        /// Повертає успішність авторизації користувача, визначивши її за вказаною моделлю ідентичності.
+        /// Повертає інформацію про успішність авторизації користувача, визначивши її за вказаною ідентичністю користувача (об'єктом класу <see cref="UserIdentity"/>).
         /// </summary>
-        /// <param name="userIdentity">Модель ідентичності користувача.</param>
+        /// <param name="userIdentity">Ідентичність користувача.</param>
         /// <returns>
         /// Якщо авторизація пройшла успішно, <see langword="true"/>; інакше, <see langword="false"/>.
         /// </returns>
@@ -198,9 +176,9 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Реєструє користувача за вказаною моделлю ідентичності (додає його в фізичну базу даних).
+        /// Реєструє користувача, використовуючи вказану ідентичність користувача (об'єкт класу <see cref="UserIdentity"/>).
         /// </summary>
-        /// <param name="userIdentity">Модель ідентичності користувача.</param>
+        /// <param name="userIdentity">Ідентичність користувача.</param>
         /// <returns>
         /// Якщо реєстрація пройшла успішно, то <see cref="string.Empty"/>; інакше, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API.
         /// </returns>
@@ -226,13 +204,13 @@ namespace excemath.Models
         }
 
         /// <summary>
-        /// Оновлює дані користувача за його псевдонімом та вказаною моделлю запиту оновлення.
+        /// Оновлює дані користувача за його псевдонімом, використовуючи вказаного користувача для запиту оновлення (об'єкт класу <see cref="UserUpdateRequest"/>).
         /// </summary>
         /// <param name="nickname">Псевдонім користувача.</param>
-        /// <param name="userUpdateRequest">Модель користувача запиту оновлення.</param>
-        /// <returns>Якщо оновлення пройшло успішно, то <see cref="string.Empty"/>; 
-        /// <br>інакше, якщо користувача з таким нікнеймом не знайдено, то <c>"404"</c>як <see cref="string"/>;</br>
-        /// <br>інакше, якщо користувача знайдено, але оновлення не пройшло успішно, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API</br></returns>
+        /// <param name="userUpdateRequest">Користувач для запиту оновлення.</param>
+        /// <returns>
+        /// Якщо оновлення пройшло успішно, то <see cref="string.Empty"/>; інакше, якщо користувача з таким псевдонімом не знайдено, повідомлення про таку помилку як <see cref="string"/>; інакше, якщо користувача знайдено, але оновлення не пройшло успішно, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API
+        /// </returns>
         public static async Task<string> TryUpdateUser(string nickname, UserUpdateRequest userUpdateRequest)
         {
             Dictionary<string, string> parameters = new()
@@ -250,7 +228,7 @@ namespace excemath.Models
                 return string.Empty;
 
             else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return "Користувача з таким псевдонімом не знайдено.";
+                return "Користувача з таким псевдонімом не знайдено";
 
             else
             {

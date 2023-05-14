@@ -1,11 +1,8 @@
 ﻿namespace excemath.Models;
 
 /// <summary>
-/// Представляє звичайну модель користувача, яка має унікальний псевдонім, пароль, кількість правильних та неправильних відповідей.
+/// Представляє користувача, який має унікальний псевдонім, пароль, кількість правильних та неправильних відповідей.
 /// </summary>
-/// <remarks>
-/// Має первинний ключ <see cref="Nickname"/>.
-/// </remarks>
 public class User
 {
     #region Поля
@@ -19,55 +16,39 @@ public class User
     #region Властивості 
 
     /// <summary>
-    /// Повертає або встановлює псевдонім користувача.
+    /// Повертає або встановлює унікальний псевдонім поточного користувача.
     /// </summary>
-    /// <returns>
-    /// Псевдонім користувача як <see cref="string"/>. Є первинним ключом.
-    /// </returns>
     public string Nickname { get; set; }
 
     /// <summary>
-    /// Повертає або встановлює пароль користувача.
+    /// Повертає або встановлює пароль поточного користувача.
     /// </summary>
-    /// <returns>
-    /// Пароль користувача як <see cref="string"/>.
-    /// </returns>
     public string Password { get; set; }
 
     /// <summary>
-    /// Повертає або встановлює кількість правильних відповідей користувача.
+    /// Повертає або встановлює кількість правильних відповідей поточного користувача.
     /// </summary>
     /// <remarks>
     /// Має значення 0 за замовчуванням.
     /// </remarks>
-    /// <returns>
-    /// Кількість правильних відповідей користувача як <see cref="int"/>.
-    /// </returns>
     public int RightAnswers { get; set; } = 0;
 
     /// <summary>
-    /// Повертає або встановлює кількість неправильних відповідей користувача.
+    /// Повертає або встановлює кількість неправильних відповідей поточного користувача.
     /// </summary>
     /// <remarks>
     /// Має значення 0 за замовчуванням.
     /// </remarks>
-    /// <returns>
-    /// Кількість неправильних відповідей користувача як <see cref="int"/>.
-    /// </returns>
     public int WrongAnswers { get; set; } = 0;
 
     #endregion
 
     #region Методи
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="userIdentity"></param>
-    /// <returns></returns>
+    /// <inheritdoc cref="ApiClient.TryAuthorizeUser(UserIdentity)"/>
     public static async Task<bool> TryAuthorize(UserIdentity userIdentity)
     {
-        bool success = await Client.TryAuthorizeUser(userIdentity);
+        bool success = await ApiClient.TryAuthorizeUser(userIdentity);
 
         if (success)
         {
@@ -79,14 +60,10 @@ public class User
         return success;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="userIdentity"></param>
-    /// <returns></returns>
+    /// <inheritdoc cref="ApiClient.TryRegisterUser(UserIdentity)"/>
     public static async Task<string> TryRegister(UserIdentity userIdentity)
     {
-        string errors = await Client.TryRegisterUser(userIdentity);
+        string errors = await ApiClient.TryRegisterUser(userIdentity);
 
         if (!string.IsNullOrEmpty(errors))
         {
@@ -98,15 +75,32 @@ public class User
         return errors;
     }
 
+    /// <inheritdoc cref="ApiClient.TryUpdateUser(string, UserUpdateRequest)"/>
     public static async Task<string> TryUpdate(string nickname,  UserUpdateRequest userUpdateRequest)
     {
-        string errors = await Client.TryUpdateUser(nickname, userUpdateRequest);
+        string errors = await ApiClient.TryUpdateUser(nickname, userUpdateRequest);
 
         if (string.IsNullOrEmpty(errors))
             Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userUpdateRequest.Password);        
 
         return errors;
     }
+
+#nullable enable
+
+    /// <summary>
+    /// Повертає профіль авторизованого в додатку користувача як <see cref="UserGetRequest"/>.
+    /// </summary>
+    public static async Task<UserGetRequest?> GetCurrentProfile()
+    {
+        string nickname = GetCurrentNickname();
+
+        return await ApiClient.GetUser(nickname);
+    }
+
+#nullable restore
+
+    private static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, "");
 
     #endregion
 }
