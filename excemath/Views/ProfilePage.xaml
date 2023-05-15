@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.Views.ProfilePage"
              x:DataType="StackLayout">
-    <StackLayout Orientation="Horizontal" 
+    <StackLayout Orientation="Vertical" 
                  Spacing="20">
         <Label Style="{StaticResource TitleLabel}"
                Text="Досягнення"               
@@ -30,7 +30,7 @@
 
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
-               Margin="20,0,20,130">
+               Margin="20,0,20,20">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>

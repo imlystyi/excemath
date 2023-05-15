@@ -46,7 +46,7 @@
                             <TapGestureRecognizer Tapped="ProfileButton_Clicked"/>
                         </Frame.GestureRecognizers>
                         
-                        <StackLayout Orientation="Horizontal" WidthRequest="160">
+                        <StackLayout Orientation="Vertical" WidthRequest="160">
                             <Label Style="{StaticResource SummaryLabel}" 
                                    Text="Твій профіль" 
                                    Margin ="10,-5,0,0"/>                            
