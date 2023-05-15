@@ -4,11 +4,10 @@
        xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
        xmlns:views="clr-namespace:excemath.Views"    
        x:Class="excemath.AppShell"
-       x:DataType="ContentPage" 
+       x:DataType="ContentPage"
        FlyoutBehavior="Disabled"  
        TabBarIsVisible="False"
-       NavBarIsVisible="False"
-       BackgroundColor="{StaticResource PageBackground}">
+       NavBarIsVisible="False">
     
     <Shell.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
@@ -18,16 +17,23 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
                  x:DataType="VerticalStackLayout"           
                  BackgroundColor="White">
-        
-        <VerticalStackLayout>
-            <HorizontalStackLayout Spacing="5">
-                <Label Style="{StaticResource TitleLabel}" Text="Головне меню" Padding="0,0,50,0"/>
-                <ImageButton Source="settings_icon.svg" HeightRequest="40" WidthRequest="40" Clicked="SettingsButton_Clicked"/>
-                <ImageButton Source="help_icon.svg" HeightRequest="40" WidthRequest="40" Clicked="HowToUseButton_Clicked"/>
-            </HorizontalStackLayout>
+
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" 
+                         Spacing="5">
+                <Label Style="{StaticResource TitleLabel}" 
+                       Text="Головне меню" 
+                       Padding="0,0,100,0"/> 
+                <ImageButton Source="help_icon.svg" 
+                             HeightRequest="40" 
+                             WidthRequest="40" 
+                             Clicked="HowToUseButton_Clicked"/>
+            </StackLayout>
 
             <Grid ColumnDefinitions="*,*">
-                <VerticalStackLayout Spacing="10" Grid.Column="0">
+                <StackLayout Orientation="Vertical" 
+                             Spacing="10" 
+                             Grid.Column="0">
                     <Frame CornerRadius="25" Margin="20,0,0,0">
                         <Frame.Background>
                             <LinearGradientBrush EndPoint="1,0">
@@ -40,13 +46,18 @@
                             <TapGestureRecognizer Tapped="ProfileButton_Clicked"/>
                         </Frame.GestureRecognizers>
                         
-                        <VerticalStackLayout WidthRequest="160">
-                            <Label Style="{StaticResource SummaryLabel}" Text="Твій профіль" Margin ="10,-5,0,0"/>                            
-                            <Label Style ="{StaticResource DetailsLabelLight}" Text="Подивись власні досягнення" Margin="10,0,0,0"/>
-                        </VerticalStackLayout>
+                        <StackLayout Orientation="Horizontal" WidthRequest="160">
+                            <Label Style="{StaticResource SummaryLabel}" 
+                                   Text="Твій профіль" 
+                                   Margin ="10,-5,0,0"/>                            
+                            <Label Style ="{StaticResource DetailsLabelLight}" 
+                                   Text="Подивись власні досягнення" 
+                                   Margin="10,0,0,0"/>
+                        </StackLayout>
                     </Frame>
 
-                    <Frame CornerRadius="25" Margin="20,0,0,5">
+                    <Frame CornerRadius="25" 
+                           Margin="20,0,0,5">
                         <Frame.Background>
                             <LinearGradientBrush EndPoint="1,0">
                                 <GradientStop Color="#C9D8FF" Offset="0.1"/>
@@ -57,25 +68,37 @@
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="AchievementsButton_Clicked"/>
                         </Frame.GestureRecognizers>
-                        
-                        <VerticalStackLayout WidthRequest="160">
-                            <Label Style="{StaticResource SummaryLabel}" Text="Таблиця лідерів" Margin ="10,-5,0,0"/>
-                            <Label Style ="{StaticResource DetailsLabelLight}" Text="Подивись досягнення інших" Margin="10,0,0,0"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </VerticalStackLayout>
 
-                <Frame CornerRadius="25" Margin="20,0,20,5" Grid.Column="1">
+                        <StackLayout Orientation="Vertical" 
+                                     WidthRequest="160">
+                            <Label Style="{StaticResource SummaryLabel}" 
+                                   Text="Таблиця лідерів" 
+                                   Margin ="10,-5,0,0"/>
+                            <Label Style ="{StaticResource DetailsLabelLight}" 
+                                   Text="Подивись досягнення інших" 
+                                   Margin="10,0,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <Frame CornerRadius="25" 
+                       Margin="20,0,20,5" 
+                       Grid.Column="1">
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Color="#C9D8FF" Offset="0.1"/>
                             <GradientStop Color="#8BACFF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
-                    <VerticalStackLayout WidthRequest="140">
-                        <Label Style="{StaticResource SummaryLabel}" Text="(місце для логотипу)" Margin ="10,-5,0,0"/>
-                        <Label Style ="{StaticResource DetailsLabelLight}" Text="Дізнайтесь більше про excemath та його можливості!" Margin="10,0,0,0"/>
-                    </VerticalStackLayout>
+                    <StackLayout Orientation="Vertical" 
+                                 WidthRequest="140">
+                        <Label Style="{StaticResource SummaryLabel}" 
+                               Text="(місце для логотипу)" 
+                               Margin ="10,-5,0,0"/>
+                        <Label Style ="{StaticResource DetailsLabelLight}" 
+                               Text="Дізнайтесь більше про excemath та його можливості!" 
+                               Margin="10,0,0,0"/>
+                    </StackLayout>
                 </Frame>
             </Grid>
 
@@ -99,13 +122,19 @@
                         <TapGestureRecognizer Tapped="MixedKindsButton_Clicked"/>
                     </Frame.GestureRecognizers>
                     
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource SummaryLabel}" Text="Суміш видів" FontSize="20" Padding="0,-5,0,0"/>
-                        <Label Style="{StaticResource DetailsLabel}" Text="Розв'язуй абсолютно випадково проблему. Обережно: може бути складно!"/>
-                    </VerticalStackLayout>                    
+                    <StackLayout Orientation="Vertical">
+                        <Label Style="{StaticResource SummaryLabel}" 
+                               Text="Суміш видів" 
+                               FontSize="20" 
+                               Padding="0,-5,0,0"/>
+                        <Label Style="{StaticResource DetailsLabel}" 
+                               Text="Розв'язуй абсолютно випадково проблему. Обережно: може бути складно!"/>
+                    </StackLayout>                    
                 </Frame>
 
-                <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5">
+                <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20" 
+                       Margin="20,0,20,5">
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -117,13 +146,19 @@
                         <TapGestureRecognizer Tapped="ChooseKindButton_Clicked"/>
                     </Frame.GestureRecognizers>
                     
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource SummaryLabel}" Text="Вибір конкретного виду" FontSize="20" Padding="0,-5,0,0"/>
-                        <Label Style="{StaticResource DetailsLabel}" Text="Сконцентруйся на конкретному виді математичної проблеми."/>
-                    </VerticalStackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Style="{StaticResource SummaryLabel}" 
+                               Text="Вибір конкретного виду" 
+                               FontSize="20" 
+                               Padding="0,-5,0,0"/>
+                        <Label Style="{StaticResource DetailsLabel}" 
+                               Text="Сконцентруйся на конкретному виді математичної проблеми."/>
+                    </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5">
+                <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20" 
+                       Margin="20,0,20,5">
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="1,0">
                             <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -135,13 +170,19 @@
                         <TapGestureRecognizer Tapped="ZNOPreparingButton_Clicked"/>
                     </Frame.GestureRecognizers>
                     
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource SummaryLabel}" Text="Підготовка до ЗНО/НМТ" FontSize="20" Padding="0,-5,0,0"/>
-                        <Label Style="{StaticResource DetailsLabel}" Text="Вступаєш у ВНЗ і невпевнений у власному знанні математики? Розслабся та проходь типові завдання з математики та розбери їхній покроковий розв’язок."/>
-                    </VerticalStackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Style="{StaticResource SummaryLabel}" 
+                               Text="Підготовка до ЗНО/НМТ" 
+                               FontSize="20" 
+                               Padding="0,-5,0,0"/>
+                        <Label Style="{StaticResource DetailsLabel}" 
+                               Text="Вступаєш у ВНЗ і невпевнений у власному знанні математики? Розслабся та проходь типові завдання з математики та розбери їхній покроковий розв’язок."/>
+                    </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,0">
+                <Frame BackgroundColor="#D3DFFF" 
+                       CornerRadius="20" 
+                       Margin="20,0,20,0">
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="1,0">
                             <GradientStop Color="#CFDDFF" Offset="0.2"/>
@@ -153,12 +194,16 @@
                         <TapGestureRecognizer Tapped="StudentExamsPreparingButton_Clicked"/>
                     </Frame.GestureRecognizers>
 
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource SummaryLabel}" Text="Підготовка до сесії" FontSize="20" Padding="0,-5,0,0"/>
-                        <Label Style="{StaticResource DetailsLabel}" Text="Скоро сесія? Не хвилюйся! Подивися на типові завдання з вищої математики та розбери їхній покроковий розв’язок."/>
-                    </VerticalStackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Style="{StaticResource SummaryLabel}" 
+                               Text="Підготовка до сесії" 
+                               FontSize="20" 
+                               Padding="0,-5,0,0"/>
+                        <Label Style="{StaticResource DetailsLabel}" 
+                               Text="Скоро сесія? Не хвилюйся! Подивися на типові завдання з вищої математики та розбери їхній покроковий розв’язок."/>
+                    </StackLayout>
                 </Frame>
             </VerticalStackLayout>
-        </VerticalStackLayout>
+        </StackLayout>
     </ContentPage>
 </Shell>

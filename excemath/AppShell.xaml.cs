@@ -24,9 +24,7 @@ public partial class AppShell : Shell
 
     #region Обробники подій
 
-    private void SettingsButton_Clicked(object sender, EventArgs e) => Navigation.PushAsync(new SettingsPage());
-
-    private void HowToUseButton_Clicked(object sender, EventArgs args) => this.ShowPopup(new HowToUsePage());
+    private void HowToUseButton_Clicked(object sender, EventArgs args) => this.ShowPopup(new HowToUsePopup());
 
     private void ProfileButton_Clicked(object sender, TappedEventArgs e) => Navigation.PushAsync(new ProfilePage());
 

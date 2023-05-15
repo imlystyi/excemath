@@ -2,12 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.Views.ProfilePage"
-             Title="ProfilePage">
-    <VerticalStackLayout Spacing="20">
-        <Label Style="{StaticResource TitleLabel}" Text="Досягнення" Padding="0,0,50,0" VerticalOptions="Center" FontSize="30"/>
-
+             x:DataType="StackLayout">
+    <StackLayout Orientation="Horizontal" 
+                 Spacing="20">
+        <Label Style="{StaticResource TitleLabel}"
+               Text="Досягнення"               
+               FontSize="30"
+               Padding="0,0,50,0" 
+               VerticalOptions="Center"/>
        
-        <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5" HeightRequest="70" WidthRequest="290" BorderColor="White">
+        <Frame BackgroundColor="#D3DFFF" 
+               CornerRadius="20" 
+               Margin="20,0,20,5">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -15,10 +21,16 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <Label Style="{StaticResource DetailsLabelLight}" Text="Кориcтувач" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"/>
+            <Label Style="{StaticResource DetailsLabelLight}" 
+                   Text="Кориcтувач" 
+                   FontSize="20"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"/>
         </Frame>
 
-        <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5" HeightRequest="300" WidthRequest="400"  BorderColor="White">
+        <Frame BackgroundColor="#D3DFFF" 
+               CornerRadius="20" 
+               Margin="20,0,20,130">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -26,14 +38,28 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <VerticalStackLayout Spacing="40" VerticalOptions="Center" HorizontalOptions="Start">
-                <Label Style="{StaticResource DetailsLabelLight}" Text="Загальна кількість завдань" FontSize="20" />
-                <Label Style="{StaticResource DetailsLabelLight}" Text="Кількість правильних відповідей" FontSize="20" />
-                <Label Style="{StaticResource DetailsLabelLight}" Text="Кількість неправильних відповідей" FontSize="20"/>
+            <VerticalStackLayout Spacing="40" 
+                                 VerticalOptions="Center" 
+                                 HorizontalOptions="Start">
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text="Рейтинг - " 
+                       FontSize="20" />
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text="Кількість правильних відповідей - " 
+                       FontSize="20" />
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text="Кількість неправильних відповідей - " 
+                       FontSize="20"/>
             </VerticalStackLayout>
         </Frame>
 
-        <Frame BackgroundColor="#D3DFFF" CornerRadius="20" HeightRequest="70" WidthRequest="400" BorderColor="White" HorizontalOptions="Center" Margin="0,130,0,0">
+        <Label Style="{StaticResource CategoriesLabel}" 
+               Text="Ти - майстер. Ти маєш бездоганний рейтинг! Продовжуй в тому ж дусі!"                
+               HorizontalOptions="Center"/>
+        
+        <Frame BackgroundColor="#D3DFFF" 
+               CornerRadius="20" 
+               Margin="20,0,20,5">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -41,10 +67,14 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <Label Style="{StaticResource DetailsLabelLight}" Text="Змінити пароль" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"/>
+            <Label Style="{StaticResource DetailsLabelLight}" 
+                   Text="Змінити пароль" 
+                   FontSize="20"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"/>
         </Frame>
 
-        <Frame BackgroundColor="#D3DFFF" CornerRadius="20"  HeightRequest="70" WidthRequest="400" BorderColor="White" HorizontalOptions="Center">
+        <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -52,8 +82,11 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <Label Style="{StaticResource DetailsLabelLight}" Text="Скинути досягнення" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"/>
+            <Label Style="{StaticResource DetailsLabelLight}" 
+                   Text="Скинути досягнення" 
+                   FontSize="20"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"/>
         </Frame>
-
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>
