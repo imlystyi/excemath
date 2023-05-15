@@ -7,6 +7,9 @@ using excemath.Models;
 
 namespace excemath.Views;
 
+/// <summary>
+/// Представляє сторінку для розв'язання математичної задачі
+/// </summary>
 [QueryProperty(nameof(ItemValue), nameof(ItemValue))]
 public partial class MpAnswerEnteringPage : ContentPage
 {
@@ -43,6 +46,14 @@ public partial class MpAnswerEnteringPage : ContentPage
 
     #region Обробники подій    
 
+    private void Option1_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 1;
+
+    private void Option2_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 2;
+
+    private void Option3_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 3;
+
+    private void Option4_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 4;
+
     private void QuestionCanvas_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
     {
         SKSurface surface = args.Surface;
@@ -59,7 +70,7 @@ public partial class MpAnswerEnteringPage : ContentPage
         painter.Draw(canvas);
     }
 
-    private void AnswerCanvas_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
+    private void AnswerCanvas1_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
     {
         SKSurface surface = args.Surface;
         SKCanvas canvas = surface.Canvas;
@@ -69,7 +80,55 @@ public partial class MpAnswerEnteringPage : ContentPage
         MathPainter painter = new()
         {
             FontSize = 40,
-            LaTeX = _mathProblem.GetAnswerOptions()
+            LaTeX = _mathProblem.GetAnswerOption(1)
+        };
+
+        painter.Draw(canvas);
+    }
+
+    private void AnswerCanvas2_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
+    {
+        SKSurface surface = args.Surface;
+        SKCanvas canvas = surface.Canvas;
+
+        canvas.Clear();
+
+        MathPainter painter = new()
+        {
+            FontSize = 40,
+            LaTeX = _mathProblem.GetAnswerOption(2)
+        };
+
+        painter.Draw(canvas);
+    }
+
+    private void AnswerCanvas3_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
+    {
+        SKSurface surface = args.Surface;
+        SKCanvas canvas = surface.Canvas;
+
+        canvas.Clear();
+
+        MathPainter painter = new()
+        {
+            FontSize = 40,
+            LaTeX = _mathProblem.GetAnswerOption(3)
+        };
+
+        painter.Draw(canvas);
+    }
+
+    private void AnswerCanvas4_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
+    {
+        SKSurface surface = args.Surface;
+        SKCanvas canvas = surface.Canvas;
+
+        canvas.Clear();
+
+        MathPainter painter = new()
+        {
+            FontSize = 40,
+            LaTeX = _mathProblem.GetAnswerOption(4)
         };
 
         painter.Draw(canvas);
@@ -90,21 +149,14 @@ public partial class MpAnswerEnteringPage : ContentPage
 
             // TODO: реалізувати дії при введенні неправильної відповіді
         }
-    }
-
-    private void Option1_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 1;
-
-    private void Option2_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 2;
-
-    private void Option3_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 3;
-
-    private void Option4_CheckedChanged(object sender, CheckedChangedEventArgs args) => _answer = 4;
+    }    
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
 
-        MpTopic.Text = ConvertKindToTopic(_mathProblem.Kind);
+        MpKind.Text = _mathProblem.GetKindAsText();
+        MpQuestion.Text = _mathProblem.GetQuestionText();
     }
 
     #endregion
@@ -120,8 +172,8 @@ public partial class MpAnswerEnteringPage : ContentPage
             MathProblem _NO_SSL_mathProblem_ = new()
             {
                 Id = 1,
-                Question = @"Розв'яжіть інтеграл /expr \int_{0}^{1} x^2 dx",
-                Answer = @"2 /opt \frac{1}{6}\\\\\frac{1}{3}\\\\\frac{1}{9}\\\\\frac{1}{27}",
+                Question = @"Розв'яжіть інтеграл. /expr \int_{0}^{1} x^2 dx",
+                Answer = @"2 /opt \frac{1}{6}/n\frac{1}{3}/n\frac{1}{9}/n\frac{1}{27}",
                 Kind = MathProblemKinds.TableIntegral
             };
 
@@ -134,15 +186,6 @@ public partial class MpAnswerEnteringPage : ContentPage
             _mathProblem = task.Result;
 #endif
         }
-    }
-
-    private static string ConvertKindToTopic(MathProblemKinds kind)
-    {
-        return kind switch
-        {
-            MathProblemKinds.TableIntegral => "Криволінійні інтеграли",
-            _ => "...",
-        };
     }
 
     #endregion

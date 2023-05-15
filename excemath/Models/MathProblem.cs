@@ -1,4 +1,5 @@
 ﻿using excemath.Models;
+using System;
 
 namespace excemath.Models;
 
@@ -101,10 +102,19 @@ public class MathProblem
     public int GetAnswer() => int.Parse(Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).First());
 
     /// <summary>
-    /// Повертає варіанти відповіді у форматі LaTeX як <see cref="string"/>.
+    /// Повертає певний варіант відповіді у форматі LaTeX як <see cref="string"/>.
     /// </summary>
-    public string GetAnswerOptions() => Answer.Split(new[] {@"/opt"}, StringSplitOptions.None).Last();
+    /// <param name="num">Номер варіанту відповіді.</param>
+    public string GetAnswerOption(int num) => Answer.Split(new[] {@"/opt"}, StringSplitOptions.None).Last().Split(@"/n")[num - 1];
 
+    public string GetKindAsText()
+    {
+        return Kind switch
+        {
+            MathProblemKinds.TableIntegral => "Табличний інтеграл",
+            _ => "a"
+        };
+    }
     /// <summary>
     /// Повертає випадкову математичну задачу як <see cref="MathProblem"/>.
     /// </summary>

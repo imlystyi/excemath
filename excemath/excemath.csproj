@@ -68,8 +68,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\MpLevelsPage.xaml.cs">
-	    <DependentUpon>MpLevelsPage.xaml</DependentUpon>
+	  <Compile Update="Views\TipPopup.xaml.cs">
+	    <DependentUpon>TipPopup.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\MpAnswerEnteringPage.xaml.cs">
 	    <DependentUpon>MpAnswerEnteringPage.xaml</DependentUpon>
@@ -98,22 +98,16 @@
 	  <MauiXaml Update="Views\AchievementsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\HintPage.xaml">
+	  <MauiXaml Update="Views\TipPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HowToUsePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\MpLevelsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MpAnswerEnteringPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProfilePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MpKindsPage.xaml">

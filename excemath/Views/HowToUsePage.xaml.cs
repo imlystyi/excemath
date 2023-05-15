@@ -1,11 +1,16 @@
 namespace excemath.Views;
 
-public partial class HowToUsePage 
+/// <summary>
+/// Представляє спливаюче вікно "Як користуватися?".
+/// </summary>
+public partial class HowToUsePopup 
 {
-	public HowToUsePage()
-	{
-		InitializeComponent();
-	}
+    #region Конструктори
 
-    
+    /// <summary>
+    /// Ініціалізує спливаюче вікно <see cref="HowToUsePopup"/>.
+    /// </summary>
+    public HowToUsePopup() => InitializeComponent();
+
+    #endregion
 }

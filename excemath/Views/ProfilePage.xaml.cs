@@ -10,10 +10,7 @@ public partial class ProfilePage : ContentPage
     /// <summary>
     /// Ініціалізує сторінку <see cref="ProfilePage"/>.
     /// </summary>
-    public ProfilePage()
-	{
-		InitializeComponent();
-	}
+    public ProfilePage() => InitializeComponent();
 
     #endregion
 }
