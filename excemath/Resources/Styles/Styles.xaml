@@ -483,7 +483,7 @@
 
     <Style TargetType="Label" x:Key="CategoriesLabel">
         <Setter Property="FontFamily" Value="Regular"/>
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
     </Style>
 

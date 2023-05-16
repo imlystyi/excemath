@@ -4,16 +4,16 @@
              x:Class="excemath.Views.ProfilePage"
              x:DataType="StackLayout">
     <StackLayout Orientation="Vertical" 
-                 Spacing="20">
+                 Spacing="25">
         <Label Style="{StaticResource TitleLabel}"
-               Text="Досягнення"               
+               Text="Профіль"               
                FontSize="30"
                Padding="0,0,50,0" 
                VerticalOptions="Center"/>
        
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
-               Margin="20,0,20,5">
+               Margin="20,-6,20,0">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -28,9 +28,11 @@
                    HorizontalOptions="Center"/>
         </Frame>
 
+       
+        
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
-               Margin="20,0,20,20">
+               Margin="20,15,20,0">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
@@ -38,7 +40,7 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <VerticalStackLayout Spacing="40" 
+            <VerticalStackLayout Spacing="50" 
                                  VerticalOptions="Center" 
                                  HorizontalOptions="Start">
                 <Label Style="{StaticResource DetailsLabelLight}" 
@@ -53,13 +55,14 @@
             </VerticalStackLayout>
         </Frame>
 
-        <Label Style="{StaticResource CategoriesLabel}" 
+        <Label Style="{StaticResource CategoriesLabel}" Margin="50,-10,50,50"
                Text="Ти - майстер. Ти маєш бездоганний рейтинг! Продовжуй в тому ж дусі!"                
-               HorizontalOptions="Center"/>
-        
+               HorizontalOptions="Center" VerticalOptions="Center"/>
+
+
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
-               Margin="20,0,20,5">
+               Margin="20,30,20,5">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#CFDDFF" Offset="0.1"/>
