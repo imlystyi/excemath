@@ -7,16 +7,11 @@
              BackgroundColor="#F2F2F2">
 
     <VerticalStackLayout Spacing="30">
-        <Border Style="{StaticResource TitleBar}">
-            <HorizontalStackLayout>
-                <Label Style="{StaticResource TitleBarLabel}" 
-                  Text="Система досягнень"
-                  Grid.Column="0"
-                  FontSize="50"
-                  LineBreakMode="WordWrap"/>
-
-            </HorizontalStackLayout>
-        </Border>
+        <Label Style="{StaticResource TitleLabel}"
+               Text="Досягнення"               
+               FontSize="30"
+               Padding="0,0,50,0" 
+               VerticalOptions="Center"/>
 
         <Border BackgroundColor="#BDCBD8"  StrokeShape="{RoundRectangle CornerRadius=20}" HeightRequest="80" WidthRequest="380"  StrokeThickness="2" Stroke="#022C4E">
             <Label Text="Користувач" VerticalOptions="Center" HorizontalOptions="Center"  TextColor="#022C4E" FontSize="30" />
