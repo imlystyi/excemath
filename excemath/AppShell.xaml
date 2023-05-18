@@ -34,14 +34,16 @@
                 <StackLayout Orientation="Vertical" 
                              Spacing="10" 
                              Grid.Column="0">
-                    <Frame CornerRadius="25" Margin="20,0,0,0">
+                    <Frame CornerRadius="25"
+                           Margin="20,0,0,0"
+                           BorderColor="#DEA9FF">
                         <Frame.Background>
-                            <LinearGradientBrush EndPoint="1,0">
-                                <GradientStop Color="#C9D8FF" Offset="0.1"/>
-                                <GradientStop Color="#8BACFF" Offset="1.0"/>
+                            <LinearGradientBrush >
+                                <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                                <GradientStop Color="#D4BAFF" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
-                        
+
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ProfileButton_Clicked"/>
                         </Frame.GestureRecognizers>
@@ -57,14 +59,15 @@
                     </Frame>
 
                     <Frame CornerRadius="25" 
-                           Margin="20,0,0,5">
+                           Margin="20,0,0,5"
+                           BorderColor="#DEA9FF">
                         <Frame.Background>
-                            <LinearGradientBrush EndPoint="1,0">
-                                <GradientStop Color="#C9D8FF" Offset="0.1"/>
-                                <GradientStop Color="#8BACFF" Offset="1.0"/>
+                            <LinearGradientBrush >
+                                <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                                <GradientStop Color="#D4BAFF" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
-                        
+
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="AchievementsButton_Clicked"/>
                         </Frame.GestureRecognizers>
@@ -83,11 +86,12 @@
 
                 <Frame CornerRadius="25" 
                        Margin="20,0,20,5" 
-                       Grid.Column="1">
+                       Grid.Column="1"
+                       BorderColor="#DEA9FF">
                     <Frame.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#C9D8FF" Offset="0.1"/>
-                            <GradientStop Color="#8BACFF" Offset="1.0"/>
+                        <LinearGradientBrush >
+                            <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                            <GradientStop Color="#D4BAFF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                     <StackLayout Orientation="Vertical" 
@@ -108,13 +112,13 @@
                        HorizontalOptions="Center"
                        Margin="0,0,0,5"/>
 
-                <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+                <Frame CornerRadius="20"
+                       Margin="20,0,20,5"
+                       BorderColor="#DEA9FF">
                     <Frame.Background>
-                        <LinearGradientBrush EndPoint="1,0">
-                            <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                            <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <LinearGradientBrush >
+                            <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                            <GradientStop Color="#D4BAFF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
 
@@ -132,13 +136,13 @@
                     </StackLayout>                    
                 </Frame>
 
-                <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20" 
-                       Margin="20,0,20,5">
+                <Frame CornerRadius="20" 
+                       Margin="20,0,20,5"
+                       BorderColor="#DEA9FF">
                     <Frame.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                            <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <LinearGradientBrush >
+                            <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                            <GradientStop Color="#D4BAFF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
 
@@ -156,13 +160,13 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20" 
-                       Margin="20,0,20,5">
+                <Frame CornerRadius="20" 
+                       Margin="20,0,20,5"
+                       BorderColor="#DEA9FF">
                     <Frame.Background>
-                        <LinearGradientBrush EndPoint="1,0">
-                            <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                            <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <LinearGradientBrush >
+                            <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                            <GradientStop Color="#D4BAFF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
 
@@ -180,13 +184,13 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20" 
-                       Margin="20,0,20,0">
+                <Frame CornerRadius="20" 
+                       Margin="20,0,20,0"
+                       BorderColor="#DEA9FF">
                     <Frame.Background>
-                        <LinearGradientBrush EndPoint="1,0">
-                            <GradientStop Color="#CFDDFF" Offset="0.2"/>
-                            <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <LinearGradientBrush >
+                            <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                            <GradientStop Color="#D4BAFF" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
 

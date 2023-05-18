@@ -4,7 +4,7 @@
              x:Class="excemath.Views.AchievementsPage"
              
              Title="Досягнення"
-             BackgroundColor="#F2F2F2">
+             BackgroundColor="white">
 
     <VerticalStackLayout Spacing="30">
         <Label Style="{StaticResource TitleLabel}"
@@ -13,22 +13,59 @@
                Padding="0,0,50,0" 
                VerticalOptions="Center"/>
 
-        <Border BackgroundColor="#BDCBD8"  StrokeShape="{RoundRectangle CornerRadius=20}" HeightRequest="80" WidthRequest="380"  StrokeThickness="2" Stroke="#022C4E">
-            <Label Text="Користувач" VerticalOptions="Center" HorizontalOptions="Center"  TextColor="#022C4E" FontSize="30" />
-        </Border>
+        <Frame BackgroundColor="#D3DFFF" 
+               CornerRadius="20" 
+               Margin="20,0,20,0">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
 
-        <Border BackgroundColor="#BDCBD8"   StrokeShape="{RoundRectangle CornerRadius=20}" HeightRequest="550" WidthRequest="380" StrokeThickness="2" Stroke="#022C4E" Padding="15">
-            <VerticalStackLayout Spacing="40">
-                <Label Text ="Таблиця лідерів" HorizontalOptions="Center" TextColor="#022C4E" FontSize="30"  />
-                <Label Text ="1. Vladik                100%" VerticalOptions="Start" TextColor="#022C4E" FontSize="30"/>
-                <Label Text ="2. Dinasi4ka        98,5%" VerticalOptions="Start" TextColor="#022C4E" FontSize="30"/>
-                <Label Text ="3. Sanchous           90%" VerticalOptions="Start" TextColor="#022C4E" FontSize="30"/>
-                <Label Text ="4. Vovchuk          88,4%" VerticalOptions="Start" TextColor="#022C4E" FontSize="30"/>
-                <Label Text ="5. Viksi01                80%" VerticalOptions="Start" TextColor="#022C4E" FontSize="30"/>
+            <Label Style="{StaticResource DetailsLabelLight}" 
+                   Text="Кориcтувач" 
+                   FontSize="20"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"/>
+        </Frame>
 
+        <Frame BackgroundColor="#D3DFFF" 
+               CornerRadius="20" 
+               Margin="20,40,20,0">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
+                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
 
+            <VerticalStackLayout Spacing="50" Margin="0,0,0,0"
+                                 VerticalOptions="Center" 
+                                 HorizontalOptions="Start">
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text ="Таблиця лідерів"
+                       Margin="60,0,60,0"
+                       FontSize="20" />
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text ="1. Vladik" 
+                       FontSize="20"
+                       />
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text ="2. Dinasi4ka" 
+                       FontSize="20"/>
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text ="3. Sanchous"
+                       FontSize="20"/>
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text ="4. Vovchuk"
+                       FontSize="20"/>
+                <Label Style="{StaticResource DetailsLabelLight}" 
+                       Text ="5. Viksi01"
+                       FontSize="20"/>
             </VerticalStackLayout>
-        </Border>
+            
+        </Frame>
 
     </VerticalStackLayout>
 
