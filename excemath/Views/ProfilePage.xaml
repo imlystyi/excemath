@@ -5,31 +5,14 @@
              x:DataType="StackLayout">
     <StackLayout Orientation="Vertical" 
                  Spacing="25">
-        <Label Style="{StaticResource TitleLabel}"
-               Text="Профіль"               
-               FontSize="30"
-               Padding="0,0,50,0" 
-               VerticalOptions="Center"/>
-       
-        <Frame BackgroundColor="#D3DFFF" 
-               CornerRadius="20" 
-               Margin="20,-6,20,0">
-            <Frame.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Frame.Background>
+        <Label Style="{StaticResource Title}"
+               Text="Профіль"/>
 
-            <Label Style="{StaticResource DetailsLabelLight}" 
-                   Text="Кориcтувач" 
-                   FontSize="20"
-                   VerticalOptions="Center" 
-                   HorizontalOptions="Center"/>
-        </Frame>
+        <Label Style="{StaticResource Large}"
+               Text="%nickname%, ви - майстер!"
+               FontSize="20"
+               Margin="20,0,20,0"/>
 
-       
-        
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
                Margin="20,15,20,0">
@@ -40,25 +23,18 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <VerticalStackLayout Spacing="50" 
-                                 VerticalOptions="Center" 
-                                 HorizontalOptions="Start">
-                <Label Style="{StaticResource DetailsLabelLight}" 
-                       Text="Рейтинг - " 
-                       FontSize="20" />
-                <Label Style="{StaticResource DetailsLabelLight}" 
-                       Text="Кількість правильних відповідей - " 
-                       FontSize="20" />
-                <Label Style="{StaticResource DetailsLabelLight}" 
-                       Text="Кількість неправильних відповідей - " 
-                       FontSize="20"/>
-            </VerticalStackLayout>
+            <StackLayout Orientation="Horizontal" 
+                         Spacing="10">
+                <Label Style="{StaticResource Large}" 
+                       Text="100%" 
+                       FontSize="23"/>
+
+                <Label Style="{StaticResource Light}"
+                       Text="рейтинг"
+                       FontSize="18"
+                       VerticalOptions="Center"/>
+            </StackLayout>
         </Frame>
-
-        <Label Style="{StaticResource CategoriesLabel}" Margin="50,-10,50,50"
-               Text="Ти - майстер. Ти маєш бездоганний рейтинг! Продовжуй в тому ж дусі!"                
-               HorizontalOptions="Center" VerticalOptions="Center"/>
-
 
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
@@ -70,7 +46,7 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <Label Style="{StaticResource DetailsLabelLight}" 
+            <Label Style="{StaticResource ExtraLight}" 
                    Text="Змінити пароль" 
                    FontSize="20"
                    VerticalOptions="Center" 
@@ -85,7 +61,7 @@
                 </LinearGradientBrush>
             </Frame.Background>
 
-            <Label Style="{StaticResource DetailsLabelLight}" 
+            <Label Style="{StaticResource ExtraLight}" 
                    Text="Скинути досягнення" 
                    FontSize="20"
                    VerticalOptions="Center" 

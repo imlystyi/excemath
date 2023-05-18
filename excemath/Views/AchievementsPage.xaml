@@ -7,7 +7,7 @@
              BackgroundColor="#F2F2F2">
 
     <VerticalStackLayout Spacing="30">
-        <Label Style="{StaticResource TitleLabel}"
+        <Label Style="{StaticResource Title}"
                Text="Досягнення"               
                FontSize="30"
                Padding="0,0,50,0" 

@@ -8,7 +8,7 @@
     <Frame CornerRadius="30" HeightRequest="700" WidthRequest="380" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
         <ScrollView>
             <VerticalStackLayout>
-                <Label Style="{StaticResource TitleLabel}" Text="Підказка" Margin="0,0,0,10" HorizontalOptions="Center"/>
+                <Label Style="{StaticResource Title}" Text="Підказка" Margin="0,0,0,10" HorizontalOptions="Center"/>
                 
             </VerticalStackLayout>
         </ScrollView>

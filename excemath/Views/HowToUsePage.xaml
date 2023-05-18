@@ -8,8 +8,8 @@
     <Frame CornerRadius="30" HeightRequest="700" WidthRequest="380" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
         <ScrollView>
             <VerticalStackLayout>
-                <Label Style="{StaticResource TitleLabel}" Text="Як користуватись?" Margin="0,0,0,10" HorizontalOptions="Center"/>
-                <Label Style="{StaticResource CategoriesLabel}" Text="• Обери потрібний тип математичної проблеми та почни її розв'язувати&#10;• Якщо ти знайшов розв'язок, вибери правильний (на твою думку) варіант відповіді&#10;• Якщо ти хочеш подивитися підказку, натисни на іконку лампочки на верхній панелі&#10;• Якщо ти хочеш подивитися покроковий розв'язок для проблем режимів підготовки, натисни на іконку зошита на верхній панелі"/>
+                <Label Style="{StaticResource Title}" Text="Як користуватись?" Margin="0,0,0,10" HorizontalOptions="Center"/>
+                <Label Style="{StaticResource Medium}" Text="• Обери потрібний тип математичної проблеми та почни її розв'язувати&#10;• Якщо ти знайшов розв'язок, вибери правильний (на твою думку) варіант відповіді&#10;• Якщо ти хочеш подивитися підказку, натисни на іконку лампочки на верхній панелі&#10;• Якщо ти хочеш подивитися покроковий розв'язок для проблем режимів підготовки, натисни на іконку зошита на верхній панелі"/>
             </VerticalStackLayout>
         </ScrollView>
     </Frame>    

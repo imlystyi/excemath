@@ -8,11 +8,11 @@
 
     <StackLayout Spacing="18">
         <HorizontalStackLayout Spacing="15">
-            <Label x:Name ="MpKind" Style="{StaticResource TitleLabel}" HorizontalOptions="Start"/>
+            <Label x:Name ="MpKind" Style="{StaticResource Title}" HorizontalOptions="Start"/>
             <ImageButton Source="hint_icon.svg" HeightRequest="40" WidthRequest="40" HorizontalOptions="End"/>
         </HorizontalStackLayout>
 
-        <Label x:Name="MpQuestion" Style="{StaticResource SummaryLabel}" FontSize="16" Margin="25,0,0,0"/>
+        <Label x:Name="MpQuestion" Style="{StaticResource Large}" FontSize="16" Margin="25,0,0,0"/>
 
         <Frame WidthRequest="360" HeightRequest="150" BackgroundColor="#F7F7F7" CornerRadius="25">
             <Frame.Background>
@@ -156,7 +156,7 @@
                 <TapGestureRecognizer/>
             </Frame.GestureRecognizers>
 
-            <Label Style="{StaticResource SummaryLabel}" Text="Надіслати відповідь" FontSize="20" HorizontalOptions="Center"/>
+            <Label Style="{StaticResource Large}" Text="Надіслати відповідь" FontSize="20" HorizontalOptions="Center"/>
         </Frame>
     </StackLayout>
 </ContentPage>

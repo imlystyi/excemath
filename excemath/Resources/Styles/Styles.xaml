@@ -407,85 +407,41 @@
     
     <!--#region Власні стилі-->    
 
-    <Style TargetType="Button" x:Key="MainMenuButton">
-        <Setter Property="HeightRequest" Value="126"/>
-        <Setter Property="WidthRequest" Value="390"/>
-        <Setter Property="BackgroundColor" Value="#F0F6FF"/>
-        <Setter Property="CornerRadius" Value="20"/>
-        <Setter Property="BorderWidth" Value="0"/>
-        <Setter Property="FontSize" Value="27"/>
-        <Setter Property="TextColor" Value="#022C4E"/>
-        <Setter Property="FontFamily" Value="ComfortaLight"/>
-        <Setter Property="VerticalOptions" Value="Center"/>
-    </Style>
-
-    <Style TargetType="Button" x:Key="SettingsButton">
-        <Setter Property="HeightRequest" Value="80"/>
-        <Setter Property="WidthRequest" Value="300"/>
-        <Setter Property="BackgroundColor" Value="White"/>
-        <Setter Property="CornerRadius" Value="15"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="TextColor" Value="Black"/>
-    </Style>
-
-    <Style TargetType="Border" x:Key="TitleBar">
-        <Setter Property="Margin" Value="-10,-16,-10,0"/>
-        <Setter Property="HeightRequest" Value="100"/>
-        <Setter Property="BackgroundColor" Value="white"/>
-        <Setter Property="Stroke" Value="white"/>
-    </Style>
-
-    <Style TargetType="Label" x:Key="TitleBarLabel">
-        <Setter Property="Margin" Value="40,0,0,0"/>
-        <Setter Property="TextColor" Value="#022C4E"/>
-        <Setter Property="FontFamily" Value="JosefinSansMedium"/>
-    </Style>
-
-    <Style TargetType="ImageButton" x:Key="Icon">
-        <Setter Property="HeightRequest" Value="40"/>
-        <Setter Property="WidthRequest" Value="40"/>
-    </Style>
-
-    <Style TargetType="Button" x:Key="LevelButtons">
-        <Setter Property="WidthRequest" Value="85" />
-        <Setter Property="HeightRequest" Value="85" />
-        <Setter Property="Margin" Value="20" />
-        <Setter Property="FontSize" Value="Large" />
-        <Setter Property="BackgroundColor" Value="#6BA4DF"/>
-        <Setter Property="TextColor" Value="Black"/>
-        <Setter Property="FontSize" Value="30"/>
-    </Style>
-
-    <Style TargetType="Label" x:Key="TitleLabel">
+    <Style TargetType="Label" x:Key="Title">
         <Setter Property="FontFamily" Value="Bold"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
         <Setter Property="Margin" Value="25,20,5,20"/>
     </Style>
 
-    <Style TargetType="Label" x:Key="SummaryLabel">
+    <Style TargetType="Label" x:Key="Large">
         <Setter Property="FontFamily" Value="Light"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
     </Style>
 
-    <Style TargetType="Label" x:Key="DetailsLabelLight">
+    <Style TargetType="Label" x:Key="Medium">
+        <Setter Property="FontFamily" Value="Regular"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="ExtraLight">
         <Setter Property="FontFamily" Value="ExtraLight"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
     </Style>    
     
-    <Style TargetType="Label" x:Key="DetailsLabel">
+    <Style TargetType="Label" x:Key="Light">
         <Setter Property="FontFamily" Value="Light"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
     </Style>
 
-    <Style TargetType="Label" x:Key="CategoriesLabel">
-        <Setter Property="FontFamily" Value="Regular"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+    <Style TargetType="ImageButton" x:Key="Icon">
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="WidthRequest" Value="40"/>
     </Style>
-
+    
     <!--#endregion-->
 </ResourceDictionary>
