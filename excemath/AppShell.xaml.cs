@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+using excemath.Models;
 using excemath.Views;
 
 namespace excemath;
@@ -17,7 +18,13 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
 
-        Routing.RegisterRoute(nameof(MpAnswerEnteringPage), typeof(MpAnswerEnteringPage));
+        MathProblem.GenerateMixedKey();
+        MathProblem.GenerateByKindKey();
+
+        if (string.IsNullOrEmpty(User.GetCurrentNickname()))
+        {
+            this.ShowPopup(new AuthorizationPopup());
+        }
     }
 
     #endregion
@@ -26,9 +33,9 @@ public partial class AppShell : Shell
 
     private void HowToUseButton_Clicked(object sender, EventArgs args) => this.ShowPopup(new HowToUsePopup());
 
-    private void ProfileButton_Clicked(object sender, TappedEventArgs e) => Navigation.PushAsync(new ProfilePage());
+    private void ProfileButton_Clicked(object sender, TappedEventArgs args) => Navigation.PushAsync(new ProfilePage());
 
-    private void AchievementsButton_Clicked(object sender, TappedEventArgs e) => Navigation.PushAsync(new AchievementsPage());
+    private void AchievementsButton_Clicked(object sender, TappedEventArgs args) => this.ShowPopup(new AuthorizationPopup());
 
     private void MixedKindsButton_Clicked(object sender, EventArgs args) => Current.GoToAsync($"{nameof(MpAnswerEnteringPage)}?{nameof(MpAnswerEnteringPage.ItemValue)}=m");
 
@@ -38,5 +45,7 @@ public partial class AppShell : Shell
 
     private void StudentExamsPreparingButton_Clicked(object sender, TappedEventArgs args) => Navigation.PushAsync(new SolvedMpStudentExamsPreparingPage());
 
-    #endregion
+    private void AboutProgramButton_Clicked(object sender, EventArgs args) => Navigation.PushAsync(new AboutProgramPage());
+
+#endregion
 }

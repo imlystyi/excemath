@@ -76,12 +76,12 @@ public class User
     }
 
     /// <inheritdoc cref="ApiClient.TryUpdateUser(string, UserUpdateRequest)"/>
-    public static async Task<string> TryUpdate(string nickname,  UserUpdateRequest userUpdateRequest)
+    public static async Task<string> TryUpdate(string nickname, UserUpdateRequest userUpdateRequest)
     {
         string errors = await ApiClient.TryUpdateUser(nickname, userUpdateRequest);
 
         if (string.IsNullOrEmpty(errors))
-            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userUpdateRequest.Password);        
+            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userUpdateRequest.Password);
 
         return errors;
     }
@@ -100,7 +100,7 @@ public class User
 
 #nullable restore
 
-    private static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, "");
+    public static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, string.Empty);
 
     #endregion
 }

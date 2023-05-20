@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="excemath.Views.AchievementsPage"
-             
-             Title="Досягнення"
-             BackgroundColor="white">
-
+             x:Class="excemath.Views.AchievementsPage"             
+             BackgroundColor="White">
     <VerticalStackLayout Spacing="30">
         <Label Style="{StaticResource Title}"
                Text="Досягнення"               
                FontSize="30"
                Padding="0,0,50,0" 
                VerticalOptions="Center"/>
-
+        
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
                Margin="20,0,20,0">
@@ -22,14 +19,13 @@
                     <GradientStop Color="#EAF0FF" Offset="1.0"/>
                 </LinearGradientBrush>
             </Frame.Background>
-
-            <Label Style="{StaticResource DetailsLabelLight}" 
+            <Label Style="{StaticResource ExtraLight}" 
                    Text="Кориcтувач" 
                    FontSize="20"
                    VerticalOptions="Center" 
                    HorizontalOptions="Center"/>
         </Frame>
-
+        
         <Frame BackgroundColor="#D3DFFF" 
                CornerRadius="20" 
                Margin="20,40,20,0">
@@ -43,24 +39,24 @@
             <VerticalStackLayout Spacing="50" Margin="0,0,0,0"
                                  VerticalOptions="Center" 
                                  HorizontalOptions="Start">
-                <Label Style="{StaticResource DetailsLabelLight}" 
+                <Label Style="{StaticResource ExtraLight}" 
                        Text ="Таблиця лідерів"
                        Margin="60,0,60,0"
                        FontSize="20" />
-                <Label Style="{StaticResource DetailsLabelLight}" 
+                <Label Style="{StaticResource ExtraLight}" 
                        Text ="1. Vladik" 
                        FontSize="20"
                        />
-                <Label Style="{StaticResource DetailsLabelLight}" 
+                <Label Style="{StaticResource ExtraLight}" 
                        Text ="2. Dinasi4ka" 
                        FontSize="20"/>
-                <Label Style="{StaticResource DetailsLabelLight}" 
+                <Label Style="{StaticResource ExtraLight}" 
                        Text ="3. Sanchous"
                        FontSize="20"/>
-                <Label Style="{StaticResource DetailsLabelLight}" 
+                <Label Style="{StaticResource ExtraLight}" 
                        Text ="4. Vovchuk"
                        FontSize="20"/>
-                <Label Style="{StaticResource DetailsLabelLight}" 
+                <Label Style="{StaticResource ExtraLight}" 
                        Text ="5. Viksi01"
                        FontSize="20"/>
             </VerticalStackLayout>

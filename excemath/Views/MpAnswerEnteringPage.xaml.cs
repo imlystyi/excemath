@@ -149,7 +149,7 @@ public partial class MpAnswerEnteringPage : ContentPage
 
             // TODO: реалізувати дії при введенні неправильної відповіді
         }
-    }    
+    }
 
     protected override void OnAppearing()
     {
@@ -178,7 +178,7 @@ public partial class MpAnswerEnteringPage : ContentPage
             };
 
             _mathProblem = _NO_SSL_mathProblem_;
-        
+
 #else
             Task<MathProblem> task = Task.Run(MathProblem.GetMixed);
             task.Wait();

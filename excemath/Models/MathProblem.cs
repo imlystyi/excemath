@@ -75,7 +75,7 @@ public class MathProblem
                 MathProblemKinds.LogarithmicInequality => "підказка для логарифмічних нерівностей ",
                 MathProblemKinds.TrigonometricInequality => "підказка для тригонометричних нерівностей ",
 
-                MathProblemKinds.NumericalSequences => "підказка для числових послідовностях",
+                MathProblemKinds.NumericalSequence => "підказка для числових послідовностях",
                 MathProblemKinds.Function => "підказка для функцій",
                 MathProblemKinds.Combinatorics => "підказка для комбінаторики",
 
@@ -105,23 +105,46 @@ public class MathProblem
     /// Повертає певний варіант відповіді у форматі LaTeX як <see cref="string"/>.
     /// </summary>
     /// <param name="num">Номер варіанту відповіді.</param>
-    public string GetAnswerOption(int num) => Answer.Split(new[] {@"/opt"}, StringSplitOptions.None).Last().Split(@"/n")[num - 1];
+    public string GetAnswerOption(int num) => Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).Last().Split(@"/n")[num - 1];
 
+    /// <summary>
+    /// Повертає вид математичної задачі у текстовому форматі як <see cref="string"/>.
+    /// </summary>
     public string GetKindAsText()
     {
         return Kind switch
         {
             MathProblemKinds.TableIntegral => "Табличний інтеграл",
-            _ => "a"
+            MathProblemKinds.MultipleIntegral => "Кратні інтеграли",
+            MathProblemKinds.LineIntegral => "Криволінійні інтеграли",
+            MathProblemKinds.Matrix => "Матриці",
+            MathProblemKinds.LinearEquation => "Лінійні рівняння",
+            MathProblemKinds.QuadraticEquation => "Квадратні рівняння",
+            MathProblemKinds.IrrationalEquation => "Ірраціональні рівняння",
+            MathProblemKinds.ExponentialEquation => "Показникові рівняння",
+            MathProblemKinds.LogarithmicEquation => "Логарифмічні рівняння",
+            MathProblemKinds.TrigonometricEquation => "Тригонометричні рівняння",
+            MathProblemKinds.LinearInequality => "Лінійні нерівності",
+            MathProblemKinds.QuadraticInequality => "Квадратні нерівності",
+            MathProblemKinds.IrrationalInequality => "Ірраціональні нерівності",
+            MathProblemKinds.ExponentialInequality => "Показникові рівняння",
+            MathProblemKinds.LogarithmicInequality => "Логарифмічні рівняння",
+            MathProblemKinds.TrigonometricInequality => "Тригонометричні рівняння",
+            MathProblemKinds.NumericalSequence => "Числові послідовності",
+            MathProblemKinds.Function => "Функції",
+            MathProblemKinds.Combinatorics => "Комбінаторика",
+
+            _ => throw new ApplicationException("Вид математичної задачі визначено неправильно")
         };
     }
+
     /// <summary>
     /// Повертає випадкову математичну задачу як <see cref="MathProblem"/>.
     /// </summary>
     public static async Task<MathProblem> GetMixed()
     {
         int mixedKey = GetMixedKey();
-        int lastMathProblemId = GetLastMixedId();        
+        int lastMathProblemId = GetLastMixedId();
         int id = mixedKey + lastMathProblemId;
 
         MathProblem mathProblem = await ApiClient.GetMathProblem(id);
@@ -157,7 +180,7 @@ public class MathProblem
         try
         {
             id = ids[index];
-        }        
+        }
 
         catch (IndexOutOfRangeException)
         {
@@ -169,8 +192,8 @@ public class MathProblem
 
             SetLastByKindIndex(index);
         }
-        
-        return await ApiClient.GetMathProblem(id);        
+
+        return await ApiClient.GetMathProblem(id);
     }
 
     /// <summary>
@@ -185,7 +208,7 @@ public class MathProblem
             int mixedKey = random.Next(_MIXED_KEY_MIN, _MIXED_KEY_MAX);
 
             Preferences.Set(_MIXED_KEY_PREFERENCES_KEY, mixedKey);
-        }       
+        }
     }
 
     /// <summary>
@@ -209,8 +232,8 @@ public class MathProblem
 
     private static int GetLastMixedId() => Preferences.Get(_MIXED_LAST_ID_PREFERENCES_KEY, 1);
 
-    private static int GetLastByKindIndex() => Preferences.Get(_BY_KIND_LAST_INDEX_PREFERENCES_KEY, 1);  
-    
+    private static int GetLastByKindIndex() => Preferences.Get(_BY_KIND_LAST_INDEX_PREFERENCES_KEY, 1);
+
     private static void SetLastMixedId(int id) => Preferences.Set(_MIXED_LAST_ID_PREFERENCES_KEY, id);
 
     private static void SetLastByKindIndex(int index) => Preferences.Set(_BY_KIND_LAST_INDEX_PREFERENCES_KEY, index);

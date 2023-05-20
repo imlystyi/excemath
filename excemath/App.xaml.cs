@@ -13,14 +13,11 @@ public partial class App : Application
     /// Створює екземпляр класу <see cref="App"/>.
     /// </summary>
     public App()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();        
 
-		MainPage = new AppShell();
-
-		MathProblem.GenerateMixedKey();
-		MathProblem.GenerateByKindKey();
-	}
+        MainPage = new AppShell();
+    }
 
     #endregion
 }

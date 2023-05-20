@@ -5,7 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="5">
-            <Label Style="{StaticResource TitleLabel}" Text="Вибір виду"/>
+            <Label Style="{StaticResource Title}" Text="Вибір виду"/>
 
             <Frame BackgroundColor="#D3DFFF" 
                        CornerRadius="20"
@@ -17,7 +17,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Табличні інтеграли"/>
+                <Label Style="{StaticResource Large}" Text="Табличні інтеграли"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -30,7 +30,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Кратні інтеграли"/>
+                <Label Style="{StaticResource Large}" Text="Кратні інтеграли"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -43,7 +43,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Криволінійні інтеграли"/>
+                <Label Style="{StaticResource Large}" Text="Криволінійні інтеграли"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -56,7 +56,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Матриці"/>
+                <Label Style="{StaticResource Large}" Text="Матриці"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -69,7 +69,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Границі"/>
+                <Label Style="{StaticResource Large}" Text="Границі"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -82,7 +82,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Лінійні рівняння"/>
+                <Label Style="{StaticResource Large}" Text="Лінійні рівняння"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -95,7 +95,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Квадратні рівняння"/>
+                <Label Style="{StaticResource Large}" Text="Квадратні рівняння"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -108,7 +108,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Ірраціональні рівняння"/>
+                <Label Style="{StaticResource Large}" Text="Ірраціональні рівняння"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -121,7 +121,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Показникові рівняння"/>
+                <Label Style="{StaticResource Large}" Text="Показникові рівняння"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -134,7 +134,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Логарифмічні рівняння"/>
+                <Label Style="{StaticResource Large}" Text="Логарифмічні рівняння"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -147,7 +147,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Тригонометричні рівняння"/>
+                <Label Style="{StaticResource Large}" Text="Тригонометричні рівняння"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -160,7 +160,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Лінійні нерівності"/>
+                <Label Style="{StaticResource Large}" Text="Лінійні нерівності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -173,7 +173,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Квадратичні нерівності"/>
+                <Label Style="{StaticResource Large}" Text="Квадратичні нерівності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -186,7 +186,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Ірраціональні нерівності"/>
+                <Label Style="{StaticResource Large}" Text="Ірраціональні нерівності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -199,7 +199,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Показникові нерівності"/>
+                <Label Style="{StaticResource Large}" Text="Показникові нерівності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -212,7 +212,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Логарифмічні нерівності"/>
+                <Label Style="{StaticResource Large}" Text="Логарифмічні нерівності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -225,7 +225,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Тригонометричні нерівності"/>
+                <Label Style="{StaticResource Large}" Text="Тригонометричні нерівності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -238,7 +238,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Числові послідовності"/>
+                <Label Style="{StaticResource Large}" Text="Числові послідовності"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -251,7 +251,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Функції"/>
+                <Label Style="{StaticResource Large}" Text="Функції"/>
             </Frame>
 
             <Frame BackgroundColor="#D3DFFF" 
@@ -264,7 +264,7 @@
                     </LinearGradientBrush>
                 </Frame.Background>
 
-                <Label Style="{StaticResource SummaryLabel}" Text="Комбінаторика"/>
+                <Label Style="{StaticResource Large}" Text="Комбінаторика"/>
             </Frame>
             
         </VerticalStackLayout>        

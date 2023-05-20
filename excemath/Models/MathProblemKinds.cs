@@ -93,7 +93,7 @@ public enum MathProblemKinds
     /// <summary>
     /// Представляє вид "Числові послідовності".
     /// </summary>
-    NumericalSequences,
+    NumericalSequence,
 
     /// <summary>
     /// Представляє вид "Функції".

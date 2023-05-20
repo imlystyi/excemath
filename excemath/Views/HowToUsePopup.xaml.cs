@@ -3,7 +3,7 @@ namespace excemath.Views;
 /// <summary>
 /// Представляє спливаюче вікно "Як користуватися?".
 /// </summary>
-public partial class HowToUsePopup 
+public partial class HowToUsePopup
 {
     #region Конструктори
 

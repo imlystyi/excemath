@@ -8,13 +8,25 @@
 
     <StackLayout Spacing="18">
         <HorizontalStackLayout Spacing="15">
-            <Label x:Name ="MpKind" Style="{StaticResource Title}" HorizontalOptions="Start"/>
-            <ImageButton Source="hint_icon.svg" HeightRequest="40" WidthRequest="40" HorizontalOptions="End"/>
+            <Label x:Name="MpKind" 
+                   Style="{StaticResource Title}"                   
+                   HorizontalOptions="Start"/>
+            
+            <ImageButton Source="hint_icon.svg" 
+                         HorizontalOptions="End"
+                         HeightRequest="40" 
+                         WidthRequest="40"/>
         </HorizontalStackLayout>
 
-        <Label x:Name="MpQuestion" Style="{StaticResource Large}" FontSize="16" Margin="25,0,0,0"/>
+        <Label x:Name="MpQuestion" 
+               Style="{StaticResource Large}" 
+               FontSize="16" 
+               Margin="25,0,0,0"/>
 
-        <Frame WidthRequest="360" HeightRequest="150" BackgroundColor="#F7F7F7" CornerRadius="25">
+        <Frame WidthRequest="360" 
+               HeightRequest="150" 
+               CornerRadius="25"
+               BackgroundColor="#F7F7F7">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="1,0">
                     <GradientStop Color="#F1F4F8" Offset="0.1"/>

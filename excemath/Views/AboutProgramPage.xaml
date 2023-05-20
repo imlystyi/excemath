@@ -2,21 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.Views.AboutProgramPage"
+             x:DataType="StackLayout"
              Title="Про програму">
+    <StackLayout Orientation="Vertical"  
+                 Spacing="30">
+        <Label Style="{StaticResource Title}" 
+               Text="Про програму"/>
+        
+        <Image Source="excemath_logo.svg" 
+               HeightRequest="200" 
+               WidthRequest="200"/>
 
-    <VerticalStackLayout  Spacing="30" VerticalOptions="Start">
-        <Border Margin="-10,-16,-10,0" StrokeShape="{RoundRectangle CornerRadius=0}" HeightRequest="100" 
-                BackgroundColor="#F2F2F2" >
+        <Label Style="{StaticResource Large}"
+               Text="Особливості даної версії:"
+               Margin="20,0,20,5"/>
 
-            <Label Margin="40,0,0,0"
-               VerticalOptions="Center"
-               Text="Про програму"
-               TextColor="Black"
-               Grid.Column="0"
-               FontSize="30"
-               FontAttributes="Bold"/>
-
-        </Border>
-    </VerticalStackLayout>
-
+        <Label Style="{StaticResource Light}"
+               Text="v. 1.0b"
+               Margin="20,0,20,5"/>
+    </StackLayout>
 </ContentPage>

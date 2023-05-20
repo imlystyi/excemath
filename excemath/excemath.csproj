@@ -68,6 +68,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\HowToUsePopup.xaml.cs">
+	    <DependentUpon>HowToUsePopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\TipPopup.xaml.cs">
 	    <DependentUpon>TipPopup.xaml</DependentUpon>
 	  </Compile>
@@ -98,10 +101,13 @@
 	  <MauiXaml Update="Views\AchievementsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AuthorizationPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\TipPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\HowToUsePage.xaml">
+	  <MauiXaml Update="Views\HowToUsePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MpAnswerEnteringPage.xaml">

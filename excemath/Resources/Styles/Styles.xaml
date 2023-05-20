@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
@@ -410,32 +409,32 @@
     <Style TargetType="Label" x:Key="Title">
         <Setter Property="FontFamily" Value="Bold"/>
         <Setter Property="FontSize" Value="24"/>
-        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
         <Setter Property="Margin" Value="25,20,5,20"/>
     </Style>
 
     <Style TargetType="Label" x:Key="Large">
         <Setter Property="FontFamily" Value="Light"/>
         <Setter Property="FontSize" Value="18"/>
-        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
     </Style>
 
     <Style TargetType="Label" x:Key="Medium">
         <Setter Property="FontFamily" Value="Regular"/>
         <Setter Property="FontSize" Value="15"/>
-        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
     </Style>
     
     <Style TargetType="Label" x:Key="ExtraLight">
         <Setter Property="FontFamily" Value="ExtraLight"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
-    </Style>    
-    
+        <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
+    </Style>
+
     <Style TargetType="Label" x:Key="Light">
         <Setter Property="FontFamily" Value="Light"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
     </Style>
 
     <Style TargetType="ImageButton" x:Key="Icon">

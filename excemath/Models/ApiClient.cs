@@ -190,8 +190,8 @@ namespace excemath.Models
                 { nameof(UserIdentity.Password), userIdentity.Password },
             };
 
-            string url = QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/register", parameters);
-            HttpResponseMessage response = await _client.GetAsync(url);
+            string url = "{urlBase}/UsersAuthentication/register";// QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/register", parameters);
+            HttpResponseMessage response = await _client.PostAsync(url, userIdentity);
 
             if (response.IsSuccessStatusCode)
                 return string.Empty;
@@ -199,7 +199,12 @@ namespace excemath.Models
             else
             {
                 List<ValidationFailure> validationFailures = JsonConvert.DeserializeObject<List<ValidationFailure>>(await response.Content.ReadAsStringAsync());
-                return string.Join(Environment.NewLine, validationFailures.Select(vf => vf.ErrorMessage));
+
+                if (validationFailures.Any(vf => vf.ErrorCode == "01") && validationFailures.Any(vf => vf.ErrorCode == "03"))
+                    return "Неправильний нікнейм і пароль!";
+
+                else 
+                    return string.Join(" ", validationFailures.Select(vf => vf.ErrorMessage));
             }
         }
 
