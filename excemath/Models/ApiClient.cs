@@ -190,8 +190,11 @@ namespace excemath.Models
                 { nameof(UserIdentity.Password), userIdentity.Password },
             };
 
-            string url = "{urlBase}/UsersAuthentication/register";// QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/register", parameters);
-            HttpResponseMessage response = await _client.PostAsync(url, userIdentity);
+            string url = QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/register", parameters);
+
+            //string requestContent = $"{nameof(UserIdentity.Nickname)}={userIdentity.Nickname}&{nameof(UserIdentity.Password)}={userIdentity.Password}";
+            StringContent stringContent = new(string.Empty);
+            HttpResponseMessage response = await _client.PostAsync(url, stringContent);
 
             if (response.IsSuccessStatusCode)
                 return string.Empty;
@@ -214,7 +217,7 @@ namespace excemath.Models
         /// <param name="nickname">Псевдонім користувача.</param>
         /// <param name="userUpdateRequest">Користувач для запиту оновлення.</param>
         /// <returns>
-        /// Якщо оновлення пройшло успішно, то <see cref="string.Empty"/>; інакше, якщо користувача з таким псевдонімом не знайдено, повідомлення про таку помилку як <see cref="string"/>; інакше, якщо користувача знайдено, але оновлення не пройшло успішно, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API
+        /// Якщо оновлення пройшло успішно, то <see cref="string.Empty"/>; інакше, якщо користувача з таким псевдонімом не знайдено, повідомлення про таку помилку як <see cref="string"/>; інакше, якщо користувача знайдено, але оновлення не пройшло успішно, рядок як <see cref="string"/>, що складається з помилок валідації на стороні API.
         /// </returns>
         public static async Task<string> TryUpdateUser(string nickname, UserUpdateRequest userUpdateRequest)
         {

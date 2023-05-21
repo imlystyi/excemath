@@ -1,3 +1,5 @@
+using excemath.Models;
+
 namespace excemath.Views;
 
 /// <summary>
@@ -10,7 +12,27 @@ public partial class ProfilePage : ContentPage
     /// <summary>
     /// Ініціалізує сторінку <see cref="ProfilePage"/>.
     /// </summary>
-    public ProfilePage() => InitializeComponent();
+    public ProfilePage()
+    {
+        InitializeComponent();
+
+        UserLevel.Text = User.GetCurrentLevelText();
+    }
+
+    #endregion
+
+    #region Обробники подій
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+
+    }
+
+    #endregion
+
+    #region Методи
 
     #endregion
 }

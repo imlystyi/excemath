@@ -8,7 +8,8 @@
         <Label Style="{StaticResource Title}"
                Text="Профіль"/>
 
-        <Label Style="{StaticResource Large}"
+        <Label x:Name="UserLevel" 
+               Style="{StaticResource Large}"
                Text="%nickname%, ви - майстер!"
                FontSize="20"
                Margin="20,0,20,0"/>

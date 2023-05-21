@@ -86,6 +86,29 @@ public class User
         return errors;
     }
 
+    /// <summary>
+    /// Повертає псевдонім авторизованого в додатку користувача як <see cref="string"/>.
+    /// </summary>
+    /// <returns></returns>
+    public static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, string.Empty);
+
+    public static string GetCurrentLevelText()
+    {
+        Task<UserGetRequest> task = GetCurrentProfile();
+        UserGetRequest currentUser = task.Result;
+        
+        return currentUser.Nickname + GetRating(currentUser) switch
+        {
+            < 10 => "тобі варто розвиватись далі, але це вже непогано!",
+            < 30 => "ти на правильному шляху!",
+            < 50 => "ти маєш класні результати! Продовжуй далі!",
+            < 70 => "йоу, звідки ти такий крутий?! Чудові результати!",
+            < 90 => "ти маєш практично ідеальні результати... ми горді за тебе!",
+            100 => "ти - майстер! Цікаво, чи ти в топі рейтингу?..",
+            _ => string.Empty
+        };
+    }
+
 #nullable enable
 
     /// <summary>
@@ -96,11 +119,11 @@ public class User
         string nickname = GetCurrentNickname();
 
         return await ApiClient.GetUser(nickname);
-    }
+    } 
 
-#nullable restore
-
-    public static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, string.Empty);
+    private static double GetRating(UserGetRequest userGetRequest) => ((userGetRequest.RightAnswers + userGetRequest.WrongAnswers) > 0) 
+        ? ((double)userGetRequest.RightAnswers * 100 / (userGetRequest.RightAnswers + userGetRequest.WrongAnswers)) 
+        : 0;
 
     #endregion
 }

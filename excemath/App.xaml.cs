@@ -1,6 +1,4 @@
-﻿using excemath.Models;
-
-namespace excemath;
+﻿namespace excemath;
 
 /// <summary>
 /// Представляє ядро додатку.

@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using excemath.Models;
 
 namespace excemath.Views;
@@ -5,7 +6,7 @@ namespace excemath.Views;
 /// <summary>
 /// Представляє спливаюче вікно для авторизації користувача.
 /// </summary>
-public partial class AuthorizationPopup
+public partial class AuthorizationPopup : Popup
 {
     #region Конструктори
 
@@ -59,6 +60,9 @@ public partial class AuthorizationPopup
 
         if (!string.IsNullOrEmpty(errors))
             IdentitySuccess.Text = errors;        
+
+        else 
+            Close();
     }
 
     #endregion
