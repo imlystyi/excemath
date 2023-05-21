@@ -139,7 +139,9 @@ namespace excemath.Models
         /// </returns>
         public async static Task<UserGetRequest?> GetUser(string nickname)
         {
-            string url = $"{urlBase}/UsersGet/nickname/{nickname}";
+            Dictionary<string, string> parameters = new() { { nameof(User.Nickname), nickname } };
+
+            string url = QueryHelpers.AddQueryString(@$"{urlBase}/UsersGet/nickname", parameters);
 
             HttpResponseMessage response = await _client.GetAsync(url);
 

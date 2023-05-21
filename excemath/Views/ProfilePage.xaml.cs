@@ -16,18 +16,18 @@ public partial class ProfilePage : ContentPage
     {
         InitializeComponent();
 
-        UserLevel.Text = User.GetCurrentLevelText();
+        
     }
 
     #endregion
 
     #region Обробники подій
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
-
+        UserLevel.Text = await User.GetCurrentLevelText();
     }
 
     #endregion
