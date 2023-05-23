@@ -39,7 +39,7 @@
                            Margin="20,0,0,0"
                            BorderColor="#DEA9FF">
                         <Frame.Background>
-                            <LinearGradientBrush >
+                            <LinearGradientBrush>
                                 <GradientStop Color="#FFDDB4" Offset="0.1"/>
                                 <GradientStop Color="#D4BAFF" Offset="1.0"/>
                             </LinearGradientBrush>
@@ -94,7 +94,7 @@
                              Clicked="AboutProgramButton_Clicked"/>
             </Grid>
 
-            <VerticalStackLayout Spacing="5">
+            <StackLayout Orientation="Vertical" Spacing="5">
                 <Label Style="{StaticResource Medium}" 
                        Text="Обери потрібний тобі режим" 
                        HorizontalOptions="Center"
@@ -195,7 +195,7 @@
                                Text="Скоро сесія? Не хвилюйся! Подивися на типові завдання з вищої математики та розбери їхній покроковий розв’язок."/>
                     </StackLayout>
                 </Frame>
-            </VerticalStackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage>
 </Shell>

@@ -92,11 +92,10 @@ public class User
     /// <returns></returns>
     public static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, string.Empty);
 
-    public async static Task<string> GetCurrentLevelText()
-    {
-        UserGetRequest currentUser = await GetCurrentProfile(); 
-        
-        return $"{currentUser.Nickname}, " + GetRating(currentUser) switch
+    public static string GetCurrentLevelText(UserGetRequest currentUser, out double rating)
+    {        
+        rating = GetRating(currentUser);
+        return $"{currentUser.Nickname}, " + rating switch
         {
             < 10 => "тобі варто розвиватись далі, але це вже непогано!",
             < 30 => "ти на правильному шляху!",

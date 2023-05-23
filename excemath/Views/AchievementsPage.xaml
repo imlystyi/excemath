@@ -1,67 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:excemath.Models"
              x:Class="excemath.Views.AchievementsPage"             
              BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <models:RatingsList/>
+    </ContentPage.BindingContext>
+    
     <VerticalStackLayout Spacing="30">
         <Label Style="{StaticResource Title}"
                Text="Досягнення"               
                FontSize="30"
                Padding="0,0,50,0" 
                VerticalOptions="Center"/>
-        
-        <Frame BackgroundColor="#D3DFFF" 
-               CornerRadius="20" 
-               Margin="20,0,20,0">
-            <Frame.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Frame.Background>
-            <Label Style="{StaticResource ExtraLight}" 
-                   Text="Кориcтувач" 
-                   FontSize="20"
-                   VerticalOptions="Center" 
-                   HorizontalOptions="Center"/>
-        </Frame>
-        
-        <Frame BackgroundColor="#D3DFFF" 
-               CornerRadius="20" 
-               Margin="20,40,20,0">
-            <Frame.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Frame.Background>
 
-            <VerticalStackLayout Spacing="50" Margin="0,0,0,0"
-                                 VerticalOptions="Center" 
-                                 HorizontalOptions="Start">
-                <Label Style="{StaticResource ExtraLight}" 
-                       Text ="Таблиця лідерів"
-                       Margin="60,0,60,0"
-                       FontSize="20" />
-                <Label Style="{StaticResource ExtraLight}" 
-                       Text ="1. Vladik" 
-                       FontSize="20"
-                       />
-                <Label Style="{StaticResource ExtraLight}" 
-                       Text ="2. Dinasi4ka" 
-                       FontSize="20"/>
-                <Label Style="{StaticResource ExtraLight}" 
-                       Text ="3. Sanchous"
-                       FontSize="20"/>
-                <Label Style="{StaticResource ExtraLight}" 
-                       Text ="4. Vovchuk"
-                       FontSize="20"/>
-                <Label Style="{StaticResource ExtraLight}" 
-                       Text ="5. Viksi01"
-                       FontSize="20"/>
-            </VerticalStackLayout>
-            
-        </Frame>
+        <CollectionView x:Name="RatingsCollectionView"
+                        ItemsSource="{Binding collection}"
+                        SelectionMode="None"
+                        ItemSizingStrategy="MeasureAllItems"
+                        Margin="20">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Nickname}"/>
+                        <Label Text="{Binding Rating}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
 

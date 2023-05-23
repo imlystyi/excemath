@@ -7,17 +7,18 @@ namespace excemath.Views;
 /// </summary>
 public partial class ProfilePage : ContentPage
 {
+    #region Поля
+
+    UserGetRequest currentUser;
+
+    #endregion
+
     #region Конструктори
 
     /// <summary>
     /// Ініціалізує сторінку <see cref="ProfilePage"/>.
     /// </summary>
-    public ProfilePage()
-    {
-        InitializeComponent();
-
-        
-    }
+    public ProfilePage() => InitializeComponent();    
 
     #endregion
 
@@ -27,7 +28,12 @@ public partial class ProfilePage : ContentPage
     {
         base.OnAppearing();
 
-        UserLevel.Text = await User.GetCurrentLevelText();
+        currentUser = await User.GetCurrentProfile();
+
+        UserLevel.Text = User.GetCurrentLevelText(currentUser, out double rating);
+        Rating.Text = rating.ToString() + " %";        
+        RightAnswers.Text = currentUser.RightAnswers.ToString();
+        WrongAnswers.Text = currentUser.WrongAnswers.ToString();
     }
 
     #endregion
