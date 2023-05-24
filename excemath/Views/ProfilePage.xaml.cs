@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using excemath.Models;
 
 namespace excemath.Views;
@@ -41,4 +42,9 @@ public partial class ProfilePage : ContentPage
     #region Методи
 
     #endregion
+
+    private void ChangePasswordButton_Tapped(object sender, TappedEventArgs e)
+    {
+        this.ShowPopup(new ChangePasswordPopup());
+    }
 }

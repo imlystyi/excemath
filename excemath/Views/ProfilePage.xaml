@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="excemath.Views.ProfilePage"
-             x:DataType="StackLayout">
-    <StackLayout Orientation="Vertical" 
-                 Spacing="25">
-        <Label Style="{StaticResource Title}"
-               Text="Профіль"/>        
+             x:Class="excemath.Views.ProfilePage">    
+    <StackLayout Orientation="Vertical" Spacing="25">
+        <Label Style="{StaticResource Title}" Text="Профіль"/>
 
-        <Frame CornerRadius="25"
-               Margin="20,0,20,0"
-               BorderColor="#DEA9FF">
+        <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,0,20,0">
             <Frame.Background>
                 <LinearGradientBrush >
                     <GradientStop Color="#FFDDB4" Offset="0.1"/>
                     <GradientStop Color="#D4BAFF" Offset="1.0"/>
                 </LinearGradientBrush>
             </Frame.Background>
-
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
                 <Label Style="{StaticResource Large}"
                        Text="Твій рейтинг - " 
-                       FontSize="24"                               
-                       Margin ="10,-5,0,0"
-                       VerticalOptions="Center"/>
-
+                       FontSize="24"          
+                       VerticalOptions="Center"
+                       Margin ="10,-5,0,0"/>                
                 <Label x:Name="Rating" 
                        Style ="{StaticResource ExtraLight}" 
                        FontSize="30"
                        Padding="0,-5,0,0"/>
             </StackLayout>
         </Frame>
-
+        
         <StackLayout Orientation="Horizontal">
-            <Frame CornerRadius="25" 
-                   Margin="20,0,0,20"
-                   BorderColor="#DEA9FF">
+            <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,0,0,20">
                 <Frame.Background>
                     <LinearGradientBrush >
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
                         <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
                 <StackLayout Orientation="Vertical" 
                              WidthRequest="125"
                              Spacing="0">
@@ -51,75 +41,62 @@
                            Text="Правильних відповідей - " 
                            FontSize="16"                               
                            Margin ="0,-5,0,0"/>
-
-                    <Label x:Name="WrongAnswers" 
+                    <Label x:Name="RightAnswers" 
                            Style ="{StaticResource ExtraLight}" 
                            FontSize="35"/>
                 </StackLayout>
             </Frame>
 
-            <Frame CornerRadius="25" 
-                   Margin="20,0,0,20"
-                   BorderColor="#DEA9FF">
+            <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,0,0,20">
                 <Frame.Background>
                     <LinearGradientBrush >
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
                         <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
-                <StackLayout Orientation="Vertical" 
-                             WidthRequest="125"
-                             Spacing="0">
+                <StackLayout Orientation="Vertical" WidthRequest="125" Spacing="0">
                     <Label Style="{StaticResource Large}"
-                               Text="Неправильних відповідей - " 
-                               FontSize="16"                               
-                               Margin ="0,-5,0,0"/>
-
-                    <Label x:Name="RightAnswers" 
+                           Text="Неправильних відповідей - " 
+                           FontSize="16"                               
+                           Margin ="0,-5,0,0"/>
+                    <Label x:Name="WrongAnswers" 
                            Style ="{StaticResource ExtraLight}" 
                            FontSize="35"/>
                 </StackLayout>
-            </Frame>
+            </Frame>            
         </StackLayout>
-
+        
         <Label x:Name="UserLevel" 
                Style="{StaticResource Large}"
                FontSize="22"
                Margin="22,0,22,0"/>
 
-        <Frame CornerRadius="20" 
-                       Margin="20,20,20,5"
-                       BorderColor="#DEA9FF">
+        <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,20,20,5">
             <Frame.Background>
                 <LinearGradientBrush >
                     <GradientStop Color="#FFDDB4" Offset="0.1"/>
                     <GradientStop Color="#D4BAFF" Offset="1.0"/>
                 </LinearGradientBrush>
             </Frame.Background>
-
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer   />
+                <TapGestureRecognizer Tapped="ChangePasswordButton_Tapped"/>
             </Frame.GestureRecognizers>
             <Label Style="{StaticResource Large}" 
-                   Text="Cкинути пароль" 
+                   Text="Змінити пароль" 
                    FontSize="25" 
                    HorizontalOptions="Center"/>
         </Frame>
 
-        <Frame CornerRadius="20" 
-                       Margin="20,0,20,5"
-                       BorderColor="#DEA9FF">
+        <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,0,20,5">
             <Frame.Background>
                 <LinearGradientBrush >
                     <GradientStop Color="#FFDDB4" Offset="0.1"/>
                     <GradientStop Color="#D4BAFF" Offset="1.0"/>
                 </LinearGradientBrush>
             </Frame.Background>
-
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer   />
-            </Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ChangePasswordButton_Tapped"/>
+            </Frame.GestureRecognizers>            
             <Label Style="{StaticResource Large}" 
                    Text="Cкинути результати" 
                    FontSize="25" 

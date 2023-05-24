@@ -2,37 +2,48 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:excemath.Models"
-             x:Class="excemath.Views.AchievementsPage"             
-             BackgroundColor="White">
-
+             x:Class="excemath.Views.AchievementsPage">
     <ContentPage.BindingContext>
-        <models:RatingsList/>
-    </ContentPage.BindingContext>
-    
-    <VerticalStackLayout Spacing="30">
-        <Label Style="{StaticResource Title}"
-               Text="Досягнення"               
-               FontSize="30"
-               Padding="0,0,50,0" 
-               VerticalOptions="Center"/>
-
+        <models:RatingCollection/>
+    </ContentPage.BindingContext>    
+    <StackLayout Orientation="Vertical">
+        <Label Style="{StaticResource Title}" Text="Досягнення"/>
+        
+        <Label Style="{StaticResource Medium}"
+               Text="Рейтинг найкращих 10 користувачів"
+               FontSize="16"
+               HorizontalOptions="Center"/>
+        
         <CollectionView x:Name="RatingsCollectionView"
-                        ItemsSource="{Binding collection}"
+                        ItemsSource="{Binding Ratings}"
                         SelectionMode="None"
                         ItemSizingStrategy="MeasureAllItems"
-                        Margin="20">
-
+                        Margin="20,10,20,20">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Nickname}"/>
-                        <Label Text="{Binding Rating}"/>
-                    </StackLayout>
+                    <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="0,0,0,5">
+                        <Frame.Background>
+                            <LinearGradientBrush >
+                                <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                                <GradientStop Color="#D4BAFF" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" Padding="0,-2,0,-2">
+                            <Label Style="{StaticResource Large}"
+                                   Text="{Binding Nickname}"                                
+                                   FontSize="20" 
+                                   HorizontalOptions="Start"/>                            
+                            <Label Style="{StaticResource Large}"
+                                   Text="{Binding Rating, StringFormat='{0}%'}"
+                                   FontSize="20"
+                                   HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-    </VerticalStackLayout>
-
-
+    </StackLayout>
 </ContentPage>
