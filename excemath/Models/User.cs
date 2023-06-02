@@ -87,13 +87,36 @@ public class User
     }
 
     /// <summary>
+    /// Змінює пароль користувача.
+    /// </summary>
+    /// <param name="nickname">Псевдонім користувача.</param>
+    /// <param name="password">Новий пароль користувача.</param>
+    public static async Task<string> TryChangePassword(string nickname, string password, UserUpdateRequest userUpdateRequest)
+    {
+        userUpdateRequest.Password = password;
+
+        string errors = await ApiClient.TryUpdateUser(nickname, userUpdateRequest);
+
+        if (string.IsNullOrEmpty(errors))
+            Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, userUpdateRequest.Password);
+
+        return errors;
+    }
+
+    /// <summary>
     /// Повертає псевдонім авторизованого в додатку користувача як <see cref="string"/>.
     /// </summary>
     /// <returns></returns>
     public static string GetCurrentNickname() => Preferences.Get(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, string.Empty);
 
+    public static void SetCurrentNickname(string nickname) => Preferences.Set(_SAVED_LOGIN_USERNAME_PREFERENCES_KEY, nickname);
+
+    public static void SetCurrentPassword(string password) => Preferences.Set(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, password);
+
+    public static string GetCurrentPassword() => Preferences.Get(_SAVED_LOGIN_PASSWORD_PREFERENCES_KEY, string.Empty);
+
     public static string GetCurrentLevelText(UserGetRequest currentUser, out double rating)
-    {        
+    {
         rating = GetRating(currentUser);
         return $"{currentUser.Nickname}, " + rating switch
         {
@@ -117,10 +140,12 @@ public class User
         string nickname = GetCurrentNickname();
 
         return await ApiClient.GetUser(nickname);
-    } 
+    }
 
-    private static double GetRating(UserGetRequest userGetRequest) => ((userGetRequest.RightAnswers + userGetRequest.WrongAnswers) > 0) 
-        ? ((double)userGetRequest.RightAnswers * 100 / (userGetRequest.RightAnswers + userGetRequest.WrongAnswers)) 
+#nullable restore
+
+    private static double GetRating(UserGetRequest userGetRequest) => ((userGetRequest.RightAnswers + userGetRequest.WrongAnswers) > 0)
+        ? ((double)userGetRequest.RightAnswers * 100 / (userGetRequest.RightAnswers + userGetRequest.WrongAnswers))
         : 0;
 
     #endregion

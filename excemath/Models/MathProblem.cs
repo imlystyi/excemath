@@ -1,7 +1,4 @@
-﻿using excemath.Models;
-using System;
-
-namespace excemath.Models;
+﻿namespace excemath.Models;
 
 /// <summary>
 /// Представляє математичну задачу, яка має унікальний ідентифікатор, вид, питання та правильну відповідь.
@@ -10,11 +7,11 @@ public class MathProblem
 {
     #region Поля
 
-    private const int _ID_MIN = 1;
+    private const int _ID_MIN = 0;
     private const int _MIXED_KEY_MIN = 1;
-    private const int _MIXED_KEY_MAX = 5;
+    private const int _MIXED_KEY_MAX = 2;
     private const int _BY_KIND_KEY_MIN = 1;
-    private const int _BY_KIND_KEY_MAX = 3;
+    private const int _BY_KIND_KEY_MAX = 2;
 
     private const string _MIXED_KEY_PREFERENCES_KEY = "mp_m";
     private const string _MIXED_LAST_ID_PREFERENCES_KEY = "mp_m_lid";
@@ -48,95 +45,158 @@ public class MathProblem
     /// </summary>
     public string Answer { get; set; }
 
-    /// <summary>
-    /// Повертає загальну підказку до математичної задачі.
-    /// </summary>
-    public string Tip =>
-            // TODO: розписати підказки (використовуючи LaTeX).
-            Kind switch
-            {
-                MathProblemKinds.TableIntegral => "",
-                MathProblemKinds.LineIntegral => "підказка для лінійного інтеграла",
-
-                MathProblemKinds.Matrix => "підказка для матриць",
-                MathProblemKinds.Limit => "підказка для границь",
-
-                MathProblemKinds.LinearEquation => "підказка для лінійних рівнянь",
-                MathProblemKinds.QuadraticEquation => "підказка для квадратних рівнянь",
-                MathProblemKinds.IrrationalEquation => "підказка для ірраціональних рівнянь",
-                MathProblemKinds.ExponentialEquation => "підказка для показникових рівнянь",
-                MathProblemKinds.LogarithmicEquation => "підказка для логарифмічних рівнянь",
-                MathProblemKinds.TrigonometricEquation => "підказка для тригонометричних рівнянь",
-
-                MathProblemKinds.LinearInequality => "підказка для лінійних нерівностей ",
-                MathProblemKinds.QuadraticInequality => "підказка для квадратичних нерівностей ",
-                MathProblemKinds.IrrationalInequality => "підказка для ірраціональних нерівностей ",
-                MathProblemKinds.ExponentialInequality => "підказка для показникових нерівностей ",
-                MathProblemKinds.LogarithmicInequality => "підказка для логарифмічних нерівностей ",
-                MathProblemKinds.TrigonometricInequality => "підказка для тригонометричних нерівностей ",
-
-                MathProblemKinds.NumericalSequence => "підказка для числових послідовностях",
-                MathProblemKinds.Function => "підказка для функцій",
-                MathProblemKinds.Combinatorics => "підказка для комбінаторики",
-
-                _ => throw new ArgumentException("Некоректний вид математичної проблеми", nameof(Kind))
-            };
-
     #endregion
 
     #region Методи
 
     /// <summary>
-    /// Повертає текстову частину питання математичної задачі як <see cref="string"/>.
+    /// Повертає вид поточної задачі у текстовому форматі як <see cref="string"/>.
+    /// </summary>
+    public string GetKindAsText() => Kind switch
+    {
+        MathProblemKinds.TableIntegral => "Табличні інтеграли",
+        MathProblemKinds.MultipleIntegral => "Кратні інтеграли",
+        MathProblemKinds.LineIntegral => "Криволінійні інтеграли",
+        MathProblemKinds.Limit => "Границі",
+        MathProblemKinds.Matrix => "Матриці",
+        MathProblemKinds.LinearEquation => "Лінійні рівняння",
+        MathProblemKinds.QuadraticEquation => "Квадратні рівняння",
+        MathProblemKinds.IrrationalEquation => "Ірраціональні рівняння",
+        MathProblemKinds.ExponentialEquation => "Показникові рівняння",
+        MathProblemKinds.LogarithmicEquation => "Логарифмічні рівняння",
+        MathProblemKinds.TrigonometricEquation => "Тригонометричні рівняння",
+        MathProblemKinds.LinearInequality => "Лінійні нерівності",
+        MathProblemKinds.QuadraticInequality => "Квадратні нерівності",
+        MathProblemKinds.IrrationalInequality => "Ірраціональні нерівності",
+        MathProblemKinds.ExponentialInequality => "Показникові рівняння",
+        MathProblemKinds.LogarithmicInequality => "Логарифмічні рівняння",
+        MathProblemKinds.TrigonometricInequality => "Тригонометричні рівняння",
+        MathProblemKinds.NumericalSequence => "Числові послідовності",
+        MathProblemKinds.Function => "Функції",
+        _ => throw new ApplicationException("Вид поточної задачі визначено неправильно")
+    };
+
+    /// <summary>
+    /// Повертає текстову частину питання поточної задачі як <see cref="string"/>.
     /// </summary>
     public string GetQuestionText() => Question.Split(new[] { @"/expr" }, StringSplitOptions.None).First();
 
     /// <summary>
-    /// Повертає LaTeX-частину запитання математичної задачі як <see cref="string"/>.
+    /// Повертає LaTeX-частину запитання поточної задачі як <see cref="string"/>.
     /// </summary>
     public string GetQuestionLatex() => Question.Split(new[] { @"/expr" }, StringSplitOptions.None).Last();
 
     /// <summary>
-    /// Повертає номер правильної відповіді математичної задачі серед варіантів відповідей як <see cref="int"/>.
+    /// Повертає номер правильної відповіді поточної задачі серед варіантів відповідей як <see cref="int"/>.
     /// </summary>
-    public int GetAnswer() => int.Parse(Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).First());
+    public int GetAnswerNumber() => int.Parse(Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).First());
 
     /// <summary>
     /// Повертає певний варіант відповіді у форматі LaTeX як <see cref="string"/>.
     /// </summary>
     /// <param name="num">Номер варіанту відповіді.</param>
-    public string GetAnswerOption(int num) => Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).Last().Split(@"/n")[num - 1];
+    public string GetAnswerOption(int num) => Answer.Split(new[] { @"/opt" }, StringSplitOptions.None).Last().Split(@"/n")[num - 1];    
 
     /// <summary>
-    /// Повертає вид математичної задачі у текстовому форматі як <see cref="string"/>.
+    /// Повертає текстову частину загальної підказки до поточної задачі.
     /// </summary>
-    public string GetKindAsText()
+    /// <exception cref="ArgumentException"></exception>
+    public string GetTipText() => Kind switch
     {
-        return Kind switch
-        {
-            MathProblemKinds.TableIntegral => "Табличний інтеграл",
-            MathProblemKinds.MultipleIntegral => "Кратні інтеграли",
-            MathProblemKinds.LineIntegral => "Криволінійні інтеграли",
-            MathProblemKinds.Matrix => "Матриці",
-            MathProblemKinds.LinearEquation => "Лінійні рівняння",
-            MathProblemKinds.QuadraticEquation => "Квадратні рівняння",
-            MathProblemKinds.IrrationalEquation => "Ірраціональні рівняння",
-            MathProblemKinds.ExponentialEquation => "Показникові рівняння",
-            MathProblemKinds.LogarithmicEquation => "Логарифмічні рівняння",
-            MathProblemKinds.TrigonometricEquation => "Тригонометричні рівняння",
-            MathProblemKinds.LinearInequality => "Лінійні нерівності",
-            MathProblemKinds.QuadraticInequality => "Квадратні нерівності",
-            MathProblemKinds.IrrationalInequality => "Ірраціональні нерівності",
-            MathProblemKinds.ExponentialInequality => "Показникові рівняння",
-            MathProblemKinds.LogarithmicInequality => "Логарифмічні рівняння",
-            MathProblemKinds.TrigonometricInequality => "Тригонометричні рівняння",
-            MathProblemKinds.NumericalSequence => "Числові послідовності",
-            MathProblemKinds.Function => "Функції",
-            MathProblemKinds.Combinatorics => "Комбінаторика",
+        MathProblemKinds.TableIntegral =>
+            "1. Скористайтеся таблицею інтегралів (1).\n" +
+            "2. Використайте один з наступних пунктів:\n" +
+            "• поділіть окремо кожен член чисельника на знаменник;\n" +
+            "• скоротіть вирази;\n" +
+            "• виконайте інші тотожні перетворення - допоки інтеграл не набуде табличного вигляду.",
+        MathProblemKinds.LineIntegral => "підказка для лінійного інтеграла",
+        MathProblemKinds.Matrix => "підказка для матриць",
+        MathProblemKinds.Limit => "підказка для границь",
+        MathProblemKinds.LinearEquation => "підказка для лінійних рівнянь",
+        MathProblemKinds.QuadraticEquation => "підказка для квадратних рівнянь",
+        MathProblemKinds.IrrationalEquation => "підказка для ірраціональних рівнянь",
+        MathProblemKinds.ExponentialEquation => "підказка для показникових рівнянь",
+        MathProblemKinds.LogarithmicEquation => "підказка для логарифмічних рівнянь",
+        MathProblemKinds.TrigonometricEquation => "підказка для тригонометричних рівнянь",
+        MathProblemKinds.LinearInequality => "підказка для лінійних нерівностей ",
+        MathProblemKinds.QuadraticInequality => "підказка для квадратичних нерівностей ",
+        MathProblemKinds.IrrationalInequality => "підказка для ірраціональних нерівностей ",
+        MathProblemKinds.ExponentialInequality => "підказка для показникових нерівностей ",
+        MathProblemKinds.LogarithmicInequality => "підказка для логарифмічних нерівностей ",
+        MathProblemKinds.TrigonometricInequality => "підказка для тригонометричних нерівностей ",
+        MathProblemKinds.NumericalSequence => "підказка для числових послідовностях",
+        MathProblemKinds.Function => "підказка для функцій",
+        _ => throw new ArgumentException("Некоректний вид поточної проблеми", nameof(Kind))
+    };
 
-            _ => throw new ApplicationException("Вид математичної задачі визначено неправильно")
-        };
-    }
+    /// <summary>
+    /// Повертає LaTeX-частину загальної підказки до поточної задачі.
+    /// </summary>
+    /// <exception cref="ArgumentException"></exception>
+    public string GetTipLatex() => Kind switch
+    {
+        MathProblemKinds.TableIntegral =>
+@"(1)\\
+\int x^a dx = \frac{x^a+1}{a+1} + C \quad \int \frac{dx}{x^2} = -\frac{1}{x} + C\\
+\int x^a dx = \frac{x^a+1}{a+1} + C \quad \int \frac{dx}{x^2} = -\frac{1}{x} + C\\
+\int \frac{dx}{\sqrt{x}} = 2\sqrt{x} + C \quad \int \frac{dx}{x} = \ln|x| + C\\
+\int a^x dx = \frac{a^x}{\ln a} + C \quad \int e^x dx = e^x + C\\
+\int \sin(x) dx = -\cos(x) + C\\
+\int \cos(x) dx = \sin(x) + C\\
+\int \tan(x) dx = -\ln|\cos(x)| + C\\
+\int \frac{dx}{\cos^2x}  = \tan(x) + C\\
+\int \frac{dx}{\sin^2x}  = -\cot(x) + C\\
+\int \frac{1}{a^2+x^2} dx = \arctan(\frac{x}{a}) + C\\
+\int \frac{1}{x^2-a^2} dx = \frac{1}{2a}\ln|(\frac{x}{a})| + C\\
+\int \frac{1}{\sqrt{a^2-x^2}} dx = \arcsin(\frac{x}{a}) + C\\
+\int \frac{dx}{\sqrt{x^2 \pm a^2}} = \ln|x + \sqrt{x^2 \pm a^2}| + C",
+        MathProblemKinds.LineIntegral =>
+@"підказка для лінійного інтеграла",
+        MathProblemKinds.Matrix => "підказка для матриць",
+        MathProblemKinds.Limit => "підказка для границь",
+        MathProblemKinds.LinearEquation => "підказка для лінійних рівнянь",
+        MathProblemKinds.QuadraticEquation => "підказка для квадратних рівнянь",
+        MathProblemKinds.IrrationalEquation => "підказка для ірраціональних рівнянь",
+        MathProblemKinds.ExponentialEquation => "підказка для показникових рівнянь",
+        MathProblemKinds.LogarithmicEquation => "підказка для логарифмічних рівнянь",
+        MathProblemKinds.TrigonometricEquation => "підказка для тригонометричних рівнянь",
+        MathProblemKinds.LinearInequality => "підказка для лінійних нерівностей ",
+        MathProblemKinds.QuadraticInequality => "підказка для квадратичних нерівностей ",
+        MathProblemKinds.IrrationalInequality => "підказка для ірраціональних нерівностей ",
+        MathProblemKinds.ExponentialInequality => "підказка для показникових нерівностей ",
+        MathProblemKinds.LogarithmicInequality => "підказка для логарифмічних нерівностей ",
+        MathProblemKinds.TrigonometricInequality => "підказка для тригонометричних нерівностей ",
+        MathProblemKinds.NumericalSequence => "підказка для числових послідовностях",
+        MathProblemKinds.Function => "підказка для функцій",
+        _ => throw new ArgumentException("Некоректний вид поточної проблеми", nameof(Kind))
+    };
+
+    /// <summary>
+    /// Повертає висоту LaTeX-частини загальної підказки до поточної задачі.
+    /// </summary>
+    /// <exception cref="ArgumentException"></exception>
+    public int GetTipHeight() => Kind switch
+    {
+        MathProblemKinds.TableIntegral => 700,
+        MathProblemKinds.LineIntegral => 780,
+        MathProblemKinds.Matrix => 780,
+        MathProblemKinds.Limit => 780,
+        MathProblemKinds.LinearEquation => 780,
+        MathProblemKinds.QuadraticEquation => 780,
+        MathProblemKinds.IrrationalEquation => 780,
+        MathProblemKinds.ExponentialEquation => 780,
+        MathProblemKinds.LogarithmicEquation => 780,
+        MathProblemKinds.TrigonometricEquation => 780,
+        MathProblemKinds.LinearInequality => 780,
+        MathProblemKinds.QuadraticInequality => 780,
+        MathProblemKinds.IrrationalInequality => 780,
+        MathProblemKinds.ExponentialInequality => 780,
+        MathProblemKinds.LogarithmicInequality => 780,
+        MathProblemKinds.TrigonometricInequality => 780,
+        MathProblemKinds.NumericalSequence => 780,
+        MathProblemKinds.Function => 780,
+        _ => throw new ArgumentException("Некоректний вид поточної проблеми", nameof(Kind))
+    };
 
     /// <summary>
     /// Повертає випадкову математичну задачу як <see cref="MathProblem"/>.
@@ -149,7 +209,7 @@ public class MathProblem
 
         MathProblem mathProblem = await ApiClient.GetMathProblem(id);
 
-        while (mathProblem == null)
+        while (mathProblem is null)
         {
             GenerateMixedKey(true);
             mixedKey = GetMixedKey();
@@ -160,18 +220,20 @@ public class MathProblem
             mathProblem = await ApiClient.GetMathProblem(id);
         }
 
+        SetLastMixedId(id);
+
         return mathProblem;
     }
 
     /// <summary>
-    /// Повертає випадкову математичну проблему вказаного виду як <see cref="MathProblem"/>.
+    /// Повертає випадкову математичну задачу вказаного виду як <see cref="MathProblem"/>.
     /// </summary>
     /// <param name="kind">Вид математичної проблеми.</param>
     public static async Task<MathProblem> GetByKind(MathProblemKinds kind)
     {
         int byKindKey = GetByKindKey();
         int lastMathProblemIndex = GetLastByKindIndex();
-        int index = byKindKey + lastMathProblemIndex;
+        int index = byKindKey + lastMathProblemIndex - 1;
 
         List<int> ids = await ApiClient.GetMathProblemsIdsList(kind);
 
@@ -180,17 +242,13 @@ public class MathProblem
         try
         {
             id = ids[index];
+            SetLastByKindIndex(id);
         }
 
-        catch (IndexOutOfRangeException)
+        catch
         {
-            GenerateByKindKey(true);
-            byKindKey = GetByKindKey();
-
-            index = byKindKey + _ID_MIN;
-            id = ids[index];
-
-            SetLastByKindIndex(index);
+            SetLastByKindIndex(_ID_MIN);
+            id = ids[_ID_MIN];
         }
 
         return await ApiClient.GetMathProblem(id);

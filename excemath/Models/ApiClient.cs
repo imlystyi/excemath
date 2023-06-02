@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.WebUtilities;
+﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
-using FluentValidation.Results;
 
 namespace excemath.Models
 {
@@ -82,14 +82,19 @@ namespace excemath.Models
         /// <returns>
         /// Якщо сервер повернув принаймні один ідентифікатор, то список знайдених ідентифікаторів як <see cref="List{T}"/> з <see cref="int"/>; інакше, <see langword="null"/>.
         /// </returns>
-        public async static Task<List<SolvedMathProblem>?> GetSolvedMathProblemsList(MathProblemKinds kind)
+        public async static Task<List<int>?> GetSolvedMathProblemsList(MathProblemKinds kind)
         {
-            string url = $"{urlBase}/SolvedMathProblemsGet/kinds_list/{kind}";
+            Dictionary<string, string> parameters = new()
+            {
+                { nameof(MathProblem.Kind), ((int)kind).ToString() }
+            };
+
+            string url = QueryHelpers.AddQueryString($"{urlBase}/SolvedMathProblemsGet/kinds_list", parameters);
 
             HttpResponseMessage response = await _client.GetAsync(url);
 
             return response.IsSuccessStatusCode
-                ? JsonConvert.DeserializeObject<List<SolvedMathProblem>>(await response.Content.ReadAsStringAsync())
+                ? JsonConvert.DeserializeObject<List<int>?>(await response.Content.ReadAsStringAsync())
                 : null;
         }
 
@@ -102,7 +107,12 @@ namespace excemath.Models
         /// </returns>
         public async static Task<SolvedMathProblem?> GetSolvedMathProblem(int id)
         {
-            string url = $"{urlBase}/SolvedMathProblemsGet/id/{id}";
+            Dictionary<string, string> parameters = new()
+            {
+                { nameof(MathProblem.Id), id.ToString() }
+            };
+
+            string url = QueryHelpers.AddQueryString($"{urlBase}/SolvedMathProblemsGet/id", parameters);
 
             HttpResponseMessage response = await _client.GetAsync(url);
 
@@ -208,7 +218,7 @@ namespace excemath.Models
                 if (validationFailures.Any(vf => vf.ErrorCode == "01") && validationFailures.Any(vf => vf.ErrorCode == "03"))
                     return "Неправильний нікнейм і пароль!";
 
-                else 
+                else
                     return string.Join(" ", validationFailures.Select(vf => vf.ErrorMessage));
             }
         }
@@ -225,14 +235,15 @@ namespace excemath.Models
         {
             Dictionary<string, string> parameters = new()
             {
-                { nameof(nickname), nickname },
+                { nameof(User.Nickname), nickname },
                 { nameof(UserUpdateRequest.Password), userUpdateRequest.Password },
                 { nameof(UserUpdateRequest.RightAnswers), userUpdateRequest.RightAnswers.ToString() },
                 { nameof(UserUpdateRequest.WrongAnswers), userUpdateRequest.WrongAnswers.ToString() }
             };
 
-            string url = QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/update/{nickname}", parameters);
-            HttpResponseMessage response = await _client.GetAsync(url);
+            string url = QueryHelpers.AddQueryString($"{urlBase}/UsersAuthentication/update", parameters);
+            StringContent stringContent = new(string.Empty);
+            HttpResponseMessage response = await _client.PutAsync(url, stringContent);
 
             if (response.IsSuccessStatusCode)
                 return string.Empty;

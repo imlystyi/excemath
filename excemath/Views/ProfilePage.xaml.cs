@@ -19,11 +19,29 @@ public partial class ProfilePage : ContentPage
     /// <summary>
     /// ≤н≥ц≥ал≥зуЇ стор≥нку <see cref="ProfilePage"/>.
     /// </summary>
-    public ProfilePage() => InitializeComponent();    
+    public ProfilePage() => InitializeComponent();
 
     #endregion
 
     #region ќбробники под≥й
+
+    private void ChangePasswordButton_Tapped(object sender, TappedEventArgs args) => this.ShowPopup(new ChangePasswordPopup());
+
+    // TODO: перезавантаженн€ стор≥нки п≥сл€ скиненн€ дос€гнень
+    private async void ResetDataButton_Tapped(object sender, TappedEventArgs args)
+    {
+        string nickname = currentUser.Nickname;
+        UserUpdateRequest userUpdateRequest = new()
+        {
+            Password = User.GetCurrentPassword(),
+            RightAnswers = 0,
+            WrongAnswers = 0,
+        };
+
+        _ = User.TryUpdate(nickname, userUpdateRequest);
+
+        await Navigation.PopAsync();
+    }
 
     protected override async void OnAppearing()
     {
@@ -32,19 +50,10 @@ public partial class ProfilePage : ContentPage
         currentUser = await User.GetCurrentProfile();
 
         UserLevel.Text = User.GetCurrentLevelText(currentUser, out double rating);
-        Rating.Text = rating.ToString() + " %";        
+        Rating.Text = rating.ToString("0.##") + " %";
         RightAnswers.Text = currentUser.RightAnswers.ToString();
         WrongAnswers.Text = currentUser.WrongAnswers.ToString();
     }
 
-    #endregion
-
-    #region ћетоди
-
-    #endregion
-
-    private void ChangePasswordButton_Tapped(object sender, TappedEventArgs e)
-    {
-        this.ShowPopup(new ChangePasswordPopup());
-    }
+    #endregion 
 }

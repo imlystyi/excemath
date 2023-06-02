@@ -1,21 +1,31 @@
-#define DEMO_ANSWER
-
-using SkiaSharp;
-using SkiaSharp.Views.Maui;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using CSharpMath.SkiaSharp;
 using excemath.Models;
+using SkiaSharp;
+using SkiaSharp.Views.Maui;
 
 namespace excemath.Views;
 
 /// <summary>
 /// Представляє сторінку для розв'язання математичної задачі
 /// </summary>
-[QueryProperty(nameof(ItemValue), nameof(ItemValue))]
 public partial class MpAnswerEnteringPage : ContentPage
 {
     #region Поля
 
-    private MathProblem _mathProblem;
+    private readonly bool _isSolved;
+    private readonly bool _isByKind;
+    private readonly MathProblemKinds _kind;
+
+#nullable enable
+
+    private readonly MathProblem? _mathProblem;
+    private readonly SolvedMathProblem? _solvedMathProblem;
+
+#nullable restore
+
     private int _answer;
 
     #endregion
@@ -23,23 +33,36 @@ public partial class MpAnswerEnteringPage : ContentPage
     #region Конструктори 
 
     /// <summary>
-    /// Ініціалізує сторінку <see cref="MpAnswerEnteringPage"/>.
+    /// Ініціалізує сторінку <see cref="MpAnswerEnteringPage"/> з випадковим математичним прикладом.
     /// </summary>
-    public MpAnswerEnteringPage() => InitializeComponent();
+    public MpAnswerEnteringPage()
+    {
+        _mathProblem = Task.Run(MathProblem.GetMixed).Result;
+        _isSolved = false;
+        _isByKind = false;
 
-    #endregion
-
-    #region Властивості
+        InitializeComponent();
+    }
 
     /// <summary>
-    /// Встановлює значення для визначення поведінки сторінки.
+    /// Ініціалізує сторінку <see cref="MpAnswerEnteringPage"/> з математичним прикладом заданого виду.
     /// </summary>
-    /// <remarks>
-    /// При встановленні викликає метод <see cref="LoadExpression(string)"/> зі значенням цієї властивості у якості аргумента.
-    /// </remarks>
-    public string ItemValue
+    /// <param name="kind">Вид математичного прикладу.</param>
+    /// <param name="isSolved">Визначає, чи є математична проблема розв'язаною.</param>s
+    public MpAnswerEnteringPage(MathProblemKinds kind, bool isSolved = false)
     {
-        set => LoadExpression(value);
+        _isSolved = isSolved;
+
+        if (!_isSolved)
+            _mathProblem = Task.Run(() => MathProblem.GetByKind(kind)).Result;
+
+        else
+            _solvedMathProblem = Task.Run(() => SolvedMathProblem.GetByKind(kind)).Result;
+
+        _isByKind = true;
+        _kind = kind;
+
+        InitializeComponent();
     }
 
     #endregion
@@ -64,7 +87,7 @@ public partial class MpAnswerEnteringPage : ContentPage
         MathPainter painter = new()
         {
             FontSize = 40,
-            LaTeX = _mathProblem.GetQuestionLatex()
+            LaTeX = (_mathProblem is not null) ? _mathProblem.GetQuestionLatex() : _solvedMathProblem.GetQuestionLatex()
         };
 
         painter.Draw(canvas);
@@ -80,7 +103,7 @@ public partial class MpAnswerEnteringPage : ContentPage
         MathPainter painter = new()
         {
             FontSize = 40,
-            LaTeX = _mathProblem.GetAnswerOption(1)
+            LaTeX = (_mathProblem is not null) ? _mathProblem.GetAnswerOption(1) : _solvedMathProblem.GetAnswerOption(1)
         };
 
         painter.Draw(canvas);
@@ -96,7 +119,7 @@ public partial class MpAnswerEnteringPage : ContentPage
         MathPainter painter = new()
         {
             FontSize = 40,
-            LaTeX = _mathProblem.GetAnswerOption(2)
+            LaTeX = (_mathProblem is not null) ? _mathProblem.GetAnswerOption(2) : _solvedMathProblem.GetAnswerOption(2)
         };
 
         painter.Draw(canvas);
@@ -112,7 +135,7 @@ public partial class MpAnswerEnteringPage : ContentPage
         MathPainter painter = new()
         {
             FontSize = 40,
-            LaTeX = _mathProblem.GetAnswerOption(3)
+            LaTeX = (_mathProblem is not null) ? _mathProblem.GetAnswerOption(3) : _solvedMathProblem.GetAnswerOption(3)
         };
 
         painter.Draw(canvas);
@@ -128,64 +151,86 @@ public partial class MpAnswerEnteringPage : ContentPage
         MathPainter painter = new()
         {
             FontSize = 40,
-            LaTeX = _mathProblem.GetAnswerOption(4)
+            LaTeX = (_mathProblem is not null) ? _mathProblem.GetAnswerOption(4) : _solvedMathProblem.GetAnswerOption(4)
         };
 
         painter.Draw(canvas);
     }
 
-    private void OkButton_Clicked(object sender, EventArgs e)
+    private async void SendAnswerButton_Tapped(object sender, TappedEventArgs args)
     {
-        if (_answer == _mathProblem.GetAnswer())
+        if (_answer == ((_mathProblem is not null) ? _mathProblem.GetAnswerNumber() : _solvedMathProblem.GetAnswerNumber()))
         {
-            Console.WriteLine("Правильна відповідь!");
+            UserGetRequest currentUser = await User.GetCurrentProfile();
 
-            // TODO: реалізувати дії при введенні правильної відповіді
+            string nickname = currentUser.Nickname;
+            UserUpdateRequest userUpdateRequest = new()
+            {
+                Password = User.GetCurrentPassword(),
+                RightAnswers = currentUser.RightAnswers + 1,
+                WrongAnswers = currentUser.WrongAnswers,
+            };
+
+            _ = User.TryUpdate(nickname, userUpdateRequest);
+
+            string text = "Правильна відповідь!";
+            double fontSize = 14;
+            ToastDuration duration = ToastDuration.Short;
+            CancellationTokenSource cancellationTokenSource = new();
+
+            var toast = Toast.Make(text, duration, fontSize);
+            await toast.Show(cancellationTokenSource.Token);
+
+            var currentPage = Navigation.NavigationStack[Navigation.NavigationStack.Count - 1];
+
+            if (_isByKind)
+                await Navigation.PushAsync(new MpAnswerEnteringPage(_kind, _isSolved));
+
+            else
+                await Navigation.PushAsync(new MpAnswerEnteringPage());
+
+            Navigation.RemovePage(currentPage);
         }
 
         else
         {
-            Console.WriteLine("Неправильна відповідь!");
+            UserGetRequest currentUser = await User.GetCurrentProfile();
 
-            // TODO: реалізувати дії при введенні неправильної відповіді
+            string nickname = currentUser.Nickname;
+            UserUpdateRequest userUpdateRequest = new()
+            {
+                Password = User.GetCurrentPassword(),
+                RightAnswers = currentUser.RightAnswers,
+                WrongAnswers = currentUser.WrongAnswers + 1,
+            };
+
+            _ = User.TryUpdate(nickname, userUpdateRequest);
+
+            string text = "Неправильна відповідь!";
+            double fontSize = 14;
+            ToastDuration duration = ToastDuration.Short;
+            CancellationTokenSource cancellationTokenSource = new();
+
+            var toast = Toast.Make(text, duration, fontSize);
+            await toast.Show(cancellationTokenSource.Token);
         }
+    }
+
+    private void HelpButton_Clicked(object sender, EventArgs args)
+    {
+        var popup = (_mathProblem is not null)
+            ? new TipPopup(_mathProblem.GetTipText(), _mathProblem.GetTipLatex(), _mathProblem.GetTipHeight())
+            : new TipPopup(_solvedMathProblem.GetSolutionText(), _solvedMathProblem.GetSolutionLatex(), _solvedMathProblem.GetSolutionHeight());
+
+        this.ShowPopup(popup);
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
 
-        MpKind.Text = _mathProblem.GetKindAsText();
-        MpQuestion.Text = _mathProblem.GetQuestionText();
-    }
-
-    #endregion
-
-    #region Методи
-
-    private void LoadExpression(string parameters)
-    {
-        if (parameters == "m")
-        {
-
-#if DEMO_ANSWER
-            MathProblem _NO_SSL_mathProblem_ = new()
-            {
-                Id = 1,
-                Question = @"Розв'яжіть інтеграл. /expr \int_{0}^{1} x^2 dx",
-                Answer = @"2 /opt \frac{1}{6}/n\frac{1}{3}/n\frac{1}{9}/n\frac{1}{27}",
-                Kind = MathProblemKinds.TableIntegral
-            };
-
-            _mathProblem = _NO_SSL_mathProblem_;
-
-#else
-            Task<MathProblem> task = Task.Run(MathProblem.GetMixed);
-            task.Wait();
-
-            _mathProblem = task.Result;
-#endif
-        }
+        MpKind.Text = (_mathProblem is not null) ? _mathProblem.GetKindAsText() : _solvedMathProblem.GetKindAsText();
+        MpQuestion.Text = (_mathProblem is not null) ? _mathProblem.GetQuestionText() : _solvedMathProblem.GetQuestionText();       
     }
 
     #endregion

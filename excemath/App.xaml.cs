@@ -12,7 +12,7 @@ public partial class App : Application
     /// </summary>
     public App()
     {
-        InitializeComponent();        
+        InitializeComponent();
 
         MainPage = new AppShell();
     }

@@ -4,28 +4,40 @@ using excemath.Models;
 namespace excemath.Views;
 
 /// <summary>
-/// 
+/// Представляє спливаюче вікно для зміни паролю.
 /// </summary>
 public partial class ChangePasswordPopup : Popup
 {
-	public ChangePasswordPopup()
-	{
-		InitializeComponent();
-	}
+    #region Конструктори
 
-    private async void ChangePasswordButton_Tapped(object sender, TappedEventArgs e)
+    /// <summary>
+    /// Ініціалізує спливаюче вікно <see cref="ChangePasswordPopup"/>.
+    /// </summary>
+    public ChangePasswordPopup() => InitializeComponent();
+
+    #endregion
+
+    #region Обробники подій
+
+    private async void ConfirmButton_Tapped(object sender, TappedEventArgs args)
     {
         UserGetRequest currentUser = await User.GetCurrentProfile();
         string nickname = currentUser.Nickname;
+
         UserUpdateRequest userUpdateRequest = new()
         {
-            Password = nickname,
-            RightAnswers = currentUser.RightAnswers++,
-            WrongAnswers = currentUser.WrongAnswers++
+            Password = NewPasswordEntry.Text,
+            RightAnswers = currentUser.RightAnswers,
+            WrongAnswers = currentUser.WrongAnswers,
         };
 
         string result = await User.TryUpdate(nickname, userUpdateRequest);
 
-        IdentitySuccess.Text = result;
+        if (string.IsNullOrEmpty(result))
+            Close();
+
+        NewPasswordEntry.Placeholder = result;
     }
+
+    #endregion
 }

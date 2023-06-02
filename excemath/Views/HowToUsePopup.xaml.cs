@@ -7,6 +7,8 @@ public partial class HowToUsePopup
 {
     #region  онструктори
 
+    // TODO: прописати текст "як користуватись?"
+
     /// <summary>
     /// ≤н≥ц≥ал≥зуЇ спливаюче в≥кно <see cref="HowToUsePopup"/>.
     /// </summary>

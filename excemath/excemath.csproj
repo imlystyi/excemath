@@ -54,7 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
 		<PackageReference Include="CSharpMath" Version="0.5.1" />
 		<PackageReference Include="CSharpMath.Rendering" Version="0.5.1" />
 		<PackageReference Include="CSharpMath.SkiaSharp" Version="0.5.1" />

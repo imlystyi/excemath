@@ -22,7 +22,7 @@ public partial class AuthorizationPopup : Popup
     private async void AuthorizeButton_Clicked(object sender, TappedEventArgs args)
     {
         if (string.IsNullOrEmpty(NicknameEntry.Text) || string.IsNullOrEmpty(PasswordEntry.Text))
-            return;        
+            return;
 
         string nickname = NicknameEntry.Text;
         string password = PasswordEntry.Text;
@@ -39,7 +39,13 @@ public partial class AuthorizationPopup : Popup
             IdentitySuccess.Text = "Неправильний нікнейм або пароль!";
 
         else
+        {
+            User.SetCurrentNickname(nickname);
+            User.SetCurrentPassword(password);
             Close();
+
+        }
+
     }
 
     private async void RegisterButton_Clicked(object sender, TappedEventArgs args)
@@ -59,10 +65,14 @@ public partial class AuthorizationPopup : Popup
         string errors = await User.TryRegister(userIdentity);
 
         if (!string.IsNullOrEmpty(errors))
-            IdentitySuccess.Text = errors;        
+            IdentitySuccess.Text = errors;
 
-        else 
+        else
+        {
+            User.SetCurrentNickname(nickname);
+            User.SetCurrentPassword(password);
             Close();
+        }
     }
 
     #endregion

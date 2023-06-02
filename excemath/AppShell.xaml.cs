@@ -26,45 +26,45 @@ public partial class AppShell : Shell
 
     #region Обробники подій
 
-    private void HowToUseButton_Clicked(object sender, EventArgs args) => this.ShowPopup(new HowToUsePopup());
+    private void HowToUseButton_Tapped(object sender, EventArgs args) => this.ShowPopup(new HowToUsePopup());
 
-    private void ProfileButton_Clicked(object sender, TappedEventArgs args)
+    private void ProfileButton_Tapped(object sender, TappedEventArgs args)
     {
-        ShowAuthorizationPopup();
-        Navigation.PushAsync(new ProfilePage());
+        if (ShowAuthorizationPopup())
+            Navigation.PushAsync(new ProfilePage());
     }
 
-    private void AchievementsButton_Clicked(object sender, TappedEventArgs args)
+    private void AchievementsButton_Tapped(object sender, TappedEventArgs args)
     {
-        ShowAuthorizationPopup();
-        Navigation.PushAsync(new AchievementsPage());
+        if (ShowAuthorizationPopup())
+            Navigation.PushAsync(new AchievementsPage());
     }
 
-    private void MixedKindsButton_Clicked(object sender, EventArgs args)
+    private void MixedKindsButton_Tapped(object sender, TappedEventArgs args)
     {
-        ShowAuthorizationPopup();
-        Current.GoToAsync($"{nameof(MpAnswerEnteringPage)}?{nameof(MpAnswerEnteringPage.ItemValue)}=m");
+        if (ShowAuthorizationPopup())
+            Navigation.PushAsync(new MpAnswerEnteringPage());
     }
 
-    private void ChooseKindButton_Clicked(object sender, TappedEventArgs args) 
+    private void ChooseKindButton_Tapped(object sender, TappedEventArgs args)
     {
-        ShowAuthorizationPopup();
-        Navigation.PushAsync(new MpKindsPage());
+        if (ShowAuthorizationPopup())
+            Navigation.PushAsync(new MpKindsPage());
     }
 
-    private void ZNOPreparingButton_Clicked(object sender, TappedEventArgs args) 
+    private void ZNOPreparingButton_Tapped(object sender, TappedEventArgs args)
     {
-        ShowAuthorizationPopup();
-        Navigation.PushAsync(new SolvedMpZNOPreparingPage());
+        if (ShowAuthorizationPopup())
+            Navigation.PushAsync(new SolvedMpZNOPreparingPage());
     }
 
-    private void StudentExamsPreparingButton_Clicked(object sender, TappedEventArgs args) 
+    private void StudentExamsPreparingButton_Tapped(object sender, TappedEventArgs args)
     {
-        ShowAuthorizationPopup();
-        Navigation.PushAsync(new SolvedMpStudentExamsPreparingPage());
+        if (ShowAuthorizationPopup())
+            Navigation.PushAsync(new SolvedMpStudentExamsPreparingPage());
     }
 
-    private void AboutProgramButton_Clicked(object sender, EventArgs args) 
+    private void AboutProgramButton_Tapped(object sender, EventArgs args)
     {
         Navigation.PushAsync(new AboutProgramPage());
     }
@@ -73,13 +73,17 @@ public partial class AppShell : Shell
 
     #region Методи
 
-    private void ShowAuthorizationPopup()
+    private bool ShowAuthorizationPopup()
     {
         if (!string.IsNullOrEmpty(User.GetCurrentNickname()))
-            return;
+            return true;
 
         else
-            this.ShowPopup(new AuthorizationPopup());        
+        {
+            this.ShowPopup(new AuthorizationPopup());
+
+            return false;
+        }
     }
 
     #endregion

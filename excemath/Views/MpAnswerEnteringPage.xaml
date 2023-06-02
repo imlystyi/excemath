@@ -2,173 +2,74 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"             
-             x:Class="excemath.Views.MpAnswerEnteringPage"
-             x:DataType="StackLayout"
-             BackgroundColor="White">
+             x:Class="excemath.Views.MpAnswerEnteringPage">
 
     <StackLayout Spacing="18">
-        <HorizontalStackLayout Spacing="15">
-            <Label x:Name="MpKind" 
-                   Style="{StaticResource Title}"                   
-                   HorizontalOptions="Start"/>
-            
-            <ImageButton Source="hint_icon.svg" 
-                         HorizontalOptions="End"
-                         HeightRequest="40" 
-                         WidthRequest="40"/>
-        </HorizontalStackLayout>
+        <StackLayout Orientation="Horizontal" Margin="0,0,25,0">
+            <Label x:Name="MpKind" Style="{StaticResource Title}"/>
+            <ImageButton Style="{StaticResource IconButton}" Source="hint_icon.svg" Clicked="HelpButton_Clicked"/>
+        </StackLayout>
 
         <Label x:Name="MpQuestion" 
-               Style="{StaticResource Large}" 
-               FontSize="16" 
+               Style="{StaticResource Large}"
                Margin="25,0,0,0"/>
 
-        <Frame WidthRequest="360" 
-               HeightRequest="150" 
-               CornerRadius="25"
-               BackgroundColor="#F7F7F7">
-            <Frame.Background>
-                <LinearGradientBrush EndPoint="1,0">
-                    <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Frame.Background>
-            
-            <skia:SKCanvasView x:Name="QuestionCanvas"
-                               PaintSurface="QuestionCanvas_PaintSurface"
-                               VerticalOptions="CenterAndExpand" 
-                               HeightRequest="140" 
-                               BackgroundColor="#F7F7F7">
-                <skia:SKCanvasView.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </skia:SKCanvasView.Background>
+        <Frame CornerRadius="25"
+               WidthRequest="360" 
+               HeightRequest="125"               
+               BackgroundColor="{StaticResource MpBackgroundColor}"
+               BorderColor="CadetBlue">
+            <skia:SKCanvasView x:Name="QuestionCanvas"                       
+                               HeightRequest="120"
+                               BackgroundColor="{StaticResource MpBackgroundColor}"
+                               VerticalOptions="CenterAndExpand"
+                               PaintSurface="QuestionCanvas_PaintSurface">
             </skia:SKCanvasView>
         </Frame>
 
         <StackLayout Orientation="Horizontal" Margin ="20,0,0,0" VerticalOptions="CenterAndExpand">
             <StackLayout Orientation="Vertical" Spacing="5">
                 <Grid ColumnDefinitions="Auto,Auto">
-                    <RadioButton CheckedChanged="Option1_CheckedChanged" Grid.Column="0"/>
-
-                    <Frame Grid.Column="1" CornerRadius="25" WidthRequest="200">
-                        <Frame.Background>
-                            <LinearGradientBrush EndPoint="1,0">
-                                <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                            </LinearGradientBrush>
-                        </Frame.Background>
-
-                        <skia:SKCanvasView PaintSurface="AnswerCanvas1_PaintSurface"
-                                           VerticalOptions="CenterAndExpand"  
-                                           WidthRequest="50"  
-                                           HeightRequest="50"
-                                           BackgroundColor="White">
-                            <skia:SKCanvasView.Background>
-                                <LinearGradientBrush EndPoint="1,0">
-                                    <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                                </LinearGradientBrush>
-                            </skia:SKCanvasView.Background>
-                        </skia:SKCanvasView>
+                    <RadioButton Style="{StaticResource MpOptionRadioButton}" CheckedChanged="Option1_CheckedChanged"/>
+                    <Frame Style="{StaticResource MpOptionFrame}">
+                        <skia:SKCanvasView Style="{StaticResource MpOptionCanvas}" PaintSurface="AnswerCanvas1_PaintSurface"/>
                     </Frame>
                 </Grid>
 
                 <Grid ColumnDefinitions="Auto,Auto">
-                    <RadioButton CheckedChanged="Option2_CheckedChanged" Grid.Column="0"/>
-
-                    <Frame Grid.Column="1" CornerRadius="25" WidthRequest="200">
-                        <Frame.Background>
-                            <LinearGradientBrush EndPoint="1,0">
-                                <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                            </LinearGradientBrush>
-                        </Frame.Background>
-
-                        <skia:SKCanvasView PaintSurface="AnswerCanvas2_PaintSurface"
-                                           VerticalOptions="CenterAndExpand"  
-                                           WidthRequest="50"  
-                                           HeightRequest="50"
-                                           BackgroundColor="White">
-                            <skia:SKCanvasView.Background>
-                                <LinearGradientBrush EndPoint="1,0">
-                                    <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                                </LinearGradientBrush>
-                            </skia:SKCanvasView.Background>
-                        </skia:SKCanvasView>
+                    <RadioButton Style="{StaticResource MpOptionRadioButton}" CheckedChanged="Option2_CheckedChanged"/>
+                    <Frame Style="{StaticResource MpOptionFrame}">
+                        <skia:SKCanvasView Style="{StaticResource MpOptionCanvas}" PaintSurface="AnswerCanvas2_PaintSurface"/>
                     </Frame>
                 </Grid>
 
                 <Grid ColumnDefinitions="Auto,Auto">
-                    <RadioButton CheckedChanged="Option3_CheckedChanged" Grid.Column="0"/>
-
-                    <Frame Grid.Column="1" CornerRadius="25" WidthRequest="200">
-                        <Frame.Background>
-                            <LinearGradientBrush EndPoint="1,0">
-                                <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                            </LinearGradientBrush>
-                        </Frame.Background>
-
-                        <skia:SKCanvasView PaintSurface="AnswerCanvas3_PaintSurface"
-                                           VerticalOptions="CenterAndExpand"  
-                                           WidthRequest="50"  
-                                           HeightRequest="50"
-                                           BackgroundColor="White">
-                            <skia:SKCanvasView.Background>
-                                <LinearGradientBrush EndPoint="1,0">
-                                    <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                                </LinearGradientBrush>
-                            </skia:SKCanvasView.Background>
-                        </skia:SKCanvasView>
+                    <RadioButton Style="{StaticResource MpOptionRadioButton}" CheckedChanged="Option3_CheckedChanged"/>
+                    <Frame Style="{StaticResource MpOptionFrame}">
+                        <skia:SKCanvasView Style="{StaticResource MpOptionCanvas}" PaintSurface="AnswerCanvas3_PaintSurface"/>
                     </Frame>
                 </Grid>
 
                 <Grid ColumnDefinitions="Auto,Auto">
-                    <RadioButton CheckedChanged="Option4_CheckedChanged" Grid.Column="0"/>
-
-                    <Frame Grid.Column="1" CornerRadius="25" WidthRequest="200">
-                        <Frame.Background>
-                            <LinearGradientBrush EndPoint="1,0">
-                                <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                            </LinearGradientBrush>
-                        </Frame.Background>
-
-                        <skia:SKCanvasView PaintSurface="AnswerCanvas4_PaintSurface"
-                                           VerticalOptions="CenterAndExpand"  
-                                           WidthRequest="50"  
-                                           HeightRequest="50"
-                                           BackgroundColor="White">
-                            <skia:SKCanvasView.Background>
-                                <LinearGradientBrush EndPoint="1,0">
-                                    <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                                </LinearGradientBrush>
-                            </skia:SKCanvasView.Background>
-                        </skia:SKCanvasView>
+                    <RadioButton Style="{StaticResource MpOptionRadioButton}" CheckedChanged="Option4_CheckedChanged"/>
+                    <Frame Style="{StaticResource MpOptionFrame}">
+                        <skia:SKCanvasView Style="{StaticResource MpOptionCanvas}" PaintSurface="AnswerCanvas4_PaintSurface"/>
                     </Frame>
                 </Grid>
             </StackLayout>            
         </StackLayout>
 
-        <Frame BackgroundColor="#D3DFFF" CornerRadius="20" Margin="20,0,20,5">
+        <Frame CornerRadius="20" Margin="20,0,20,5">
             <Frame.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#F1F4F8" Offset="0.1"/>
-                    <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                    <GradientStop Color="#D4BAFF" Offset="1.0"/>
                 </LinearGradientBrush>
             </Frame.Background>
-
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer/>
+                <TapGestureRecognizer Tapped="SendAnswerButton_Tapped"/>
             </Frame.GestureRecognizers>
-
-            <Label Style="{StaticResource Large}" Text="Надіслати відповідь" FontSize="20" HorizontalOptions="Center"/>
+            <Label Style="{StaticResource Large}" Text="Надіслати відповідь" HorizontalOptions="Center"/>
         </Frame>
     </StackLayout>
 </ContentPage>

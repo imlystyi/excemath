@@ -3,5 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.Views.SolvedMpStudentExamsPreparingPage"
              Title="Підготовка до сесії">
+    <!--<ScrollView>
+        <StackLayout Orientation="Vertical" Spacing="5">
+            <Label Style="{StaticResource Title}" Text="Вибір виду"/>
 
+            <Frame Style="{StaticResource MpKindButtonFrame}">
+                <Frame.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MultipleIntegralsButton_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Style="{StaticResource Large}" Text="Кратні інтеграли"/>
+            </Frame>
+            <Frame Style="{StaticResource MpKindButtonFrame}">
+                <Frame.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LineIntegralsButton_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Style="{StaticResource Large}" Text="Криволінійні інтеграли"/>
+            </Frame>
+            <Frame Style="{StaticResource MpKindButtonFrame}">
+                <Frame.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MatrixButton_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Style="{StaticResource Large}" Text="Матриці"/>
+            </Frame>
+            <Frame Style="{StaticResource MpKindButtonFrame}">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LimitsButton_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Style="{StaticResource Large}" Text="Границі"/>
+            </Frame>
+            <Frame Style="{StaticResource MpKindButtonFrame}">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NumericalSequencesButton_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Style="{StaticResource Large}" Text="Числові послідовності"/>
+            </Frame>
+        </StackLayout>
+    </ScrollView>-->
 </ContentPage>

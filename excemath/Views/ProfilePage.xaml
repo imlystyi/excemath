@@ -95,7 +95,7 @@
                 </LinearGradientBrush>
             </Frame.Background>
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="ChangePasswordButton_Tapped"/>
+                <TapGestureRecognizer Tapped="ResetDataButton_Tapped"/>
             </Frame.GestureRecognizers>            
             <Label Style="{StaticResource Large}" 
                    Text="Cкинути результати" 

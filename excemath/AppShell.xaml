@@ -2,7 +2,7 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-       xmlns:views="clr-namespace:excemath.Views"    
+       xmlns:views="clr-namespace:excemath.Views"
        x:Class="excemath.AppShell"
        FlyoutBehavior="Disabled"  
        TabBarIsVisible="False"
@@ -10,17 +10,14 @@
     <Shell.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
     </Shell.Behaviors>
+    
     <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal" Margin="0,0,25,0">
                 <Label Style="{StaticResource Title}" Text="Головне меню"/>
-                <ImageButton Source="help_icon.svg" 
-                             HeightRequest="40" 
-                             WidthRequest="40" 
-                             HorizontalOptions="EndAndExpand"
-                             Clicked="HowToUseButton_Clicked"/>
+                <ImageButton Style="{StaticResource IconButton}" Source="help_icon.svg" Clicked="HowToUseButton_Tapped"/>
             </StackLayout>
 
             <Grid ColumnDefinitions="*,*">
@@ -33,7 +30,7 @@
                             </LinearGradientBrush>
                         </Frame.Background>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="ProfileButton_Clicked"/>
+                            <TapGestureRecognizer Tapped="ProfileButton_Tapped"/>
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Vertical" WidthRequest="160">
                             <Label Style="{StaticResource Large}" 
@@ -47,13 +44,13 @@
 
                     <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,0,0,5">
                         <Frame.Background>
-                            <LinearGradientBrush >
+                            <LinearGradientBrush>
                                 <GradientStop Color="#FFDDB4" Offset="0.1"/>
                                 <GradientStop Color="#D4BAFF" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="AchievementsButton_Clicked"/>
+                            <TapGestureRecognizer Tapped="AchievementsButton_Tapped"/>
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Vertical" WidthRequest="160">
                             <Label Style="{StaticResource Large}" 
@@ -71,7 +68,7 @@
                              WidthRequest="200"
                              Grid.Row="0" 
                              Grid.Column="1"                             
-                             Clicked="AboutProgramButton_Clicked"/>
+                             Clicked="AboutProgramButton_Tapped"/>
             </Grid>
 
             <StackLayout Orientation="Vertical" Spacing="5">
@@ -88,7 +85,7 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="MixedKindsButton_Clicked"/>
+                        <TapGestureRecognizer Tapped="MixedKindsButton_Tapped"/>
                     </Frame.GestureRecognizers>
                     <StackLayout Orientation="Vertical">
                         <Label Style="{StaticResource Large}" 
@@ -108,7 +105,7 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ChooseKindButton_Clicked"/>
+                        <TapGestureRecognizer Tapped="ChooseKindButton_Tapped"/>
                     </Frame.GestureRecognizers>
                     <StackLayout Orientation="Vertical">
                         <Label Style="{StaticResource Large}" 
@@ -128,7 +125,7 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ZNOPreparingButton_Clicked"/>
+                        <TapGestureRecognizer Tapped="ZNOPreparingButton_Tapped"/>
                     </Frame.GestureRecognizers>
                     <StackLayout Orientation="Vertical">
                         <Label Style="{StaticResource Large}" 
@@ -148,7 +145,7 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="StudentExamsPreparingButton_Clicked"/>
+                        <TapGestureRecognizer Tapped="StudentExamsPreparingButton_Tapped"/>
                     </Frame.GestureRecognizers>
                     <StackLayout Orientation="Vertical">
                         <Label Style="{StaticResource Large}" 

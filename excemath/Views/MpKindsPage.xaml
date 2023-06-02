@@ -4,269 +4,237 @@
              x:Class="excemath.Views.MpKindsPage">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="5">
+        <StackLayout Orientation="Vertical" Spacing="5">
             <Label Style="{StaticResource Title}" Text="Вибір виду"/>
 
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TableIntegralsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Табличні інтеграли"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MultipleIntegralsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Кратні інтеграли"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LineIntegralsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Криволінійні інтеграли"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MatrixButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Матриці"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LimitsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Границі"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LinearEquationsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Лінійні рівняння"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="QuadraticEquationsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Квадратні рівняння"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="IrrationalEquationsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Ірраціональні рівняння"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ExponentialEquationsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Показникові рівняння"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LogarithmicEquationsButton_Tapped"/>
+                </Frame.GestureRecognizers>                
                 <Label Style="{StaticResource Large}" Text="Логарифмічні рівняння"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TrigonometricEquationsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Тригонометричні рівняння"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LinearInequalitiesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Лінійні нерівності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="QuadraticInequalitiesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Квадратичні нерівності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="IrrationalInequalitiesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Ірраціональні нерівності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ExponentialInequalitiesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Показникові нерівності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LogarithmicInequalitiesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Логарифмічні нерівності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TrigonometricInequalitiesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Тригонометричні нерівності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NumericalSequencesButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Числові послідовності"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
+            <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
+                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
+                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="FunctionsButton_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Функції"/>
             </Frame>
-
-            <Frame BackgroundColor="#D3DFFF" 
-                       CornerRadius="20"
-                       Margin="20,0,20,5">
-                <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#CFDDFF" Offset="0.1"/>
-                        <GradientStop Color="#EAF0FF" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-
-                <Label Style="{StaticResource Large}" Text="Комбінаторика"/>
-            </Frame>
-            
-        </VerticalStackLayout>        
+        </StackLayout>        
     </ScrollView>
 </ContentPage>

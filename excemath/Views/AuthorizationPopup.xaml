@@ -24,7 +24,6 @@
 
                 <Label x:Name="IdentitySuccess"
                        Style="{StaticResource Medium}"
-                       Text="Користувач з таким нікнеймом вже є!"
                        HorizontalOptions="Center"/>
 
                 <Frame CornerRadius="20" BorderColor="#DEA9FF" Margin="20,0,20,5">
