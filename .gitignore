@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/_UnitTest/_UnitTest.csproj
+/_UnitTest/UnitTest1.cs
+/_UnitTest/packages.config
+/_UnitTest/Properties/AssemblyInfo.cs
+/_UnitTest/MathProblem.cs
+/_UnitTest/_UnitTest.cs
