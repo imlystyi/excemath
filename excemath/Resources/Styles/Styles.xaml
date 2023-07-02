@@ -408,7 +408,7 @@
 
     <Style TargetType="Label" x:Key="Title">
         <Setter Property="FontFamily" Value="Bold"/>
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
         <Setter Property="Margin" Value="25,20,5,20"/>
     </Style>
@@ -451,7 +451,7 @@
     <Style TargetType="Frame" x:Key="MpOptionFrame">
         <Setter Property="CornerRadius" Value="25"/>
         <Setter Property="WidthRequest" Value="310"/>
-        <Setter Property="HeightRequest" Value="75"/>
+        <Setter Property="HeightRequest" Value="90"/>
         <Setter Property="BackgroundColor" Value="{StaticResource MpBackgroundColor}"/>
         <Setter Property="BorderColor" Value="CadetBlue"/>
         <Setter Property="Grid.Column" Value="1"/>
@@ -460,7 +460,7 @@
     
     <Style TargetType="skia:SKCanvasView" x:Key="MpOptionCanvas">
         <Setter Property="WidthRequest" Value="290"/>
-        <Setter Property="HeightRequest" Value="70"/>
+        <Setter Property="HeightRequest" Value="75"/>
         <Setter Property="BackgroundColor" Value="{StaticResource MpBackgroundColor}"/>
         <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
     </Style>
@@ -469,5 +469,6 @@
         <Setter Property="GroupName" Value="MpOptions"/>
         <Setter Property="Grid.Column" Value="0"/>
     </Style>
+    
     <!--#endregion-->
 </ResourceDictionary>

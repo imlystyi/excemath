@@ -43,7 +43,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Криволінійні інтеграли"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -67,7 +67,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Границі"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -79,7 +79,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Лінійні рівняння"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -115,7 +115,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Показникові рівняння"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -139,7 +139,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Тригонометричні рівняння"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -151,7 +151,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Лінійні нерівності"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -175,7 +175,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Ірраціональні нерівності"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -187,7 +187,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Показникові нерівності"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -199,7 +199,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Логарифмічні нерівності"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -211,7 +211,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Тригонометричні нерівності"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -223,7 +223,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Числові послідовності"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
+            <Frame Style="{StaticResource MpKindButtonFrame}" IsEnabled="False" IsVisible="False">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
@@ -235,6 +235,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Функції"/>
             </Frame>
+            <Label Style="{StaticResource Large}" Text="Бета-версія!&#10;Види задач будуть додаватись." FontSize="25" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
         </StackLayout>        
     </ScrollView>
 </ContentPage>

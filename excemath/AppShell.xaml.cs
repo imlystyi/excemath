@@ -20,6 +20,7 @@ public partial class AppShell : Shell
 
         MathProblem.GenerateMixedKey();
         MathProblem.GenerateByKindKey();
+        SolvedMathProblem.GenerateKey();
     }
 
     #endregion

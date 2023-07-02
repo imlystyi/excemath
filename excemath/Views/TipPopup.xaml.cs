@@ -29,12 +29,13 @@ public partial class TipPopup : Popup
     /// <param name="text">Текст підказки.</param>
     /// <param name="latex">LaTeX-частина підказки.</param>
     /// <param name="heightRequest">Висота LaTeX-частини підказки.</param>
-    public TipPopup(string text, string latex, int heightRequest)
+    public TipPopup(string text, string latex, int heightRequest, int leftMargin)
     {
         InitializeComponent();
 
         TipText.Text = text;
         TipLatexCanvas.HeightRequest = heightRequest;
+        TipLatexCanvas.Margin = new Thickness(leftMargin, 0, 0, 0);
         _latex = latex;
     }
 

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="excemath.Views.SolvedMpStudentExamsPreparingPage"
              Title="Підготовка до сесії">
-    <!--<ScrollView>
+    <ScrollView>
         <StackLayout Orientation="Vertical" Spacing="5">
             <Label Style="{StaticResource Title}" Text="Вибір виду"/>
 
@@ -33,18 +33,6 @@
             </Frame>
             <Frame Style="{StaticResource MpKindButtonFrame}">
                 <Frame.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
-                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="MatrixButton_Tapped"/>
-                </Frame.GestureRecognizers>
-                <Label Style="{StaticResource Large}" Text="Матриці"/>
-            </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
-                <Frame.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#FFDDB4" Offset="0.1"/>
                         <GradientStop Color="#D4BAFF" Offset="1.0"/>
@@ -55,18 +43,7 @@
                 </Frame.GestureRecognizers>
                 <Label Style="{StaticResource Large}" Text="Границі"/>
             </Frame>
-            <Frame Style="{StaticResource MpKindButtonFrame}">
-                <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Color="#FFDDB4" Offset="0.1"/>
-                        <GradientStop Color="#D4BAFF" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NumericalSequencesButton_Tapped"/>
-                </Frame.GestureRecognizers>
-                <Label Style="{StaticResource Large}" Text="Числові послідовності"/>
-            </Frame>
+            <Label Style="{StaticResource Large}" Text="Бета-версія!&#10;Види задач будуть додаватись." FontSize="25" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
         </StackLayout>
-    </ScrollView>-->
+    </ScrollView>
 </ContentPage>

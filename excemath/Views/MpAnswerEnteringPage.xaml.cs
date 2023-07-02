@@ -219,8 +219,8 @@ public partial class MpAnswerEnteringPage : ContentPage
     private void HelpButton_Clicked(object sender, EventArgs args)
     {
         var popup = (_mathProblem is not null)
-            ? new TipPopup(_mathProblem.GetTipText(), _mathProblem.GetTipLatex(), _mathProblem.GetTipHeight())
-            : new TipPopup(_solvedMathProblem.GetSolutionText(), _solvedMathProblem.GetSolutionLatex(), _solvedMathProblem.GetSolutionHeight());
+            ? new TipPopup(_mathProblem.GetTipText(), _mathProblem.GetTipLatex(), _mathProblem.GetTipHeight(), _mathProblem.GetTipLeftMargin())
+            : new TipPopup(_solvedMathProblem.GetSolutionText(), _solvedMathProblem.GetSolutionLatex(), _solvedMathProblem.GetSolutionHeight(), _solvedMathProblem.GetSolutionLeftMargin());
 
         this.ShowPopup(popup);
     }

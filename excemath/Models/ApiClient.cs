@@ -19,7 +19,7 @@ namespace excemath.Models
             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
 
-        private const string urlBase = "https://10.0.2.2:7270/api";
+        private const string urlBase = "https://3jznqzsc-5292.euw.devtunnels.ms/api";
 
         #endregion
 

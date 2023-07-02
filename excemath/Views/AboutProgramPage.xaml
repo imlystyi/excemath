@@ -17,6 +17,10 @@
                Text="Особливості даної версії:"
                Margin="20,0,20,5"/>
 
+        <Label Style="{StaticResource Large}"
+               Text="- прототип. Тестова версія до презентації."
+               Margin="20,0,20,5"/>
+
         <Label Style="{StaticResource Light}"
                Text="v. 1.0b"
                Margin="20,0,20,5"/>

@@ -68,12 +68,12 @@ public class MathProblem
         MathProblemKinds.LinearInequality => "Лінійні нерівності",
         MathProblemKinds.QuadraticInequality => "Квадратні нерівності",
         MathProblemKinds.IrrationalInequality => "Ірраціональні нерівності",
-        MathProblemKinds.ExponentialInequality => "Показникові рівняння",
-        MathProblemKinds.LogarithmicInequality => "Логарифмічні рівняння",
-        MathProblemKinds.TrigonometricInequality => "Тригонометричні рівняння",
+        MathProblemKinds.ExponentialInequality => "Показникові нерівності",
+        MathProblemKinds.LogarithmicInequality => "Логарифмічні нерівності",
+        MathProblemKinds.TrigonometricInequality => "Тригонометричні нерівності",
         MathProblemKinds.NumericalSequence => "Числові послідовності",
         MathProblemKinds.Function => "Функції",
-        _ => throw new ApplicationException("Вид поточної задачі визначено неправильно")
+        _ => string.Empty
     };
 
     /// <summary>
@@ -104,29 +104,57 @@ public class MathProblem
     public string GetTipText() => Kind switch
     {
         MathProblemKinds.TableIntegral =>
-            "1. Скористайтеся таблицею інтегралів (1).\n" +
-            "2. Використайте один з наступних пунктів:\n" +
-            "• поділіть окремо кожен член чисельника на знаменник;\n" +
-            "• скоротіть вирази;\n" +
-            "• виконайте інші тотожні перетворення - допоки інтеграл не набуде табличного вигляду.",
-        MathProblemKinds.LineIntegral => "підказка для лінійного інтеграла",
-        MathProblemKinds.Matrix => "підказка для матриць",
-        MathProblemKinds.Limit => "підказка для границь",
-        MathProblemKinds.LinearEquation => "підказка для лінійних рівнянь",
-        MathProblemKinds.QuadraticEquation => "підказка для квадратних рівнянь",
-        MathProblemKinds.IrrationalEquation => "підказка для ірраціональних рівнянь",
-        MathProblemKinds.ExponentialEquation => "підказка для показникових рівнянь",
-        MathProblemKinds.LogarithmicEquation => "підказка для логарифмічних рівнянь",
-        MathProblemKinds.TrigonometricEquation => "підказка для тригонометричних рівнянь",
-        MathProblemKinds.LinearInequality => "підказка для лінійних нерівностей ",
-        MathProblemKinds.QuadraticInequality => "підказка для квадратичних нерівностей ",
-        MathProblemKinds.IrrationalInequality => "підказка для ірраціональних нерівностей ",
-        MathProblemKinds.ExponentialInequality => "підказка для показникових нерівностей ",
-        MathProblemKinds.LogarithmicInequality => "підказка для логарифмічних нерівностей ",
-        MathProblemKinds.TrigonometricInequality => "підказка для тригонометричних нерівностей ",
-        MathProblemKinds.NumericalSequence => "підказка для числових послідовностях",
-        MathProblemKinds.Function => "підказка для функцій",
-        _ => throw new ArgumentException("Некоректний вид поточної проблеми", nameof(Kind))
+        "1. Скористайтеся таблицею інтегралів (1).\n" +
+        "2. Використайте один з наступних пунктів:\n" +
+        "• поділіть окремо кожен член чисельника на знаменник;\n" +
+        "• скоротіть вирази;\n" +
+        "• виконайте інші тотожні перетворення - допоки інтеграл не набуде табличного вигляду.",
+
+        MathProblemKinds.MultipleIntegral =>
+        "1. Намалювати область інтегрування та визначити її межі.\n" +
+        "2. Переписати інтеграл з визначеними межами інтегрування.\n" +
+        "3. Обчислити внутрішній інтеграл; якщо необхідно, перейти до полярної, сферичної або циліндричної системи координат.\n" +
+        "4. Обчислити зовнішній інтеграл; якщо необхідно, перейти до полярної, сферичної або циліндричної системи координат. Спростити інтеграл.\n" +
+        "5. Обчислити інтеграл, що вийшов, як табличний інтеграл (за необхідності, скористатися таблицею інтегралів (1)).",
+
+        MathProblemKinds.LineIntegral =>
+        "1. Намалювати область інтегрування та визначити її межі.\n" +
+        "2. Переписати інтеграл з визначеними межами інтегрування.\n" +
+        "3. За необхідності, розбити криволінійний інтеграл на інтеграли з іншими межами. Спростити інтеграли.\n" +
+        "4. Обчислити інтеграл, що вийшов, як табличний інтеграл (за необхідності, скористатися таблицею інтегралів (1)).",
+
+        MathProblemKinds.Limit =>
+        "1. Підставте відповідне значення (до якого прямує границя) замість невідомого.\n" +
+        "2. При виникненні невизаченості зробіть наступні кроки:\n" +
+        "   • дріб з нескінченностей (1):  чисельник і знаменник розділити на найвищий степінь цих многочленів;\n" +
+        "   • дріб з нулів при багаточленах (2): в чисельнику і знаменнику виділити критичний множник і скоротити на нього дріб;\n" +
+        "   • дріб з нулів при ірраціональних виразах (2): для виділення критичного множника треба чисельник і знаменник;\n" +
+        "   • нескінченість відняти нескінченість (3): шляхом елементарних перетворень звести до невизначеності виду (1) і (2);\n" +
+        "   • одиниця у степіні нескінченість (4): використовують другу визначну границю (5).",
+
+        MathProblemKinds.IrrationalEquation =>
+        "1. Переходимо від ірраціонального до раціонального рівняння шляхом піднесення до певного степеня обох частин рівняння.\n" +
+        "2. При піднесенні обох частин рівняння до парного степеня можуть виникати сторонні корені, тому необхідно робити перевірку або знаходити область допустимих значень.",
+
+        MathProblemKinds.ExponentialEquation =>
+        "Використати один з методів:\n" +
+        "• привести рівняння до спільної основи;\n" +
+        "• винести спільний множник за дужки;\n" +
+        "• привести рівняння до квадратного;\n" +
+        "• намалювати графік та знайти невідомі.",
+
+        MathProblemKinds.TrigonometricEquation => 
+        "1. Визначити ОДЗ.\n" +
+        "2. Спробувати звести всі тригонометричні функції до одного агрумента;\n" +
+        "   якщо це не вийшло, спробувати звести рівняння до однорідного;\n" +
+        "   в іншому випадку, одержати добуток.",
+
+        MathProblemKinds.IrrationalInequality =>
+        "1. Виразити ірраціональний вираз з лівої частини нерівності і перенести його в праву частину, отримуючи нерівність відносно звичайного виразу.\n" +
+        "2. Розв'язати отриману нерівність, зважаючи на ОДЗ.\n" +
+        "3. Перевірити корені, щоб переконатись, що вони не виключаються з ОДЗ.",
+
+        _ => string.Empty
     };
 
     /// <summary>
@@ -150,25 +178,47 @@ public class MathProblem
 \int \frac{1}{x^2-a^2} dx = \frac{1}{2a}\ln|(\frac{x}{a})| + C\\
 \int \frac{1}{\sqrt{a^2-x^2}} dx = \arcsin(\frac{x}{a}) + C\\
 \int \frac{dx}{\sqrt{x^2 \pm a^2}} = \ln|x + \sqrt{x^2 \pm a^2}| + C",
+
+        MathProblemKinds.MultipleIntegral =>
+@"(1)\\
+\int x^a dx = \frac{x^a+1}{a+1} + C \quad \int \frac{dx}{x^2} = -\frac{1}{x} + C\\
+\int x^a dx = \frac{x^a+1}{a+1} + C \quad \int \frac{dx}{x^2} = -\frac{1}{x} + C\\
+\int \frac{dx}{\sqrt{x}} = 2\sqrt{x} + C \quad \int \frac{dx}{x} = \ln|x| + C\\
+\int a^x dx = \frac{a^x}{\ln a} + C \quad \int e^x dx = e^x + C\\
+\int \sin(x) dx = -\cos(x) + C\\
+\int \cos(x) dx = \sin(x) + C\\
+\int \tan(x) dx = -\ln|\cos(x)| + C\\
+\int \frac{dx}{\cos^2x}  = \tan(x) + C\\
+\int \frac{dx}{\sin^2x}  = -\cot(x) + C\\
+\int \frac{1}{a^2+x^2} dx = \arctan(\frac{x}{a}) + C\\
+\int \frac{1}{x^2-a^2} dx = \frac{1}{2a}\ln|(\frac{x}{a})| + C\\
+\int \frac{1}{\sqrt{a^2-x^2}} dx = \arcsin(\frac{x}{a}) + C\\
+\int \frac{dx}{\sqrt{x^2 \pm a^2}} = \ln|x + \sqrt{x^2 \pm a^2}| + C",
+
         MathProblemKinds.LineIntegral =>
-@"підказка для лінійного інтеграла",
-        MathProblemKinds.Matrix => "підказка для матриць",
-        MathProblemKinds.Limit => "підказка для границь",
-        MathProblemKinds.LinearEquation => "підказка для лінійних рівнянь",
-        MathProblemKinds.QuadraticEquation => "підказка для квадратних рівнянь",
-        MathProblemKinds.IrrationalEquation => "підказка для ірраціональних рівнянь",
-        MathProblemKinds.ExponentialEquation => "підказка для показникових рівнянь",
-        MathProblemKinds.LogarithmicEquation => "підказка для логарифмічних рівнянь",
-        MathProblemKinds.TrigonometricEquation => "підказка для тригонометричних рівнянь",
-        MathProblemKinds.LinearInequality => "підказка для лінійних нерівностей ",
-        MathProblemKinds.QuadraticInequality => "підказка для квадратичних нерівностей ",
-        MathProblemKinds.IrrationalInequality => "підказка для ірраціональних нерівностей ",
-        MathProblemKinds.ExponentialInequality => "підказка для показникових нерівностей ",
-        MathProblemKinds.LogarithmicInequality => "підказка для логарифмічних нерівностей ",
-        MathProblemKinds.TrigonometricInequality => "підказка для тригонометричних нерівностей ",
-        MathProblemKinds.NumericalSequence => "підказка для числових послідовностях",
-        MathProblemKinds.Function => "підказка для функцій",
-        _ => throw new ArgumentException("Некоректний вид поточної проблеми", nameof(Kind))
+@"(1)\\
+\int x^a dx = \frac{x^a+1}{a+1} + C \quad \int \frac{dx}{x^2} = -\frac{1}{x} + C\\
+\int x^a dx = \frac{x^a+1}{a+1} + C \quad \int \frac{dx}{x^2} = -\frac{1}{x} + C\\
+\int \frac{dx}{\sqrt{x}} = 2\sqrt{x} + C \quad \int \frac{dx}{x} = \ln|x| + C\\
+\int a^x dx = \frac{a^x}{\ln a} + C \quad \int e^x dx = e^x + C\\
+\int \sin(x) dx = -\cos(x) + C\\
+\int \cos(x) dx = \sin(x) + C\\
+\int \tan(x) dx = -\ln|\cos(x)| + C\\
+\int \frac{dx}{\cos^2x}  = \tan(x) + C\\
+\int \frac{dx}{\sin^2x}  = -\cot(x) + C\\
+\int \frac{1}{a^2+x^2} dx = \arctan(\frac{x}{a}) + C\\
+\int \frac{1}{x^2-a^2} dx = \frac{1}{2a}\ln|(\frac{x}{a})| + C\\
+\int \frac{1}{\sqrt{a^2-x^2}} dx = \arcsin(\frac{x}{a}) + C\\
+\int \frac{dx}{\sqrt{x^2 \pm a^2}} = \ln|x + \sqrt{x^2 \pm a^2}| + C",
+
+        MathProblemKinds.Limit =>
+@"(1) \frac{\infty}{\infty}\\
+(2) \frac{0}{0}\\
+(3) \infty - \infty\\
+(4) 1^{\infty}\\
+(5) \lim_{x \to \infty} {1 + \frac{1}{x}}^x = e",
+
+        _ => string.Empty
     };
 
     /// <summary>
@@ -177,25 +227,24 @@ public class MathProblem
     /// <exception cref="ArgumentException"></exception>
     public int GetTipHeight() => Kind switch
     {
-        MathProblemKinds.TableIntegral => 700,
-        MathProblemKinds.LineIntegral => 780,
-        MathProblemKinds.Matrix => 780,
-        MathProblemKinds.Limit => 780,
-        MathProblemKinds.LinearEquation => 780,
-        MathProblemKinds.QuadraticEquation => 780,
-        MathProblemKinds.IrrationalEquation => 780,
-        MathProblemKinds.ExponentialEquation => 780,
-        MathProblemKinds.LogarithmicEquation => 780,
-        MathProblemKinds.TrigonometricEquation => 780,
-        MathProblemKinds.LinearInequality => 780,
-        MathProblemKinds.QuadraticInequality => 780,
-        MathProblemKinds.IrrationalInequality => 780,
-        MathProblemKinds.ExponentialInequality => 780,
-        MathProblemKinds.LogarithmicInequality => 780,
-        MathProblemKinds.TrigonometricInequality => 780,
-        MathProblemKinds.NumericalSequence => 780,
-        MathProblemKinds.Function => 780,
-        _ => throw new ArgumentException("Некоректний вид поточної проблеми", nameof(Kind))
+        MathProblemKinds.TableIntegral           => 700,
+        MathProblemKinds.MultipleIntegral        => 700,
+        MathProblemKinds.LineIntegral            => 700,
+        MathProblemKinds.Limit                   => 200,
+        _                                        => 0
+    };
+
+    /// <summary>
+    /// Повертає лівий відступ LaTeX-частини загальної підказки до поточної задачі.
+    /// </summary>
+    /// <exception cref="ArgumentException"></exception>
+    public int GetTipLeftMargin() => Kind switch
+    {
+        MathProblemKinds.TableIntegral           => -20,
+        MathProblemKinds.MultipleIntegral        => -20,
+        MathProblemKinds.LineIntegral            => -20,
+        MathProblemKinds.Limit                   => -190,
+        _                                        => 0
     };
 
     /// <summary>
@@ -233,7 +282,7 @@ public class MathProblem
     {
         int byKindKey = GetByKindKey();
         int lastMathProblemIndex = GetLastByKindIndex();
-        int index = byKindKey + lastMathProblemIndex - 1;
+        int index = byKindKey + lastMathProblemIndex;
 
         List<int> ids = await ApiClient.GetMathProblemsIdsList(kind);
 

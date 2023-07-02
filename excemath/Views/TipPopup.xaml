@@ -14,12 +14,11 @@
         <ScrollView Orientation="Vertical" HeightRequest="380">
             <StackLayout Orientation="Vertical">
                 <Label Style="{StaticResource Title}" Text="Підказка" Margin="0,0,0,10" HorizontalOptions="Center"/>
-				<Label x:Name="TipText" Style="{StaticResource Large}"/>
-				<skia:SKCanvasView x:Name="TipLatexCanvas"
+                <Label x:Name="TipText" Style="{StaticResource Large}"/>
+                <skia:SKCanvasView x:Name="TipLatexCanvas"
 								   BackgroundColor="White"
 								   HeightRequest="780"
 								   VerticalOptions="CenterAndExpand"
-                                   Margin="-20,0,0,0"
 								   PaintSurface="TipLatexCanvas_PaintSurface">
 				</skia:SKCanvasView>
             </StackLayout>			
