@@ -35,7 +35,8 @@ namespace excemath.Models
             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
 
-        private const string urlBase = "https://3jznqzsc-5292.euw.devtunnels.ms/api";
+        // Замість пустих лапок, вставте в них адресу кореня вашого API.
+        private const string urlBase = "";
 
         #endregion
 
