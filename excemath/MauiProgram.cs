@@ -1,22 +1,27 @@
-﻿using Microsoft.Extensions.Logging;
+﻿/* excemath - an app for preparing for math exams.
+ * Copyright (C) 2023 miu-miu enjoyers
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>. */
+
+using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using CommunityToolkit.Maui;
 
 namespace excemath;
 
-/// <summary>
-/// Представляє можливості для ініціалізації додатку.
-/// </summary>
 public static class MauiProgram
 {
-    #region Методи
-
-    /// <summary>
-    /// Ініціалізує додаток, використовуючи заданий в коді <see cref="MauiAppBuilder"/>.
-    /// </summary>
-    /// <returns>
-    /// Додаток як <see cref="MauiApp"/>.
-    /// </returns>
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
@@ -40,6 +45,4 @@ public static class MauiProgram
 
         return builder.Build();
     }
-
-    #endregion
 }
